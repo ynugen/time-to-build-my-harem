@@ -11,11 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-#func _on_start_pressed() -> void:
-#	Add scene in this one
-	#get_tree().change_scene()
-	
-
-
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_start_pressed() -> void:
+	pass # Replace with function body.
