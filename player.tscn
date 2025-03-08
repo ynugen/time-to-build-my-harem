@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://do7ygv6kbgkax"]
+
+[ext_resource type="Texture2D" uid="uid://od7lrfak6cyv" path="res://Textures/pixel-animation-jumping-push-up-example.png" id="1_4flbx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cko2x"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6, 6)
+shape = SubResource("CapsuleShape2D_cko2x")
