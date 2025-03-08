@@ -17,12 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalScaling="*res://GlobalScaling.gd"
+GlobalScaling="*res://scenes/GlobalScaling.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/autoload_on_startup=false
 
 [rendering]
 

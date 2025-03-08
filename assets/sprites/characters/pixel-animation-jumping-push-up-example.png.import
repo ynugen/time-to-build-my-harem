@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r01drnam4mgc"
-path="res://.godot/imported/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg-cfae71f3eca956429f11d55f5ac3a2cf.ctex"
+uid="uid://od7lrfak6cyv"
+path="res://.godot/imported/pixel-animation-jumping-push-up-example.png-113a8c63a315c6ac967bee36d15a20b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Start/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg"
-dest_files=["res://.godot/imported/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg-cfae71f3eca956429f11d55f5ac3a2cf.ctex"]
+source_file="res://assets/sprites/characters/pixel-animation-jumping-push-up-example.png"
+dest_files=["res://.godot/imported/pixel-animation-jumping-push-up-example.png-113a8c63a315c6ac967bee36d15a20b2.ctex"]
 
 [params]
 

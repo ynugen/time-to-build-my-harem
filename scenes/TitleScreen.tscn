@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjptuhvvwxf0e"]
 
-[ext_resource type="Script" uid="uid://c7566no6rhji1" path="res://TitleScreen.gd" id="1_pkhjh"]
-[ext_resource type="Texture2D" uid="uid://r01drnam4mgc" path="res://Assets/Start/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg" id="2_1xr1c"]
+[ext_resource type="Script" uid="uid://c7566no6rhji1" path="res://scenes/TitleScreen.gd" id="1_pkhjh"]
+[ext_resource type="Texture2D" uid="uid://r01drnam4mgc" path="res://assets/sprites/background/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg" id="2_1xr1c"]
 
 [node name="Menu" type="Control"]
 clip_contents = true
