@@ -1,3 +1,112 @@
-[gd_scene format=3 uid="uid://cmdip5uypq5v7"]
+[gd_scene load_steps=6 format=3 uid="uid://cmdip5uypq5v7"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://gofh6bvwvevd" path="res://assets/sprites/background/1.png" id="1_4uue7"]
+[ext_resource type="Texture2D" uid="uid://btnhcy16mafqm" path="res://assets/sprites/background/2.png" id="2_ktbym"]
+
+[sub_resource type="Animation" id="Animation_w3517"]
+resource_name = "StartScene"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.633333, 0.333333, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ktbym"), ExtResource("1_4uue7"), ExtResource("2_ktbym")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Control/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0181818, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qflq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Control/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0181818]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ktbym")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mxm0d"]
+_data = {
+&"RESET": SubResource("Animation_qflq8"),
+&"StartScene": SubResource("Animation_w3517")
+}
+
+[node name="StartCutScene" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mxm0d")
+}
+
+[node name="TextureRect" type="TextureRect" parent="AnimationPlayer"]
+offset_right = 1150.0
+offset_bottom = 472.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("2_ktbym")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="AnimationPlayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 469.0
+offset_right = 1148.0
+offset_bottom = 645.0
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+color = Color(0.278843, 0.278685, 0.122578, 1)
+
+[node name="Label" type="Label" parent="AnimationPlayer/Control"]
+offset_left = 166.0
+offset_top = 69.0
+offset_right = 1011.0
+offset_bottom = 111.0
+theme_override_font_sizes/font_size = 30
+text = "My creator had one mission when he decided to build me.
+His one true ultimate goal in life was to...
+"
+max_lines_visible = 1
+visible_characters = 0
+visible_ratio = 0.0

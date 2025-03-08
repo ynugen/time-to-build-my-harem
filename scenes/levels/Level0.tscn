@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://xtoswtjsnich"]
+[gd_scene load_steps=3 format=3 uid="uid://xtoswtjsnich"]
 
 [ext_resource type="Script" uid="uid://6ivu7hjbnxnm" path="res://scenes/levels/level_0.gd" id="1_ff0on"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="2_ivoou"]
-[ext_resource type="PackedScene" uid="uid://ryifib6us78d" path="res://scenes/characters/TestPlayer.tscn" id="3_qcr8a"]
-[ext_resource type="Script" uid="uid://cnuxgxlcxdht3" path="res://scenes/characters/player.gd" id="4_rbe81"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_ff0on")
@@ -29,11 +27,6 @@ text = "Start Recording Inputs"
 
 [node name="Player" parent="." instance=ExtResource("2_ivoou")]
 position = Vector2(0, 2)
-
-[node name="TestPlayer" parent="." instance=ExtResource("3_qcr8a")]
-position = Vector2(315, 96)
-scale = Vector2(3.4, 3.4)
-script = ExtResource("4_rbe81")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="StopRecording" to="." method="_on_stop_recording_pressed"]
