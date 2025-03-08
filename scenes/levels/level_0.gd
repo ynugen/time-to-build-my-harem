@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = $Player  # Get reference to Player
+@onready var player = $TestPlayer  # Get reference to Player
 
 func _on_play_pressed() -> void:
 	if player:

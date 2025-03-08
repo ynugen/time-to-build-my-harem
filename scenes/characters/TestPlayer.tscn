@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=3 uid="uid://ryifib6us78d"]
+
+[sub_resource type="GDScript" id="GDScript_cg6sq"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+@onready var animation = $AnimationPlayer
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+
+func _process(delta):
+	var right = Input.is_action_pressed(\"ui_right\")
+	var left = Input.is_action_pressed(\"ui_left\")
+	var down = Input.is_action_pressed(\"ui_down\")
+	var up = Input.is_action_pressed(\"ui_up\")
+	
+	if right:
+		animation.play(\"Right\")
+	if left:
+		animation.play(\"Left\")
+	if up:
+		animation.play(\"Up\")
+	if down:
+		animation.play(\"Down\")
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vsjxn"]
+load_path = "res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-20d0d1797f13de8b0e459926caaa0ca7.ctex"
+
+[sub_resource type="Animation" id="Animation_ox4ho"]
+resource_name = "Down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 20]
+}
+
+[sub_resource type="Animation" id="Animation_n66w8"]
+resource_name = "Left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 22]
+}
+
+[sub_resource type="Animation" id="Animation_dpanm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xdgch"]
+resource_name = "Right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [18, 2]
+}
+
+[sub_resource type="Animation" id="Animation_43dhk"]
+resource_name = "Up"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdgch"]
+_data = {
+&"Down": SubResource("Animation_ox4ho"),
+&"Left": SubResource("Animation_n66w8"),
+&"RESET": SubResource("Animation_dpanm"),
+&"Right": SubResource("Animation_xdgch"),
+&"Up": SubResource("Animation_43dhk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm6r3"]
+size = Vector2(13, 16)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(55.9999, 33)
+scale = Vector2(3.16, 3.16)
+script = SubResource("GDScript_cg6sq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_vsjxn")
+hframes = 8
+vframes = 3
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xdgch")
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_gm6r3")
