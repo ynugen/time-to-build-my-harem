@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjptuhvvwxf0e"]
 
 [ext_resource type="Script" uid="uid://c7566no6rhji1" path="res://scenes/TitleScreen.gd" id="1_pkhjh"]
-[ext_resource type="Texture2D" uid="uid://r01drnam4mgc" path="res://assets/sprites/background/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg" id="2_1xr1c"]
+[ext_resource type="Texture2D" uid="uid://bxjn2e88vj8bk" path="res://assets/sprites/background/Title_Screen.png" id="2_ch40n"]
 
 [node name="Menu" type="Control"]
 clip_contents = true
@@ -32,7 +32,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_1xr1c")
+texture = ExtResource("2_ch40n")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -83,6 +84,8 @@ layout_mode = 2
 size_flags_vertical = 10
 text = "Team 6 ©"
 horizontal_alignment = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="MarginContainer/MenuButtons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/MenuButtons/Exit" to="." method="_on_exit_pressed"]
