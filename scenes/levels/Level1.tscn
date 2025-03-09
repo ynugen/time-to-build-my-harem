@@ -78,6 +78,7 @@ offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
 [node name="Map" type="TileMap" parent="."]
+position = Vector2(-44, 0)
 scale = Vector2(0.24, 0.24)
 tile_set = SubResource("TileSet_j08sa")
 format = 2

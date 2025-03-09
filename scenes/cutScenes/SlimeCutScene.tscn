@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxd50bsdropqu"]
+
+[ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_3r6k8"]
+[ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="2_1i11u"]
+
+[sub_resource type="Animation" id="Animation_ipgsv"]
+resource_name = "MeetCute"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxl3i"]
+_data = {
+&"MeetCute": SubResource("Animation_ipgsv")
+}
+
+[node name="SlimeCutScene" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yxl3i")
+}
+
+[node name="WindowBkg" type="ColorRect" parent="AnimationPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+color = Color(0, 0, 0, 0.819608)
+
+[node name="SceneBkg" type="ColorRect" parent="AnimationPlayer"]
+offset_top = 96.0
+offset_right = 1151.0
+offset_bottom = 435.0
+color = Color(0.152504, 0.178491, 0.295711, 1)
+
+[node name="Waify" type="TextureRect" parent="AnimationPlayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -273.0
+offset_right = 128.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3r6k8")
+expand_mode = 3
+
+[node name="Dialogue" type="Label" parent="AnimationPlayer"]
+offset_left = 164.0
+offset_top = 538.0
+offset_right = 1009.0
+offset_bottom = 580.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "The name is slimy wimy timy"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="Name" type="Label" parent="AnimationPlayer"]
+offset_left = 164.0
+offset_top = 454.0
+offset_right = 1009.0
+offset_bottom = 496.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1i11u")
+theme_override_font_sizes/font_size = 25
+text = "  ~  Myxie, the Slime Girl  ~"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
