@@ -2,6 +2,7 @@ extends Node2D
 
 # Define animation player variable
 @onready var animPlayer = $AnimationPlayer
+var first_time = false
 
 func _ready():
 	animPlayer.play("StartScene")

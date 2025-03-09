@@ -1,13 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmdip5uypq5v7"]
+[gd_scene load_steps=15 format=3 uid="uid://cmdip5uypq5v7"]
 
 [ext_resource type="Script" uid="uid://g5uxadcegg6u" path="res://scenes/cutScenes/cut_scene_0.gd" id="1_ktbym"]
 [ext_resource type="Texture2D" uid="uid://mqihcy1dadan" path="res://assets/sprites/background/start/1.png" id="2_ktbym"]
 [ext_resource type="Texture2D" uid="uid://c0850s871uibn" path="res://assets/sprites/background/start/2.png" id="3_w3517"]
 [ext_resource type="Texture2D" uid="uid://bbmblahhkb5gw" path="res://assets/sprites/background/start/3.png" id="4_qflq8"]
 [ext_resource type="Script" uid="uid://dqgf20b6cjfut" path="res://scenes/cutScenes/label.gd" id="4_w3517"]
+[ext_resource type="Texture2D" uid="uid://ce5usw51356xh" path="res://assets/sprites/background/4.png" id="5_mxm0d"]
+[ext_resource type="Texture2D" uid="uid://cs8mw7q4lpagp" path="res://assets/sprites/background/5.png" id="6_an1yf"]
+[ext_resource type="AudioStream" uid="uid://birb7knfp3mag" path="res://assets/audio/radioreceiver_zapsplat.mp3" id="6_i2hki"]
+[ext_resource type="Texture2D" uid="uid://bhmlv83jjsdne" path="res://assets/sprites/background/6.png" id="7_noq0t"]
+[ext_resource type="Texture2D" uid="uid://17qnnxak6f3p" path="res://assets/sprites/background/7.png" id="8_noq0t"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w3517"]
-load_path = "res://.godot/imported/2.png-edd020cc3e2dd71b2c53042fd2ca8cc0.ctex"
 
 [sub_resource type="Animation" id="Animation_qflq8"]
 length = 5.0
@@ -109,10 +113,22 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimationPlayer/AudioStreamPlayer2D:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_w3517"]
 resource_name = "StartScene"
-length = 8.0
+length = 20.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -120,10 +136,10 @@ tracks/0/path = NodePath("AnimationPlayer/BackgroundImage:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.03333, 5.8),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2.03333, 5.8, 7.53333, 11, 13.9892, 18.5225, 19.9892),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_ktbym"), ExtResource("3_w3517"), ExtResource("4_qflq8")]
+"values": [ExtResource("2_ktbym"), ExtResource("3_w3517"), ExtResource("4_qflq8"), ExtResource("5_mxm0d"), ExtResource("6_an1yf"), ExtResource("7_noq0t"), ExtResource("8_noq0t"), ExtResource("8_noq0t")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -132,10 +148,10 @@ tracks/1/path = NodePath("AnimationPlayer/Control/Label:visible_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.03333, 2.03333, 2.04, 3.0084, 4.53333, 4.79, 5.79, 5.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.03333, 2.03333, 2.04, 3.03333, 4.06667, 4.1, 5.03333, 6.43333, 7.53333, 8.03333, 8.96667, 9, 10, 11, 13.9892, 14.1559, 14.9892, 15.4892, 16.4559, 18.0225, 18.5225),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [-0.0181818, 1.0, 1.0, 0.0, 0.72, 0.72, 1.0, 1.0, 0.0]
+"values": [-0.0181818, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.076, 0.076, 0.308, 0.308, 1.0, 1.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -144,14 +160,19 @@ tracks/2/path = NodePath("AnimationPlayer/Control/Label:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2, 2.04, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2, 2.04, 4.06667, 4.1, 7.53333, 8.96667, 9, 13.9892, 18.5225),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["My creator had one mission when he decided to build me.
 His one true ultimate goal in life was to...
 ", "My creator had one mission when he decided to build me.
-", "His one true ultimate goal in life was to... get a girlfriend.
-", "His one true ultimate goal in life was to... get a girlfriend.
+", "He had only one goal for his life.
+", "He had only one goal for his life.
+", "... and i was programmed to fulfil it.", "... That's strange. 
+", "... That's strange. 
+", "According to my internal clock, I'm over 5000 years old!?!
+", "Yep. That's right. It's time for me to build my ultimate harem!
+", "Yep. That's right. It's time for me to build my ultimate harem!
 "]
 }
 tracks/3/type = "value"
@@ -161,7 +182,7 @@ tracks/3/path = NodePath("AnimationPlayer/Control/ColorRect:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 5.5),
+"times": PackedFloat32Array(0, 5.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0.819608), Color(0, 0, 0, 0.819608)]
@@ -173,10 +194,10 @@ tracks/4/path = NodePath("AnimationPlayer/Fade:color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(5.96667, 6.76667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(5.4, 5.76667, 6.76667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.866667), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -185,10 +206,10 @@ tracks/5/path = NodePath("AnimationPlayer/Control/ColorRect:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 5.7084),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5.7084, 7.53333, 11.0072, 14, 18.5228),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, true, false, true, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -197,10 +218,10 @@ tracks/6/path = NodePath("AnimationPlayer/Control/Label:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.0084, 5.7),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0084, 5.7, 7.53333, 11.0072, 14, 18.5228),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, true, false, true, false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -209,10 +230,22 @@ tracks/7/path = NodePath("AnimationPlayer/Fade:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 5.83333),
+"times": PackedFloat32Array(0, 5.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimationPlayer/AudioStreamPlayer2D:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.04, 2.06, 3.02, 4.16667, 4.93333, 7.5288, 8.0388, 9.0096, 10.0096, 11.0072, 11.5072, 13.9972, 14.1496, 14.9996, 15.4896, 16.4696, 18.0148),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mxm0d"]
@@ -277,3 +310,17 @@ visible = false
 offset_right = 1153.0
 offset_bottom = 649.0
 color = Color(0, 0, 0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayer"]
+stream = ExtResource("6_i2hki")
+volume_db = 0.14
+
+[node name="Button" type="Button" parent="AnimationPlayer"]
+visible = false
+offset_left = 915.0
+offset_top = 601.0
+offset_right = 1153.0
+offset_bottom = 649.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Press A to Skip"
