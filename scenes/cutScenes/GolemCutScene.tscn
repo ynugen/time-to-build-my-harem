@@ -1,13 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://br3jip31tvf1m"]
+[gd_scene load_steps=14 format=3 uid="uid://b0uru5jhfiwvr"]
 
-[ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_8sprc"]
-[ext_resource type="Texture2D" uid="uid://dwqr0mbpbs8hi" path="res://assets/sprites/characters/druid/Druid_Girl_Fumbled.png" id="1_34wao"]
-[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_2vtqb"]
-[ext_resource type="Texture2D" uid="uid://dobhfpwcqf302" path="res://assets/sprites/characters/druid/Druid_Girl.png" id="2_34wao"]
-[ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="4_n42b6"]
-[ext_resource type="Texture2D" uid="uid://cxaylcepkq3bu" path="res://assets/sprites/characters/druid/Druid_Girl_Success.png" id="5_34wao"]
-[ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="5_kq1xt"]
-[ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="6_w15k1"]
+[ext_resource type="Texture2D" uid="uid://b3r6rkjowu3ys" path="res://assets/sprites/characters/golem/Golem_Girl_Fumbled.png" id="1_7mtv0"]
+[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_bmlol"]
+[ext_resource type="Texture2D" uid="uid://gvnysiwrqtcl" path="res://assets/sprites/characters/golem/Golem_Girl.png" id="3_pedcy"]
+[ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="4_g0we6"]
+[ext_resource type="Texture2D" uid="uid://bi5mr587jjmig" path="res://assets/sprites/characters/golem/Golem_Girl_Success.png" id="5_7mtv0"]
+[ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="6_iiulk"]
+[ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="7_x1sfw"]
+[ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="8_yfmqt"]
 
 [sub_resource type="Animation" id="Animation_g85jp"]
 resource_name = "Fumble"
@@ -46,8 +46,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["... Fascinating.
-I’ll add that to my list of things to forget immediately."]
+"values": ["... You realize I could literally throw you across the map, right?"]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -56,10 +55,10 @@ tracks/3/path = NodePath("AnimationPlayer/Waify:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 5.73333, 8.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 8.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("1_34wao"), ExtResource("1_34wao"), ExtResource("2_2vtqb")]
+"values": [ExtResource("1_7mtv0"), ExtResource("2_bmlol")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -112,9 +111,9 @@ tracks/2/keys = {
 "times": PackedFloat32Array(-0.0333333, 0, 4.96667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": ["Flattery won’t get you past my reading time…
-But perhaps I’ll make an exception for you.", "Flattery won’t get you past my reading time…
-But perhaps I’ll make an exception for you.", "Flattery won’t get you past my reading time…
+"values": ["I admire your courage, little machine.
+Let’s see if you can keep up.", "I admire your courage, little machine.
+Let’s see if you can keep up.", "Flattery won’t get you past my reading time…
 But perhaps I’ll make an exception for you."]
 }
 tracks/3/type = "value"
@@ -136,10 +135,10 @@ tracks/4/path = NodePath("AnimationPlayer/Waify:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.0333333, 4.96667),
+"times": PackedFloat32Array(0, 4.96667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_34wao"), ExtResource("2_34wao")]
+"values": [ExtResource("3_pedcy"), ExtResource("3_pedcy")]
 }
 
 [sub_resource type="Animation" id="Animation_yxl3i"]
@@ -191,7 +190,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_8sprc")]
+"values": [ExtResource("4_g0we6")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -219,7 +218,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_34wao")]
+"values": [ExtResource("5_7mtv0")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -231,8 +230,8 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Hmph… clever. I suppose a well-placed metaphor
-does deserve some appreciation."]
+"values": ["Pfft—okay, I’ll admit, that was solid. I like your confidence. 
+Just don’t expect me to go easy on you."]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -302,7 +301,7 @@ color = Color(0, 0, 0, 0.819608)
 offset_top = 98.0
 offset_right = 1151.0
 offset_bottom = 400.0
-color = Color(0.170269, 0.204016, 0.0711532, 1)
+color = Color(0.184032, 0.164954, 0.22495, 1)
 
 [node name="Waify" type="TextureRect" parent="AnimationPlayer"]
 anchors_preset = 8
@@ -316,7 +315,7 @@ offset_right = 154.573
 offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_8sprc")
+texture = ExtResource("4_g0we6")
 expand_mode = 3
 
 [node name="Dialogue" type="Label" parent="AnimationPlayer"]
@@ -332,7 +331,7 @@ offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_n42b6")
+theme_override_fonts/font = ExtResource("6_iiulk")
 theme_override_font_sizes/font_size = 20
 text = "Uwaa~! Y-You're looking at me so much...
 Am I melting?!"
@@ -352,10 +351,10 @@ offset_right = 202.5
 offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.789434, 0.530328, 0.331236, 1)
-theme_override_fonts/font = ExtResource("5_kq1xt")
+theme_override_colors/font_color = Color(0.462824, 0.635228, 0.745647, 1)
+theme_override_fonts/font = ExtResource("7_x1sfw")
 theme_override_font_sizes/font_size = 25
-text = "~  Sylvara, the Druid Girl  ~"
+text = "~  Granita, Muscle Mommy  ~"
 horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 1
@@ -373,8 +372,8 @@ offset_right = 436.5
 offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("6_w15k1")
-text = "Oh, I love books too!  Wanna hear my top 100 facts about moss?"
+theme_override_fonts/font = ExtResource("8_yfmqt")
+text = "I bet even you couldn’t carry the weight of my feelings for you."
 
 [node name="Choice2" type="Button" parent="AnimationPlayer"]
 visible = false
@@ -389,8 +388,8 @@ offset_right = 436.5
 offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("6_w15k1")
-text = "Consider me your newest bookmark. I’ll stay by your side until you’re ready to turn the next page."
+theme_override_fonts/font = ExtResource("8_yfmqt")
+text = "Bench press me? Please do. I’ve always wanted to be a dumbbell with feelings."
 
 [node name="Break" type="Label" parent="AnimationPlayer"]
 anchors_preset = 7
@@ -404,7 +403,7 @@ offset_right = 15.0
 offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.788235, 0.529412, 0.329412, 1)
+theme_override_colors/font_color = Color(0.462745, 0.635294, 0.745098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_kq1xt")
+theme_override_fonts/font = ExtResource("7_x1sfw")
 text = "</>"
