@@ -20,3 +20,7 @@ GameJam Theme: A world without humans
 
 **SFX:**
 - ZapSplat
+
+**Fonts:**
+- Roboto Mono
+- Courier Prime
