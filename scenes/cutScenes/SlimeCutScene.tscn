@@ -1,14 +1,267 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxd50bsdropqu"]
+[gd_scene load_steps=12 format=3 uid="uid://bxd50bsdropqu"]
 
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_3r6k8"]
 [ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="2_1i11u"]
+[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_g85jp"]
+[ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="2_ipgsv"]
+[ext_resource type="Texture2D" uid="uid://dknau7x6ryemw" path="res://assets/sprites/characters/slime/Slime_Girl_Success.png" id="3_pma22"]
+[ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="4_yxl3i"]
 
 [sub_resource type="Animation" id="Animation_ipgsv"]
 resource_name = "MeetCute"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Dialogue:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Uwaa~! Y-You're looking at me so much...
+Am I melting?!", "Uwaa~! Y-You're looking at me so much...
+Am I melting?!"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Break:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_yxl3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Dialogue:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Uwaa~! Y-You're looking at me so much...
+Am I melting?!"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Waify:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3r6k8")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/Break:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_g85jp"]
+resource_name = "Fumble"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Dialogue:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["H-Hey! That’s rude! I’m not a puddle, you know…!"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Waify:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_g85jp"), ExtResource("2_g85jp")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/Break:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pma22"]
+resource_name = "Success"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Waify:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 5.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_pma22"), ExtResource("3_pma22")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Dialogue:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.433333, 0),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["E-Eh?! Y-You're really saying that? Waaa~!
+My core feels all tingly...!", "E-Eh?! Y-You're really saying that?
+Waaa~! My core feels all tingly...!"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/Break:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yxl3i"]
 _data = {
-&"MeetCute": SubResource("Animation_ipgsv")
+&"Fumble": SubResource("Animation_g85jp"),
+&"MeetCute": SubResource("Animation_ipgsv"),
+&"RESET": SubResource("Animation_yxl3i"),
+&"Success": SubResource("Animation_pma22")
 }
 
 [node name="SlimeCutScene" type="Node2D"]
@@ -31,9 +284,9 @@ size_flags_vertical = 8
 color = Color(0, 0, 0, 0.819608)
 
 [node name="SceneBkg" type="ColorRect" parent="AnimationPlayer"]
-offset_top = 96.0
+offset_top = 98.0
 offset_right = 1151.0
-offset_bottom = 435.0
+offset_bottom = 400.0
 color = Color(0.152504, 0.178491, 0.295711, 1)
 
 [node name="Waify" type="TextureRect" parent="AnimationPlayer"]
@@ -42,36 +295,101 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -273.0
-offset_right = 128.0
-offset_bottom = 111.0
+offset_left = -154.573
+offset_top = -271.0
+offset_right = 154.573
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_3r6k8")
 expand_mode = 3
 
 [node name="Dialogue" type="Label" parent="AnimationPlayer"]
-offset_left = 164.0
-offset_top = 538.0
-offset_right = 1009.0
-offset_bottom = 580.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -185.0
+offset_right = 240.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ipgsv")
+theme_override_font_sizes/font_size = 20
+text = "Uwaa~! Y-You're looking at me so much...
+Am I melting?!"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 2
+
+[node name="Name" type="Label" parent="AnimationPlayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.5
+offset_top = -229.0
+offset_right = 202.5
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.35823, 0.664594, 0.589877, 1)
+theme_override_fonts/font = ExtResource("2_1i11u")
 theme_override_font_sizes/font_size = 25
-text = "The name is slimy wimy timy"
+text = "~  Myxie, the Slime Girl  ~"
 horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 1
 
-[node name="Name" type="Label" parent="AnimationPlayer"]
-offset_left = 164.0
-offset_top = 454.0
-offset_right = 1009.0
-offset_bottom = 496.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+[node name="Choice1" type="Button" parent="AnimationPlayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -436.5
+offset_top = -121.0
+offset_right = 436.5
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_yxl3i")
+text = "Melt? No way—you're just radiating maximum adorableness. My circuits can barely handle it."
+
+[node name="Choice2" type="Button" parent="AnimationPlayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -436.5
+offset_top = -78.0
+offset_right = 436.5
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_yxl3i")
+text = "Don’t worry, I’ve got a mop and a bucket. If you melt, I’ll just scoop you back up!"
+
+[node name="Break" type="Label" parent="AnimationPlayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -100.0
+offset_right = 15.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.356863, 0.662745, 0.588235, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_1i11u")
-theme_override_font_sizes/font_size = 25
-text = "  ~  Myxie, the Slime Girl  ~"
-horizontal_alignment = 1
-vertical_alignment = 1
-max_lines_visible = 1
+text = "</>"
