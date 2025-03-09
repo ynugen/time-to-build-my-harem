@@ -1,6 +1,6 @@
 # GameJam: Awakening After 5000 Years?! My First Protocol is to Build the Ultimate Harem Begins!
 
-Project desc here
+GameJam Theme: A world without humans
 
 
 ## Contributors
@@ -13,7 +13,10 @@ Project desc here
 - Sammi Li
 - Amy Nguyen
 
-### Attributions
+## Attributions
 
-SFX:
+**Music:**
+- Rei
+
+**SFX:**
 - ZapSplat

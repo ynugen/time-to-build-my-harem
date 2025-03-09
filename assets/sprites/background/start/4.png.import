@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r01drnam4mgc"
-path="res://.godot/imported/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg-c07968225be3b1087e14e3b843de4acf.ctex"
+uid="uid://ce5usw51356xh"
+path="res://.godot/imported/4.png-aa7aaf52c3fd81d80317e803d8c0e682.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/background/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg"
-dest_files=["res://.godot/imported/landscape-big-tree-game-background-cartoon-game-design-nature-asset-vector.jpg-c07968225be3b1087e14e3b843de4acf.ctex"]
+source_file="res://assets/sprites/background/start/4.png"
+dest_files=["res://.godot/imported/4.png-aa7aaf52c3fd81d80317e803d8c0e682.ctex"]
 
 [params]
 
