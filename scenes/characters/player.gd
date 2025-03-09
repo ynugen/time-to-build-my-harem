@@ -43,13 +43,13 @@ func apply_input(input_data):
 	
 	match input_data:
 		"→ Right":
-			velocity.x = 500
+			velocity.x = 2000
 		"← Left":
-			velocity.x = -500
+			velocity.x = -2000
 		"↑ Up":
-			velocity.y = -500
+			velocity.y = -2000
 		"↓ Down":
-			velocity.y = 500
+			velocity.y = 2000
 	
 	move_and_slide()
 

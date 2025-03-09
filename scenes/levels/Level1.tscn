@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=4 uid="uid://ck86g84xajy28"]
+[gd_scene load_steps=6 format=4 uid="uid://ck86g84xajy28"]
 
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="1_1pwbc"]
+[ext_resource type="Script" uid="uid://nm7gmwwbmn44" path="res://scenes/levels/level_1.gd" id="1_x4si1"]
+[ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="2_j08sa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pwbc"]
 texture = ExtResource("1_1pwbc")
@@ -21,6 +23,7 @@ texture_region_size = Vector2i(250, 250)
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
 5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
 6:1/0 = 0
 7:1/0 = 0
 0:2/0 = 0
@@ -63,14 +66,15 @@ texture_region_size = Vector2i(250, 250)
 
 [sub_resource type="TileSet" id="TileSet_j08sa"]
 tile_size = Vector2i(250, 250)
-physics_layer_0/collision_layer = 4
-physics_layer_1/collision_layer = 2
-physics_layer_2/collision_layer = 8
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+physics_layer_2/collision_layer = 1
 custom_data_layer_0/name = "Wall"
 custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_1pwbc")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_x4si1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -88,7 +92,54 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAHAAIAAAAAAAEAAAAIAAIAAAABAAIAAAAJAAIAAAACAAEAAAAKAAIAAAABAAIAAAALAAIAAAACAAIAAAAMAAIAAAABAAEAAAANAAIAAAADAAEAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAHAAYAAAAAAAEAAAAHAAcAAAAAAAMAAAANAAMAAAADAAEAAAANAAQAAAADAAEAAAANAAUAAAADAAIAAAANAAYAAAADAAEAAAANAAcAAAADAAMAAAAIAAcAAAABAAMAAAAKAAUAAAABAAIAAAAMAAMAAAABAAIAAAAIAAMAAAABAAIAAAAIAAQAAAABAAIAAAAJAAQAAAABAAIAAAAMAAcAAAABAAMAAAALAAcAAAABAAMAAAAIAAUAAAABAAEAAAALAAQAAAABAAEAAAAMAAYAAAABAAEAAAAJAAcAAAABAAMAAAAKAAcAAAABAAMAAAAKAAYAAAACAAEAAAAJAAYAAAACAAEAAAAJAAUAAAACAAEAAAAKAAMAAAACAAEAAAALAAMAAAACAAEAAAAMAAQAAAACAAEAAAAIAAYAAAACAAIAAAAJAAMAAAACAAIAAAAKAAQAAAACAAIAAAALAAUAAAACAAIAAAALAAYAAAACAAIAAAAMAAUAAAACAAIAAAAHAAEAAAAAAAAAAAAIAAEAAAABAAAAAAAJAAEAAAAAAAQAAAAKAAEAAAABAAAAAAALAAEAAAABAAAAAAAMAAEAAAABAAQAAAANAAEAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_j08sa")
 
+[node name="WallLayer" type="TileMapLayer" parent="Map"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAHAAIAAAAAAAEAAAANAAIAAAADAAEAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAHAAYAAAAAAAEAAAAHAAcAAAAAAAMAAAANAAMAAAADAAEAAAANAAQAAAADAAEAAAANAAUAAAADAAIAAAANAAYAAAADAAEAAAANAAcAAAADAAMAAAAIAAcAAAABAAMAAAAMAAcAAAABAAMAAAALAAcAAAABAAMAAAAJAAcAAAABAAMAAAAKAAcAAAABAAMAAAAHAAEAAAAAAAAAAAAIAAEAAAABAAAAAAAJAAEAAAAAAAQAAAAKAAEAAAABAAAAAAALAAEAAAABAAAAAAAMAAEAAAABAAQAAAANAAEAAAADAAAAAAA=")
+tile_set = SubResource("TileSet_j08sa")
+
 [node name="ObjectLayer" type="TileMapLayer" parent="Map"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAMAAIAAAAFAAQAAAAMAAMAAAAFAAQAAAAIAAMAAAAFAAQAAAAJAAMAAAAFAAQAAAAKAAIAAAAFAAQAAAALAAMAAAAGAAUAAAAJAAUAAAAFAAQAAAAKAAYAAAAFAAQAAAAKAAUAAAAGAAQAAAALAAQAAAAFAAQAAAAMAAUAAAAGAAUAAAA=")
 tile_set = SubResource("TileSet_j08sa")
+
+[node name="Player" parent="." instance=ExtResource("2_j08sa")]
+position = Vector2(308, 0)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = -1.0
+offset_right = 606.0
+offset_bottom = 30.0
+text = "Play"
+
+[node name="StopRecording" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 1.0
+offset_right = 394.0
+offset_bottom = 32.0
+text = "Stop Recording Inputs"
+
+[node name="StartRecording" type="Button" parent="UI"]
+layout_mode = 0
+offset_right = 181.0
+offset_bottom = 31.0
+text = "Start Recording Inputs"
+
+[node name="MovementLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 38.0
+offset_right = 41.0
+offset_bottom = 61.0
+
+[connection signal="pressed" from="UI/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/StopRecording" to="." method="_on_stop_recording_pressed"]
+[connection signal="pressed" from="UI/StartRecording" to="." method="_on_start_recording_pressed"]
