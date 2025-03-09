@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var movement_label = get_node_or_null("../UI/MovementLabel")
+
 # define variables
 var recorded_inputs = []  # Stores input sequence
 var is_recording = false
@@ -21,32 +23,39 @@ func _process(delta):
 			playback_timer = playback_interval  # Reset timer for next input
 
 func record_input():
-	var input_data = {}
+	var input_data = null
 	
 	if Input.is_action_just_pressed("ui_right"):
-		input_data["action"] = "move_right"
+		input_data = "→ Right"
 	elif Input.is_action_just_pressed("ui_left"):
-		input_data["action"] = "move_left"
+		input_data = "← Left"
 	elif Input.is_action_just_pressed("ui_up"):
-		input_data["action"] = "move_up"
+		input_data = "↑ Up"
 	elif Input.is_action_just_pressed("ui_down"):
-		input_data["action"] = "move_down"
+		input_data = "↓ Down"
 
 	if input_data:
 		recorded_inputs.append(input_data)
+		update_label()
 
 func apply_input(input_data):
-	match input_data["action"]:
-		"move_right":
-			velocity.x = 300
-		"move_left":
-			velocity.x = -300
-		"move_up":
-			velocity.y = -300
-		"move_down":
-			velocity.y = 300
+	velocity = Vector2.ZERO
+	
+	match input_data:
+		"→ Right":
+			velocity.x = 500
+		"← Left":
+			velocity.x = -500
+		"↑ Up":
+			velocity.y = -500
+		"↓ Down":
+			velocity.y = 500
 	
 	move_and_slide()
+
+func update_label():
+	if movement_label:
+		movement_label.text = "Moves: " + ", ".join(recorded_inputs)
 
 func start_recording():
 	recorded_inputs.clear()

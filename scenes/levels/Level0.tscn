@@ -6,28 +6,41 @@
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_ff0on")
 
-[node name="Play" type="Button" parent="."]
+[node name="Player" parent="." instance=ExtResource("2_ivoou")]
+position = Vector2(0, 2)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="UI"]
 offset_left = 425.0
 offset_top = -1.0
 offset_right = 606.0
 offset_bottom = 30.0
 text = "Play"
 
-[node name="StopRecording" type="Button" parent="."]
+[node name="StopRecording" type="Button" parent="UI"]
 offset_left = 213.0
 offset_top = 1.0
 offset_right = 394.0
 offset_bottom = 32.0
 text = "Stop Recording Inputs"
 
-[node name="StartRecording" type="Button" parent="."]
+[node name="StartRecording" type="Button" parent="UI"]
 offset_right = 181.0
 offset_bottom = 31.0
 text = "Start Recording Inputs"
 
-[node name="Player" parent="." instance=ExtResource("2_ivoou")]
-position = Vector2(0, 2)
+[node name="MovementLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 38.0
+offset_right = 41.0
+offset_bottom = 61.0
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="StopRecording" to="." method="_on_stop_recording_pressed"]
-[connection signal="pressed" from="StartRecording" to="." method="_on_start_recording_pressed"]
+[connection signal="pressed" from="UI/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/StopRecording" to="." method="_on_stop_recording_pressed"]
+[connection signal="pressed" from="UI/StartRecording" to="." method="_on_start_recording_pressed"]
