@@ -315,12 +315,11 @@ color = Color(0, 0, 0, 0)
 stream = ExtResource("6_i2hki")
 volume_db = 0.14
 
-[node name="Button" type="Button" parent="AnimationPlayer"]
-visible = false
-offset_left = 915.0
-offset_top = 601.0
-offset_right = 1153.0
-offset_bottom = 649.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "Press A to Skip"
+[node name="Skip" type="Button" parent="AnimationPlayer"]
+offset_left = 1043.0
+offset_top = 603.0
+offset_right = 1137.0
+offset_bottom = 634.0
+text = "Skip ↵"
+
+[connection signal="pressed" from="AnimationPlayer/Skip" to="." method="_on_skip_pressed"]
