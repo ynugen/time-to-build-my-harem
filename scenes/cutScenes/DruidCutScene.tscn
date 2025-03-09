@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxd50bsdropqu"]
+[gd_scene load_steps=14 format=3 uid="uid://br3jip31tvf1m"]
 
-[ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_3r6k8"]
-[ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="2_1i11u"]
-[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_g85jp"]
-[ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="2_ipgsv"]
-[ext_resource type="Texture2D" uid="uid://dknau7x6ryemw" path="res://assets/sprites/characters/slime/Slime_Girl_Success.png" id="3_pma22"]
-[ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="4_yxl3i"]
+[ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_8sprc"]
+[ext_resource type="Texture2D" uid="uid://dwqr0mbpbs8hi" path="res://assets/sprites/characters/druid/Druid_Girl_Fumbled.png" id="1_34wao"]
+[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_2vtqb"]
+[ext_resource type="Texture2D" uid="uid://dobhfpwcqf302" path="res://assets/sprites/characters/druid/Druid_Girl.png" id="2_34wao"]
+[ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="4_n42b6"]
+[ext_resource type="Texture2D" uid="uid://cxaylcepkq3bu" path="res://assets/sprites/characters/druid/Druid_Girl_Success.png" id="5_34wao"]
+[ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="5_kq1xt"]
+[ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="6_w15k1"]
 
 [sub_resource type="Animation" id="Animation_g85jp"]
 resource_name = "Fumble"
@@ -44,7 +46,8 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["H-Hey! That’s rude! I’m not a puddle, you know…!"]
+"values": ["... Fascinating.
+I’ll add that to my list of things to forget immediately."]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -53,10 +56,10 @@ tracks/3/path = NodePath("AnimationPlayer/Waify:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 8.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5.73333, 8.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_g85jp"), ExtResource("2_g85jp")]
+"values": [ExtResource("1_34wao"), ExtResource("1_34wao"), ExtResource("2_2vtqb")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -106,12 +109,14 @@ tracks/2/path = NodePath("AnimationPlayer/Dialogue:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 4.96667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(-0.0333333, 0, 0.0333333, 4.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": ["Uwaa~! Y-You're looking at me so much...
-Am I melting?!", "Uwaa~! Y-You're looking at me so much...
-Am I melting?!"]
+"values": ["Flattery won’t get you past my reading time…
+But perhaps I’ll make an exception for you.", "Flattery won’t get you past my reading time…
+But perhaps I’ll make an exception for you.", "Flattery won’t get you past my reading time…
+But perhaps I’ll make an exception for you.", "Flattery won’t get you past my reading time…
+But perhaps I’ll make an exception for you."]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -132,10 +137,10 @@ tracks/4/path = NodePath("AnimationPlayer/Waify:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 4.9),
+"times": PackedFloat32Array(0.0333333, 4.96667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("1_3r6k8"), ExtResource("1_3r6k8")]
+"values": [ExtResource("2_34wao"), ExtResource("2_34wao")]
 }
 
 [sub_resource type="Animation" id="Animation_yxl3i"]
@@ -187,7 +192,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_3r6k8")]
+"values": [ExtResource("1_8sprc")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -212,10 +217,10 @@ tracks/0/path = NodePath("AnimationPlayer/Waify:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 5.83333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_pma22"), ExtResource("3_pma22")]
+"values": [ExtResource("5_34wao")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -224,12 +229,11 @@ tracks/1/path = NodePath("AnimationPlayer/Dialogue:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(-0.433333, 0),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["E-Eh?! Y-You're really saying that? Waaa~!
-My core feels all tingly...!", "E-Eh?! Y-You're really saying that?
-Waaa~! My core feels all tingly...!"]
+"values": ["Hmph… clever. I suppose a well-placed metaphor
+does deserve some appreciation."]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -299,7 +303,7 @@ color = Color(0, 0, 0, 0.819608)
 offset_top = 98.0
 offset_right = 1151.0
 offset_bottom = 400.0
-color = Color(0.152504, 0.178491, 0.295711, 1)
+color = Color(0.170269, 0.204016, 0.0711532, 1)
 
 [node name="Waify" type="TextureRect" parent="AnimationPlayer"]
 anchors_preset = 8
@@ -313,7 +317,7 @@ offset_right = 154.573
 offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_3r6k8")
+texture = ExtResource("1_8sprc")
 expand_mode = 3
 
 [node name="Dialogue" type="Label" parent="AnimationPlayer"]
@@ -329,7 +333,7 @@ offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_ipgsv")
+theme_override_fonts/font = ExtResource("4_n42b6")
 theme_override_font_sizes/font_size = 20
 text = "Uwaa~! Y-You're looking at me so much...
 Am I melting?!"
@@ -349,10 +353,10 @@ offset_right = 202.5
 offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.35823, 0.664594, 0.589877, 1)
-theme_override_fonts/font = ExtResource("2_1i11u")
+theme_override_colors/font_color = Color(0.789434, 0.530328, 0.331236, 1)
+theme_override_fonts/font = ExtResource("5_kq1xt")
 theme_override_font_sizes/font_size = 25
-text = "~  Myxie, the Slime Girl  ~"
+text = "~  Sylvara, the Druid Girl  ~"
 horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 1
@@ -370,8 +374,8 @@ offset_right = 436.5
 offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_yxl3i")
-text = "Melt? No way—you're just radiating maximum adorableness. My circuits can barely handle it."
+theme_override_fonts/font = ExtResource("6_w15k1")
+text = "Oh, I love books too!  Wanna hear my top 100 facts about moss?"
 
 [node name="Choice2" type="Button" parent="AnimationPlayer"]
 visible = false
@@ -386,8 +390,8 @@ offset_right = 436.5
 offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_yxl3i")
-text = "Don’t worry, I’ve got a mop and a bucket. If you melt, I’ll just scoop you back up!"
+theme_override_fonts/font = ExtResource("6_w15k1")
+text = "Consider me your newest bookmark. I’ll stay by your side until you’re ready to turn the next page."
 
 [node name="Break" type="Label" parent="AnimationPlayer"]
 anchors_preset = 7
@@ -401,7 +405,7 @@ offset_right = 15.0
 offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.356863, 0.662745, 0.588235, 1)
+theme_override_colors/font_color = Color(0.788235, 0.529412, 0.329412, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_1i11u")
+theme_override_fonts/font = ExtResource("5_kq1xt")
 text = "</>"

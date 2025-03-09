@@ -282,6 +282,7 @@ offset_left = 1022.0
 offset_top = 589.0
 offset_right = 1116.0
 offset_bottom = 620.0
+theme_override_fonts/font = ExtResource("10_dhyyx")
 text = "Skip ↵"
 
 [connection signal="pressed" from="AnimationPlayer/Skip" to="." method="_on_skip_pressed"]
