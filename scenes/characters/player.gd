@@ -36,15 +36,17 @@ func record_input():
 		recorded_inputs.append(input_data)
 
 func apply_input(input_data):
+	velocity = Vector2.ZERO
+	
 	match input_data["action"]:
 		"move_right":
-			velocity.x = 300
+			velocity.x = 500
 		"move_left":
-			velocity.x = -300
+			velocity.x = -500
 		"move_up":
-			velocity.y = -300
+			velocity.y = -500
 		"move_down":
-			velocity.y = 300
+			velocity.y = 500
 	
 	move_and_slide()
 
