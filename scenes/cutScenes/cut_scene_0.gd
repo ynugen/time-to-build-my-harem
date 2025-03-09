@@ -2,7 +2,7 @@ extends Node2D
 
 # Define animation player variable
 @onready var animPlayer = $AnimationPlayer
-var first_time = false
+var first_time = true
 
 func _ready():
 	animPlayer.play("StartScene")
@@ -15,7 +15,7 @@ func _process(delta):
 
 # Change to level when animation finished
 func _on_animation_finished(animName):
-	first_time = true
+	first_time = false
 	skip_cutscene()
 
 # Change to level scene

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjptuhvvwxf0e"]
+[gd_scene load_steps=4 format=3 uid="uid://cjptuhvvwxf0e"]
 
 [ext_resource type="Script" uid="uid://c7566no6rhji1" path="res://scenes/TitleScreen.gd" id="1_pkhjh"]
 [ext_resource type="Texture2D" uid="uid://bxjn2e88vj8bk" path="res://assets/sprites/background/Title_Screen.png" id="2_ch40n"]
+[ext_resource type="AudioStream" uid="uid://db3qvmn3pmg81" path="res://assets/audio/soundtrack/titleScreen.mp3" id="3_dfj8j"]
 
 [node name="Menu" type="Control"]
 clip_contents = true
@@ -86,6 +87,9 @@ text = "Team 6 ©"
 horizontal_alignment = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dfj8j")
+volume_db = 7.198
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/MenuButtons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/MenuButtons/Exit" to="." method="_on_exit_pressed"]
