@@ -1,0 +1,256 @@
+[gd_scene load_steps=16 format=4 uid="uid://duw8f5d76dxbb"]
+
+[ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_0l3oi"]
+[ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="2_5ypnm"]
+[ext_resource type="PackedScene" uid="uid://bxd50bsdropqu" path="res://scenes/cutScenes/SlimeCutScene.tscn" id="2_06w7e"]
+[ext_resource type="PackedScene" uid="uid://52w6r6114h4p" path="res://scenes/characters/slime_girl.tscn" id="3_06w7e"]
+[ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="4_2iq81"]
+[ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="5_n1m61"]
+[ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="6_85lyy"]
+[ext_resource type="PackedScene" uid="uid://b7fyj1luk7j1t" path="res://scenes/characters/rock.tscn" id="7_vltbs"]
+[ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="8_7o8w5"]
+[ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="9_khnmn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7d7pp"]
+texture = ExtResource("2_5ypnm")
+texture_region_size = Vector2i(250, 250)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+6:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+6:5/0 = 0
+6:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+8:5/0 = 0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+5:4/0 = 0
+5:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+
+[sub_resource type="TileSet" id="TileSet_j08sa"]
+tile_size = Vector2i(250, 250)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+physics_layer_2/collision_layer = 1
+custom_data_layer_0/name = "Wall"
+custom_data_layer_0/type = 2
+sources/0 = SubResource("TileSetAtlasSource_7d7pp")
+
+[sub_resource type="GDScript" id="GDScript_x4si1"]
+script/source = "extends TileMap
+# Function to convert the player's world position (node position) to tile coordinates
+func get_player_tile():
+	# Convert the player's world position to TileMap coordinates
+	var player_tile = local_to_map(global_position)  # position refers to the player's world position
+	print(\"Player Tile:\", player_tile)  # Debug: Print the player's tile coordinates
+	return player_tile
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68ib6"]
+shader = ExtResource("5_n1m61")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
+font_size = 300
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("waifu")]
+script = ExtResource("1_0l3oi")
+waifu = NodePath("TileMap/SlimeGirl")
+meet_cutscene = ExtResource("2_06w7e")
+MAX_MOVES = 10
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_j08sa")
+format = 2
+script = SubResource("GDScript_x4si1")
+
+[node name="FloorLayer" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAHAAIAAAAIAAQAAAAHAAEAAAAIAAQAAAAJAAEAAAAIAAQAAAD/////AAAIAAQAAAAAAP//AAAIAAQAAAAAAP7/AAAIAAQAAAAAAP3/AAAJAAQAAAD///z/AAAJAAQAAAD+//z/AAAIAAUAAAD9//z/AAAIAAUAAAD8//z/AAAIAAUAAAD7//z/AAAJAAQAAAD6//z/AAAAAAUAAAD5//z/AAAAAAUAAAD4//z/AAABAAIAAAD3//3/AAAIAAUAAAD2//3/AAABAAIAAAD2/wIAAAAJAAQAAAD3/wIAAAAIAAQAAAD4/wIAAAAIAAQAAAD5/wIAAAAJAAQAAAD6/wIAAAAJAAQAAAD7/wIAAAAAAAUAAAD8/wIAAAAIAAUAAAD9/wIAAAAIAAUAAAD+/wIAAAAIAAQAAAD//wIAAAAIAAQAAAAAAAIAAAAIAAQAAAABAAIAAAACAAIAAAACAAIAAAABAAEAAAADAAIAAAAJAAQAAAAEAAIAAAAAAAUAAAAFAAEAAAAJAAQAAAAGAAEAAAAIAAQAAAAHAAAAAAAIAAUAAAAIAAAAAAAIAAUAAAAJAAAAAAAIAAUAAAAKAP//AAAJAAQAAAAKAP7/AAAJAAQAAAAJAP3/AAAIAAQAAAAIAP3/AAAAAAUAAAAHAP3/AAAAAAUAAAAGAP3/AAAIAAUAAAAFAP3/AAAJAAQAAAAEAP3/AAAJAAQAAAADAP3/AAAAAAUAAAACAP3/AAAJAAQAAAABAP3/AAAJAAQAAAD///3/AAAJAAQAAAD+//3/AAAJAAQAAAD9//3/AAAJAAQAAAD8//3/AAAJAAQAAAD7//3/AAAIAAUAAAD6//3/AAAJAAQAAAD5//3/AAAIAAUAAAD4//7/AAAAAAUAAAD3//7/AAAAAAUAAAD2//7/AAAJAAQAAAD2////AAAJAAQAAAD3////AAAAAAUAAAD4////AAAJAAQAAAD5//7/AAAJAAQAAAD6//7/AAAJAAQAAAD7//7/AAAJAAQAAAD8//7/AAAJAAQAAAD9//7/AAAJAAQAAAD+//7/AAAIAAQAAAD///7/AAAIAAQAAAABAP7/AAAIAAQAAAACAP7/AAAIAAQAAAADAP7/AAAJAAQAAAAIAPz/AAAAAAUAAAAJAPz/AAAIAAQAAAAKAPv/AAAJAAQAAAAJAPv/AAAIAAQAAAAIAPv/AAAJAAQAAAAHAPv/AAAJAAQAAAAGAPv/AAAJAAQAAAAFAPv/AAAJAAQAAAAEAPv/AAAIAAUAAAADAPv/AAAIAAUAAAACAPv/AAAIAAUAAAABAPv/AAAIAAUAAAAAAPv/AAAIAAUAAAD///v/AAAIAAUAAAD4//3/AAAJAAQAAAAGAPz/AAAIAAUAAAAHAPz/AAAIAAUAAAD4/wAAAAAAAAUAAAD5/wAAAAAIAAUAAAD6/wAAAAAAAAUAAAD7/wAAAAAJAAQAAAD8/wAAAAAJAAQAAAD9/wAAAAAJAAQAAAD+/wAAAAAIAAQAAAD//wAAAAAIAAQAAAAAAAAAAAAIAAQAAAABAAAAAAABAAEAAAACAP//AAABAAIAAAADAP//AAAJAAQAAAAEAP//AAAJAAQAAAAFAP//AAAAAAUAAAAGAP//AAAIAAUAAAAHAP//AAAAAAUAAAAJAP7/AAAIAAQAAAAAAPz/AAAAAAUAAAACAAAAAAACAAEAAAAHAP7/AAAIAAUAAAAGAPr/AAAIAAQAAAAFAPr/AAAIAAQAAAAEAPr/AAAIAAQAAAADAPr/AAAIAAQAAAACAPr/AAAIAAQAAAABAPr/AAAIAAQAAAD5////AAAIAAUAAAD7/wEAAAAIAAUAAAD8/wEAAAAIAAUAAAD9/wEAAAAAAAUAAAD+/wEAAAABAAEAAAD//wEAAAAIAAQAAAAAAAEAAAAIAAQAAAABAAEAAAACAAIAAAADAAAAAAAJAAQAAAAEAAAAAAAJAAQAAAAFAAAAAAAJAAQAAAAEAPz/AAAIAAUAAAACAPz/AAAJAAQAAAABAPz/AAAIAAUAAAD+//v/AAAIAAUAAAD9//v/AAAIAAUAAAD8//v/AAAJAAQAAAD7//v/AAAIAAUAAAD6//v/AAAJAAQAAAD5//v/AAAIAAUAAAD4//v/AAABAAIAAAD3//z/AAABAAIAAAD2//z/AAABAAIAAAD6////AAAJAAQAAAD7////AAAIAAUAAAD8////AAAAAAUAAAD9////AAAAAAUAAAD+////AAAIAAQAAAABAP//AAAIAAQAAAAGAP7/AAAIAAUAAAAEAP7/AAAJAAQAAAD2/wAAAAAJAAQAAAD3/wAAAAAJAAQAAAAFAAIAAAAAAAUAAAAGAAIAAAAJAAQAAAD6/wMAAAAJAAQAAAD7/wMAAAAJAAQAAAD8/wMAAAAJAAQAAAD9/wMAAAAIAAUAAAD+/wMAAAAAAAUAAAD//wMAAAAIAAUAAAD6/wEAAAAIAAUAAAD2/wMAAAAJAAQAAAD3/wMAAAAIAAQAAAD4/wMAAAAIAAQAAAD4/wEAAAAJAAQAAAD4/wQAAAAIAAQAAAD5/wEAAAAAAAUAAAD5/wMAAAAIAAUAAAD5/wQAAAAJAAQAAAD5/wUAAAAIAAQAAAD6/wQAAAAJAAQAAAD7/wUAAAAIAAQAAAD8/wQAAAAAAAUAAAD9/wQAAAAJAAQAAAD+/wQAAAAJAAQAAAAAAAMAAAAAAAUAAAABAAMAAAAIAAUAAAD//wQAAAAJAAQAAAAAAAQAAAAJAAQAAAABAAQAAAAJAAQAAAD7/wQAAAAJAAQAAAACAAMAAAAIAAQAAAACAAEAAAACAAIAAAADAAEAAAAJAAQAAAAFAP7/AAAIAAUAAAAIAP7/AAAIAAUAAAAKAP3/AAAJAAQAAAAFAPz/AAAJAAQAAAADAPz/AAAJAAQAAAAGAAAAAAAJAAQAAAACAAQAAAAJAAQAAAADAAMAAAAJAAQAAAAEAAMAAAAJAAQAAAAFAAMAAAAJAAQAAAACAAYAAAAIAAQAAAABAAYAAAAIAAQAAAADAAYAAAAIAAQAAAAEAAUAAAAIAAQAAAAFAAUAAAAIAAQAAAAGAAUAAAAIAAQAAAAHAAUAAAAIAAQAAAAGAAQAAAAIAAQAAAAHAAQAAAAIAAQAAAAHAAYAAAAIAAQAAAAGAAYAAAAIAAQAAAAFAAYAAAAIAAQAAAAEAAYAAAAIAAQAAAACAAUAAAAIAAQAAAABAAUAAAAIAAQAAAAAAAUAAAAIAAQAAAD//wUAAAAIAAQAAAADAAQAAAAIAAQAAAAEAAQAAAAIAAQAAAAFAAQAAAAIAAQAAAAHAAMAAAAIAAQAAAAIAAEAAAAIAAQAAAAEAAEAAAAIAAQAAAAGAAMAAAAIAAQAAAAJAAIAAAAIAAQAAAAJAAMAAAAIAAQAAAAIAAMAAAAIAAQAAAAIAAQAAAAIAAQAAAAIAAIAAAAIAAQAAAD+/wUAAAAIAAQAAAD9/wUAAAAIAAQAAAD8/wUAAAAIAAQAAAD4/wUAAAAIAAQAAAD3/wQAAAAIAAQAAAD3/wEAAAAIAAQAAAD3//r/AAABAAIAAAD4//r/AAABAAIAAAD5//r/AAAIAAQAAAD6//r/AAAIAAQAAAD7//r/AAAIAAQAAAD8//r/AAAIAAQAAAD9//r/AAAIAAQAAAD+//r/AAAIAAQAAAD///r/AAAIAAQAAAAAAPr/AAAIAAQAAAAHAPr/AAAIAAQAAAAIAPr/AAAIAAQAAAAJAPr/AAAIAAQAAAAJAP//AAAIAAQAAAAIAP//AAAIAAQAAAADAAUAAAAJAAQAAAD6/wUAAAAJAAQAAAD3/wUAAAAJAAQAAAD3//v/AAABAAIAAAAKAPr/AAAJAAQAAAAKAPz/AAAJAAQAAAAKAAMAAAAJAAQAAAAKAAQAAAAJAAQAAAAKAAUAAAAJAAQAAAAJAAQAAAAJAAQAAAAJAAUAAAAJAAQAAAAJAAYAAAAJAAQAAAAIAAYAAAAJAAQAAAAIAAUAAAAJAAQAAAAAAAYAAAAJAAQAAAD//wYAAAAJAAQAAAD+/wYAAAAJAAQAAAD9/wYAAAAJAAQAAAD8/wYAAAAJAAQAAAD7/wYAAAAJAAQAAAD6/wYAAAAJAAQAAAD5/wYAAAAJAAQAAAD4/wYAAAAJAAQAAAD3/wYAAAAJAAQAAAD2/wYAAAAJAAQAAAD2/wUAAAAJAAQAAAD2/wQAAAAJAAQAAAD2//v/AAABAAIAAAD2//r/AAAJAAQAAAAKAAYAAAAJAAQAAAAKAAEAAAAJAAQAAAAKAAAAAAAJAAQAAAAKAAIAAAAJAAQAAAD2/wEAAAACAAIAAAD1//v/AAABAAIAAAD1//z/AAABAAIAAAD1//3/AAABAAIAAAA=")
+tile_set = SubResource("TileSet_j08sa")
+
+[node name="WallLayer" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAADAP3/AAADAAAAAAADAP7/AAADAAEAAAADAP//AAADAAEAAAADAAAAAAADAAEAAAADAAEAAAADAAIAAAADAAIAAAADAAEAAAD9/wMAAAAAAAMAAAD+//3/AAABAAAAAAD+/wMAAAABAAMAAAD///3/AAAAAAQAAAD//wMAAAABAAMAAAAAAP3/AAABAAAAAAAAAAMAAAABAAMAAAABAP3/AAABAAAAAAABAAMAAAABAAMAAAACAP3/AAABAAQAAAACAAMAAAABAAMAAAADAAMAAAADAAMAAAA=")
+tile_set = SubResource("TileSet_j08sa")
+
+[node name="SlimeGirl" parent="TileMap" instance=ExtResource("3_06w7e")]
+position = Vector2(648, 624)
+
+[node name="Player" parent="." instance=ExtResource("4_2iq81")]
+position = Vector2(-377, -375)
+
+[node name="LightingEffect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_68ib6")
+offset_left = -2144.0
+offset_top = -1185.0
+offset_right = -2104.0
+offset_bottom = -1145.0
+scale = Vector2(115.727, 65.5356)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 248)
+offset = Vector2(175, 125)
+zoom = Vector2(0.25, 0.25)
+script = ExtResource("6_85lyy")
+
+[node name="RockContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Rock" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(128, -384)
+
+[node name="Rock3" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(-384, -128)
+
+[node name="Rock5" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(640, -128)
+
+[node name="Rock6" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(376, -128)
+
+[node name="Rock7" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(-120, 384)
+
+[node name="Rock8" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(376, 128)
+
+[node name="Rock9" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(128, 384)
+
+[node name="Rock10" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(128, 648)
+
+[node name="Rock11" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(640, 384)
+
+[node name="Rock4" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(-120, -128)
+
+[node name="Rock2" parent="RockContainer" instance=ExtResource("7_vltbs")]
+position = Vector2(640, -384)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 568.0
+offset_right = 857.0
+offset_bottom = 599.0
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 568.0
+offset_right = 1009.0
+offset_bottom = 599.0
+text = "Restart"
+metadata/_edit_use_anchors_ = true
+
+[node name="StopRecording" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 512.0
+offset_right = 1122.0
+offset_bottom = 543.0
+text = "Stop Recording Inputs"
+metadata/_edit_use_anchors_ = true
+
+[node name="StartRecording" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 512.0
+offset_right = 925.0
+offset_bottom = 543.0
+text = "Start Recording Inputs"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UI"]
+position = Vector2(376, 536)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_7o8w5")
+
+[node name="MovesLabel" type="Label" parent="CanvasLayer/UI/Sprite2D"]
+offset_left = -1016.0
+offset_top = -224.0
+offset_right = -674.0
+offset_bottom = 185.0
+label_settings = SubResource("LabelSettings_m00rq")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ArrowContainer" type="Container" parent="CanvasLayer/UI/Sprite2D"]
+offset_left = -506.667
+offset_top = -26.6667
+offset_right = -466.667
+offset_bottom = 13.3333
+scale = Vector2(30.4695, 12.4364)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = -2424.0
+offset_top = -1264.0
+offset_right = 2664.0
+offset_bottom = 1728.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_khnmn")
+
+[connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/StopRecording" to="." method="_on_stop_recording_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/StartRecording" to="." method="_on_start_recording_pressed"]
