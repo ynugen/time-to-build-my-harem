@@ -19,3 +19,6 @@ func _on_start_recording_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
+
+func win():
+	get_tree().change_scene_to_file("res://scenes/cutScenes/SlimeCutScene.tscn")

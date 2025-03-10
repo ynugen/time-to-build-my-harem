@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var movement_label = get_node_or_null("../UI/MovementLabel")
 @onready var tilemap = get_node_or_null("../TileMap")
+@onready var level = get_node_or_null("..")
 
 # Access the child layers
 @onready var floor_layer = get_node_or_null("../TileMap/FloorLayer")  # Adjust path if necessary
@@ -71,19 +72,22 @@ func apply_input(input_data):
 			direction = Vector2.DOWN
 	
 	if direction != Vector2.ZERO:
-		move_or_push(direction)
+		move_or_action(direction)
 
-func move_or_push(direction):
+func move_or_action(direction):
 	var player_tile: Vector2i = tilemap.local_to_map(global_position)
-	var direction_int = Vector2i(direction)  # Convert movement to tilemap coordinates
-	var next_tile = player_tile + direction_int  # Tile in front of player
+	var direction_int = Vector2i(direction)  # convert movement to tilemap coordinates
+	var next_tile = player_tile + direction_int  # tile in front of player
 	
 	var rock_tile = object_layer.get_cell_source_id(next_tile)
 	var wall_tile = wall_layer.get_cell_source_id(next_tile)
+	var girl_tile = girl_layer.get_cell_source_id(next_tile)
 	print("Rock Tile ID:", rock_tile)
 	print("Player Tile ID:", player_tile)
 
-	if wall_tile != EMPTY_TILE:
+	if girl_tile != EMPTY_TILE:
+		level.win()
+	elif wall_tile != EMPTY_TILE:
 		pass
 	elif rock_tile != EMPTY_TILE:  # If a rock exists
 		print("Rock exists at: ", next_tile)
@@ -93,9 +97,9 @@ func move_or_push(direction):
 		
 		if after_rock_tile == EMPTY_TILE:  # can push rock if next tile is empty
 			print("Next tile is empty, moving rock")
-			object_layer.set_cell(rock_next_tile, rock_tile)  # move the rock forward
 			object_layer.set_cell(next_tile, EMPTY_TILE)  # remove rock from its original spot	
-			# position += direction * TILE_SIZE  # Move player
+			object_layer.set_cell(rock_next_tile, rock_tile)  # move the rock forward
+			
 	
 	else: # no rock in front
 		print("No rock in front")

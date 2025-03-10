@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://ck86g84xajy28"]
+[gd_scene load_steps=9 format=4 uid="uid://ck86g84xajy28"]
 
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="1_1pwbc"]
 [ext_resource type="Script" uid="uid://nm7gmwwbmn44" path="res://scenes/levels/level_1.gd" id="1_x4si1"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="2_j08sa"]
+[ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="4_fh0io"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pwbc"]
 texture = ExtResource("1_1pwbc")
@@ -83,7 +84,10 @@ func get_player_tile():
 	return player_tile
 "
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68ib6"]
+shader = ExtResource("4_fh0io")
+
+[node name="Level" type="Node2D"]
 script = ExtResource("1_x4si1")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -113,6 +117,14 @@ tile_set = SubResource("TileSet_j08sa")
 
 [node name="Player" parent="." instance=ExtResource("2_j08sa")]
 position = Vector2(-377, -375)
+
+[node name="LightingEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_68ib6")
+offset_left = -2144.0
+offset_top = -1185.0
+offset_right = -2104.0
+offset_bottom = -1145.0
+scale = Vector2(115.727, 65.5356)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
