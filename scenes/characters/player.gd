@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animated_sprite2d = $AnimatedSprite2D
+
 @onready var movement_label = get_node_or_null("../UI/MovementLabel")
 @onready var tilemap = get_node_or_null("../TileMap")
 @onready var level = get_node_or_null("..")
@@ -21,6 +23,9 @@ var playback_interval = 0.2  # Time between actions during playback
 
 @export var move_speed = 250
 @export var push_distance = 250
+
+func _ready():
+	animated_sprite2d.play("default")
 
 # frames
 func _process(delta):
@@ -90,7 +95,7 @@ func move_or_action(direction):
 		global_position += direction * push_distance  # Move player
 	else:
 		var collider = result["collider"]
-		if collider is StaticBody2D and collider.has_method("win"):
+		if collider is CharacterBody2D and collider.has_method("win"):
 			level.win()
 			return
 		

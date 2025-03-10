@@ -1,18 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://do7ygv6kbgkax"]
+[gd_scene load_steps=8 format=3 uid="uid://do7ygv6kbgkax"]
 
-[ext_resource type="Texture2D" uid="uid://od7lrfak6cyv" path="res://assets/sprites/characters/pixel-animation-jumping-push-up-example.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cnuxgxlcxdht3" path="res://scenes/characters/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bd1rx2urq5617" path="res://assets/sprites/characters/player/Wins_Default_1.png" id="2_atpat"]
+[ext_resource type="Texture2D" uid="uid://by5x65g64jdqp" path="res://assets/sprites/characters/player/Wins_Default_2.png" id="3_kqtwu"]
+[ext_resource type="Texture2D" uid="uid://bevliaih01y3s" path="res://assets/sprites/characters/player/Wins_Default_3.png" id="4_6eyoc"]
+[ext_resource type="Texture2D" uid="uid://db8o4uco604ns" path="res://assets/sprites/characters/player/Wins_Default_4.png" id="5_eojnx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cko2x"]
 radius = 86.6667
 height = 173.333
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgnko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_atpat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kqtwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6eyoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eojnx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("1_4flbx")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cko2x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qgnko")
+frame_progress = 0.508452

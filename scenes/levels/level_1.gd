@@ -3,12 +3,14 @@ extends Node2D
 @onready var player = $Player  # Get reference to Player
 @onready var moves_label = $CanvasLayer/UI/Sprite2D/MovesLabel
 @onready var camera = $Camera2D
+@onready var slime_girl = $TileMap/SlimeGirl
 var moves_left = MAX_MOVES
 
 const MAX_MOVES = 10
 
 func _ready():
 	moves_label.text = "10"
+	slime_girl.play()
 
 
 func _on_play_pressed() -> void:

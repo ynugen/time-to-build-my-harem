@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="1_1pwbc"]
 [ext_resource type="Script" uid="uid://nm7gmwwbmn44" path="res://scenes/levels/level_1.gd" id="1_x4si1"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="2_j08sa"]
-[ext_resource type="PackedScene" uid="uid://bkdm5r0t1uqsk" path="res://scenes/characters/golem.tscn" id="3_76cw8"]
+[ext_resource type="PackedScene" uid="uid://52w6r6114h4p" path="res://scenes/characters/slime_girl.tscn" id="3_7d7pp"]
 [ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="4_fh0io"]
 [ext_resource type="PackedScene" uid="uid://b7fyj1luk7j1t" path="res://scenes/characters/rock.tscn" id="5_68ib6"]
 [ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="6_m00rq"]
@@ -109,8 +109,8 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAADAP3/AAADAAAAAAADAP7/AAADAAEAAAADAP//AAADAAEAAAADAAAAAAADAAEAAAADAAEAAAADAAIAAAADAAIAAAADAAEAAAD9/wMAAAAAAAMAAAD+//3/AAABAAAAAAD+/wMAAAABAAMAAAD///3/AAAAAAQAAAD//wMAAAABAAMAAAAAAP3/AAABAAAAAAAAAAMAAAABAAMAAAABAP3/AAABAAAAAAABAAMAAAABAAMAAAACAP3/AAABAAQAAAACAAMAAAABAAMAAAADAAMAAAADAAMAAAA=")
 tile_set = SubResource("TileSet_j08sa")
 
-[node name="StaticBody2D" parent="TileMap" instance=ExtResource("3_76cw8")]
-position = Vector2(632, 624)
+[node name="SlimeGirl" parent="TileMap" instance=ExtResource("3_7d7pp")]
+position = Vector2(648, 624)
 
 [node name="Player" parent="." instance=ExtResource("2_j08sa")]
 position = Vector2(-377, -375)
