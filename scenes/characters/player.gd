@@ -104,6 +104,7 @@ func move_or_action(direction):
 			
 			if result2.is_empty() and wall_after_rock == EMPTY_TILE:
 				collider.push(direction)
+				level.shake()
 			else:
 				print("Rock cannot be pushed further!")
 

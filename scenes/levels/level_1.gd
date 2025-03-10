@@ -1,7 +1,8 @@
 extends Node2D
 
 @onready var player = $Player  # Get reference to Player
-@onready var moves_label = $UI/Sprite2D/MovesLabel
+@onready var moves_label = $CanvasLayer/UI/Sprite2D/MovesLabel
+@onready var camera = $Camera2D
 var moves_left = MAX_MOVES
 
 const MAX_MOVES = 10
@@ -37,3 +38,7 @@ func update_moves(minus):
 
 func check_moves():
 	return moves_left
+
+func shake():
+	camera.shake(50.0)
+	
