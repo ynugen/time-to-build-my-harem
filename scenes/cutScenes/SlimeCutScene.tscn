@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bxd50bsdropqu"]
 
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_3r6k8"]
-[ext_resource type="Script" uid="uid://dhq1r6jxipasn" path="res://scenes/cutScenes/slime_cut_scene.gd" id="1_8oj6d"]
+[ext_resource type="Script" path="res://scenes/cutScenes/slime_cut_scene.gd" id="1_8oj6d"]
 [ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="2_1i11u"]
 [ext_resource type="Texture2D" uid="uid://b4bmgebq4tfrm" path="res://assets/sprites/characters/slime/Slime_Girl_(Fumbled).png" id="2_8oj6d"]
 [ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="2_ipgsv"]

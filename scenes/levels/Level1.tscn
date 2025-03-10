@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://ck86g84xajy28"]
+[gd_scene load_steps=10 format=4 uid="uid://ck86g84xajy28"]
 
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="1_1pwbc"]
 [ext_resource type="Script" uid="uid://nm7gmwwbmn44" path="res://scenes/levels/level_1.gd" id="1_x4si1"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="2_j08sa"]
 [ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="4_fh0io"]
+[ext_resource type="PackedScene" uid="uid://b7fyj1luk7j1t" path="res://scenes/characters/rock.tscn" id="5_68ib6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pwbc"]
 texture = ExtResource("1_1pwbc")
@@ -101,11 +102,6 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAADAP3/AAADAAAAAAADAP7/AAADAAEAAAADAP//AAADAAEAAAADAAAAAAADAAEAAAADAAEAAAADAAIAAAADAAIAAAADAAEAAAD9/wMAAAAAAAMAAAD+//3/AAABAAAAAAD+/wMAAAABAAMAAAD///3/AAAAAAQAAAD//wMAAAABAAMAAAAAAP3/AAABAAAAAAAAAAMAAAABAAMAAAABAP3/AAABAAAAAAABAAMAAAABAAMAAAACAP3/AAABAAQAAAACAAMAAAABAAMAAAADAAMAAAADAAMAAAA=")
 tile_set = SubResource("TileSet_j08sa")
 
-[node name="ObjectLayer" type="TileMapLayer" parent="TileMap"]
-use_parent_material = true
-tile_map_data = PackedByteArray("AAD+////AAAFAAQAAAD/////AAAFAAQAAAD//wEAAAAFAAQAAAABAP//AAAGAAUAAAABAAAAAAAFAAQAAAACAP7/AAAFAAQAAAACAP//AAAFAAQAAAACAAEAAAAGAAUAAAAAAAEAAAAGAAUAAAAAAAIAAAAFAAQAAAD+/wYAAAAFAAQAAAAAAP7/AAAFAAQAAAA=")
-tile_set = SubResource("TileSet_j08sa")
-
 [node name="GirlLayer" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAACAAIAAAAGAAQAAAA=")
@@ -176,6 +172,45 @@ scale = Vector2(7.84, 5.12)
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(175, 125)
 zoom = Vector2(0.25, 0.25)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Rock" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(128, -384)
+
+[node name="Rock3" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(-384, -128)
+
+[node name="Rock5" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(640, -128)
+
+[node name="Rock6" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(376, -128)
+
+[node name="Rock7" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(-120, 384)
+
+[node name="Rock8" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(376, 128)
+
+[node name="Rock9" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(128, 384)
+
+[node name="Rock10" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(128, 648)
+
+[node name="Rock11" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(640, 384)
+
+[node name="Rock4" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(-120, -128)
+
+[node name="Rock2" parent="Control" instance=ExtResource("5_68ib6")]
+position = Vector2(640, -384)
 
 [connection signal="pressed" from="UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Restart" to="." method="_on_restart_pressed"]

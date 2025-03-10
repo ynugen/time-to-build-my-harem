@@ -7,8 +7,6 @@ extends CharacterBody2D
 # Access the child layers
 @onready var floor_layer = get_node_or_null("../TileMap/FloorLayer")  # Adjust path if necessary
 @onready var wall_layer = get_node_or_null("../TileMap/WallLayer")
-@onready var object_layer = get_node_or_null("../TileMap/ObjectLayer")
-@onready var girl_layer = get_node_or_null("../TileMap/GirlLayer")
 
 const EMPTY_TILE = -1   # Empty tile index (no tile)
 const TILE_SIZE = 250      # Adjust based on your tile size
@@ -21,13 +19,8 @@ var playback_index = 0
 var playback_timer = 0.0
 var playback_interval = 0.2  # Time between actions during playback
 
-func _ready():
-	var layer_count = tilemap.get_layers_count()
-	
-	print("Total layers:", layer_count)
-	
-	for i in range(layer_count):
-		print("Layer", i, " is visible:", tilemap.is_layer_enabled(i))
+@export var move_speed = 250
+@export var push_distance = 250
 
 # frames
 func _process(delta):
@@ -78,34 +71,33 @@ func move_or_action(direction):
 	var player_tile: Vector2i = tilemap.local_to_map(global_position)
 	var direction_int = Vector2i(direction)  # convert movement to tilemap coordinates
 	var next_tile = player_tile + direction_int  # tile in front of player
-	
-	var rock_tile = object_layer.get_cell_source_id(next_tile)
 	var wall_tile = wall_layer.get_cell_source_id(next_tile)
-	var girl_tile = girl_layer.get_cell_source_id(next_tile)
-	print("Rock Tile ID:", rock_tile)
+	
 	print("Player Tile ID:", player_tile)
 	print("Wall Tile ID:", wall_tile)
-
-	if girl_tile != EMPTY_TILE:
-		level.win()
-	elif wall_tile != EMPTY_TILE:
+	
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + direction * push_distance, 1)
+	var result = space_state.intersect_ray(query)
+	
+	if wall_tile != EMPTY_TILE:
 		pass
-	elif rock_tile != EMPTY_TILE:  # If a rock exists
-		print("Rock exists at: ", next_tile)
-		var rock_next_tile = next_tile + direction_int
-		
-		var after_rock_tile = object_layer.get_cell_source_id(rock_next_tile)
-		
-		if after_rock_tile == EMPTY_TILE:  # can push rock if next tile is empty
-			print("Next tile is empty, moving rock")
-			object_layer.set_cell(next_tile, EMPTY_TILE)  # remove rock from its original spot	
-			object_layer.set_cell(rock_next_tile, rock_tile)  # move the rock forward
+	elif result.is_empty():
+		global_position += direction * push_distance  # Move player
+	else:
+		var collider = result["collider"]
+		if collider is StaticBody2D and collider.has_method("push"):
+			var rock_next_pos = collider.global_position + direction * push_distance
+			var query2 = PhysicsRayQueryParameters2D.create(collider.global_position, rock_next_pos, 1)
+			var result2 = space_state.intersect_ray(query2)
 			
-	
-	else: # no rock in front
-		print("No rock in front")
-		position += direction * TILE_SIZE
-	
+			var rock_next_tile = tilemap.local_to_map(rock_next_pos)
+			var wall_after_rock = wall_layer.get_cell_source_id(rock_next_tile)
+			
+			if result2.is_empty() and wall_after_rock == EMPTY_TILE:
+				collider.push(direction)
+			else:
+				print("Rock cannot be pushed further!")
 
 func update_label():
 	if movement_label:
