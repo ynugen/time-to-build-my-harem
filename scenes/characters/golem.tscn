@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkdm5r0t1uqsk"]
+
+[ext_resource type="Texture2D" uid="uid://bdjjqf0fwwj5m" path="res://assets/sprites/tiles/golem dude.png" id="1_kcpgv"]
+[ext_resource type="Script" uid="uid://d2qmw4t250ysl" path="res://scenes/characters/golem.gd" id="1_wtduj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtduj"]
+size = Vector2(165, 180)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_wtduj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kcpgv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_wtduj")

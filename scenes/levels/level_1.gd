@@ -1,6 +1,14 @@
 extends Node2D
 
 @onready var player = $Player  # Get reference to Player
+@onready var moves_label = $UI/Sprite2D/MovesLabel
+var moves_left = MAX_MOVES
+
+const MAX_MOVES = 10
+
+func _ready():
+	moves_label.text = "10"
+
 
 func _on_play_pressed() -> void:
 	if player:
@@ -22,3 +30,10 @@ func _on_restart_pressed() -> void:
 
 func win():
 	get_tree().change_scene_to_file("res://scenes/cutScenes/SlimeCutScene.tscn")
+
+func update_moves(minus):
+	moves_left -= minus
+	moves_label.text = str(moves_left)
+
+func check_moves():
+	return moves_left

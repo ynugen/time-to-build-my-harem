@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://ck86g84xajy28"]
+[gd_scene load_steps=13 format=4 uid="uid://ck86g84xajy28"]
 
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="1_1pwbc"]
 [ext_resource type="Script" uid="uid://nm7gmwwbmn44" path="res://scenes/levels/level_1.gd" id="1_x4si1"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="2_j08sa"]
+[ext_resource type="PackedScene" uid="uid://bkdm5r0t1uqsk" path="res://scenes/characters/golem.tscn" id="3_76cw8"]
 [ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="4_fh0io"]
 [ext_resource type="PackedScene" uid="uid://b7fyj1luk7j1t" path="res://scenes/characters/rock.tscn" id="5_68ib6"]
+[ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="6_m00rq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pwbc"]
 texture = ExtResource("1_1pwbc")
@@ -84,6 +86,9 @@ func get_player_tile():
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68ib6"]
 shader = ExtResource("4_fh0io")
 
+[sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
+font_size = 300
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_x4si1")
 
@@ -102,10 +107,8 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAADAP3/AAADAAAAAAADAP7/AAADAAEAAAADAP//AAADAAEAAAADAAAAAAADAAEAAAADAAEAAAADAAIAAAADAAIAAAADAAEAAAD9/wMAAAAAAAMAAAD+//3/AAABAAAAAAD+/wMAAAABAAMAAAD///3/AAAAAAQAAAD//wMAAAABAAMAAAAAAP3/AAABAAAAAAAAAAMAAAABAAMAAAABAP3/AAABAAAAAAABAAMAAAABAAMAAAACAP3/AAABAAQAAAACAAMAAAABAAMAAAADAAMAAAADAAMAAAA=")
 tile_set = SubResource("TileSet_j08sa")
 
-[node name="GirlLayer" type="TileMapLayer" parent="TileMap"]
-use_parent_material = true
-tile_map_data = PackedByteArray("AAACAAIAAAAGAAQAAAA=")
-tile_set = SubResource("TileSet_j08sa")
+[node name="StaticBody2D" parent="TileMap" instance=ExtResource("3_76cw8")]
+position = Vector2(632, 624)
 
 [node name="Player" parent="." instance=ExtResource("2_j08sa")]
 position = Vector2(-377, -375)
@@ -128,36 +131,36 @@ offset_bottom = 40.0
 [node name="Play" type="Button" parent="UI"]
 layout_mode = 0
 offset_left = 648.0
-offset_top = 1177.0
+offset_top = 1328.0
 offset_right = 829.0
-offset_bottom = 1208.0
+offset_bottom = 1359.0
 scale = Vector2(4.04, 4.48)
 text = "Play"
 
 [node name="Restart" type="Button" parent="UI"]
 layout_mode = 0
 offset_left = 1568.0
-offset_top = 1174.0
+offset_top = 1328.0
 offset_right = 1749.0
-offset_bottom = 1205.0
+offset_bottom = 1359.0
 scale = Vector2(4.04, 4.48)
 text = "Restart"
 
 [node name="StopRecording" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = -324.0
-offset_top = 1165.0
-offset_right = -143.0
-offset_bottom = 1196.0
+offset_left = 1520.0
+offset_top = 1104.0
+offset_right = 1701.0
+offset_bottom = 1135.0
 scale = Vector2(4.68172, 4.80201)
 text = "Stop Recording Inputs"
 
 [node name="StartRecording" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = -1208.0
-offset_top = 1168.0
-offset_right = -1027.0
-offset_bottom = 1199.0
+offset_left = 640.0
+offset_top = 1104.0
+offset_right = 821.0
+offset_bottom = 1135.0
 scale = Vector2(4.2, 4.64)
 text = "Start Recording Inputs"
 
@@ -169,47 +172,63 @@ offset_right = -2020.0
 offset_bottom = -1073.0
 scale = Vector2(7.84, 5.12)
 
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(-736, 1192)
+scale = Vector2(1.14883, 1.14883)
+texture = ExtResource("6_m00rq")
+
+[node name="MovesLabel" type="Label" parent="UI/Sprite2D"]
+offset_left = -1006.24
+offset_top = -225.446
+offset_right = -664.24
+offset_bottom = 183.554
+text = "10"
+label_settings = SubResource("LabelSettings_m00rq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 248)
 offset = Vector2(175, 125)
 zoom = Vector2(0.25, 0.25)
 
-[node name="Control" type="Control" parent="."]
+[node name="RockContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Rock" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(128, -384)
 
-[node name="Rock3" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock3" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(-384, -128)
 
-[node name="Rock5" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock5" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(640, -128)
 
-[node name="Rock6" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock6" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(376, -128)
 
-[node name="Rock7" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock7" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(-120, 384)
 
-[node name="Rock8" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock8" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(376, 128)
 
-[node name="Rock9" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock9" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(128, 384)
 
-[node name="Rock10" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock10" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(128, 648)
 
-[node name="Rock11" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock11" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(640, 384)
 
-[node name="Rock4" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock4" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(-120, -128)
 
-[node name="Rock2" parent="Control" instance=ExtResource("5_68ib6")]
+[node name="Rock2" parent="RockContainer" instance=ExtResource("5_68ib6")]
 position = Vector2(640, -384)
 
 [connection signal="pressed" from="UI/Play" to="." method="_on_play_pressed"]

@@ -113,7 +113,7 @@ tracks/0/path = NodePath("AnimationPlayer/SceneImage:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.03333, 5.8, 7.13333, 8.53333, 12, 14.9892, 15.0333, 19.5225, 19.5333, 19.5667, 22),
+"times": PackedFloat32Array(0, 2.03333, 5.8, 8.10453, 9.50453, 12.9712, 14.9892, 15.0333, 19.5225, 19.5333, 19.5667, 22),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("2_ktbym"), ExtResource("3_w3517"), ExtResource("4_qflq8"), ExtResource("5_mxm0d"), ExtResource("6_an1yf"), ExtResource("7_noq0t"), ExtResource("7_noq0t"), ExtResource("8_noq0t"), ExtResource("8_noq0t"), ExtResource("9_noq0t"), ExtResource("9_noq0t"), ExtResource("9_noq0t")]
@@ -125,7 +125,7 @@ tracks/1/path = NodePath("AnimationPlayer/Label:visible_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.03333, 2.03333, 2.04, 3.03333, 4.06667, 4.1, 5.03333, 6.43333, 8.53333, 9.03333, 9.96667, 10, 11, 12, 14.9892, 15.1559, 15.9892, 16.4892, 17.4559, 19.0225, 19.5225),
+"times": PackedFloat32Array(0, 1.03333, 2.03333, 2.04, 3.03333, 4.06667, 4.1, 5.03333, 6.66667, 9.50453, 10.0045, 10.9379, 10.9712, 11.9712, 12.9712, 14.9892, 15.1559, 15.9892, 16.4892, 17.4559, 19.0225, 19.5225),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [-0.0181818, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.076, 0.076, 0.308, 0.308, 1.0, 1.0]
@@ -137,7 +137,7 @@ tracks/2/path = NodePath("AnimationPlayer/Label:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2, 2.04, 4.06667, 4.1, 8.53333, 9.96667, 10, 14.9892, 19.5225),
+"times": PackedFloat32Array(0, 2, 2.04, 4.06667, 4.1, 9.50453, 10.9379, 10.9712, 14.9892, 19.5225),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["My creator had one mission when he decided to build me.
@@ -159,7 +159,7 @@ tracks/3/path = NodePath("AnimationPlayer/Fade:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(5.4, 5.76667, 6.76667),
+"times": PackedFloat32Array(5.4, 6.36667, 7.36667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -171,7 +171,7 @@ tracks/4/path = NodePath("AnimationPlayer/Label:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.0084, 5.7, 8.53333, 12.0072, 15, 19.5228),
+"times": PackedFloat32Array(0.0084, 5.7, 9.50453, 12.9784, 15, 19.5228),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true, false]
@@ -195,7 +195,7 @@ tracks/6/path = NodePath("AnimationPlayer/AudioStreamPlayer2D:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 1.04, 2.06, 3.02, 4.16667, 4.93333, 8.5288, 9.0388, 10.0096, 11.0096, 12.0072, 12.5072, 14.9972, 15.1496, 15.9996, 16.4896, 17.4696, 19.0148),
+"times": PackedFloat32Array(0, 1.04, 2.06, 3.02, 4.16667, 4.93333, 9.5, 10.01, 10.9808, 11.9808, 12.9784, 13.4784, 14.9972, 15.1496, 15.9996, 16.4896, 17.4696, 19.0148),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]

@@ -47,8 +47,12 @@ func record_input():
 		input_data = "↓ Down"
 
 	if input_data:
-		recorded_inputs.append(input_data)
-		update_label()
+		if level.check_moves() > 0:
+			recorded_inputs.append(input_data)
+			level.update_moves(1)
+			update_label()
+		else:
+			print("Ran out of moves!")
 
 func apply_input(input_data):
 	velocity = Vector2.ZERO
@@ -86,7 +90,11 @@ func move_or_action(direction):
 		global_position += direction * push_distance  # Move player
 	else:
 		var collider = result["collider"]
-		if collider is StaticBody2D and collider.has_method("push"):
+		if collider is StaticBody2D and collider.has_method("win"):
+			level.win()
+			return
+		
+		elif collider is StaticBody2D and collider.has_method("push"):
 			var rock_next_pos = collider.global_position + direction * push_distance
 			var query2 = PhysicsRayQueryParameters2D.create(collider.global_position, rock_next_pos, 1)
 			var result2 = space_state.intersect_ray(query2)
