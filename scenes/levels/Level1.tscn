@@ -33,7 +33,6 @@ texture_region_size = Vector2i(250, 250)
 2:2/0 = 0
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
-4:2/0 = 0
 5:2/0 = 0
 6:2/0 = 0
 7:2/0 = 0
@@ -48,10 +47,7 @@ texture_region_size = Vector2i(250, 250)
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
-5:4/0 = 0
-5:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
 6:4/0 = 0
-7:4/0 = 0
 8:4/0 = 0
 9:4/0 = 0
 0:5/0 = 0
@@ -59,11 +55,11 @@ texture_region_size = Vector2i(250, 250)
 2:5/0 = 0
 6:5/0 = 0
 6:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
-7:5/0 = 0
 8:5/0 = 0
-9:5/0 = 0
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+5:4/0 = 0
+5:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
 
 [sub_resource type="TileSet" id="TileSet_j08sa"]
 tile_size = Vector2i(250, 250)
@@ -107,7 +103,7 @@ tile_set = SubResource("TileSet_j08sa")
 
 [node name="ObjectLayer" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD+////AAAFAAQAAAD/////AAAFAAQAAAD//wEAAAAFAAQAAAAAAP7/AAAFAAQAAAABAP//AAAGAAUAAAABAAAAAAAFAAQAAAACAP7/AAAFAAQAAAACAP//AAAFAAQAAAACAAEAAAAGAAUAAAAAAAEAAAAGAAUAAAAAAAIAAAAFAAQAAAD+/wYAAAAFAAQAAAA=")
+tile_map_data = PackedByteArray("AAD+////AAAFAAQAAAD/////AAAFAAQAAAD//wEAAAAFAAQAAAABAP//AAAGAAUAAAABAAAAAAAFAAQAAAACAP7/AAAFAAQAAAACAP//AAAFAAQAAAACAAEAAAAGAAUAAAAAAAEAAAAGAAUAAAAAAAIAAAAFAAQAAAD+/wYAAAAFAAQAAAAAAP7/AAAFAAQAAAA=")
 tile_set = SubResource("TileSet_j08sa")
 
 [node name="GirlLayer" type="TileMapLayer" parent="TileMap"]
@@ -119,6 +115,7 @@ tile_set = SubResource("TileSet_j08sa")
 position = Vector2(-377, -375)
 
 [node name="LightingEffect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_68ib6")
 offset_left = -2144.0
 offset_top = -1185.0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxd50bsdropqu"]
+[gd_scene load_steps=13 format=3 uid="uid://bxd50bsdropqu"]
 
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_3r6k8"]
+[ext_resource type="Script" uid="uid://dhq1r6jxipasn" path="res://scenes/cutScenes/slime_cut_scene.gd" id="1_8oj6d"]
 [ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="2_1i11u"]
-[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_g85jp"]
+[ext_resource type="Texture2D" uid="uid://b4bmgebq4tfrm" path="res://assets/sprites/characters/slime/Slime_Girl_(Fumbled).png" id="2_8oj6d"]
 [ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="2_ipgsv"]
-[ext_resource type="Texture2D" uid="uid://dknau7x6ryemw" path="res://assets/sprites/characters/slime/Slime_Girl_Success.png" id="3_pma22"]
+[ext_resource type="Texture2D" uid="uid://b7fna2rx47xkv" path="res://assets/sprites/characters/slime/Slime_Girl_(Rizzed).png" id="4_lvbf2"]
 [ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="4_yxl3i"]
 
 [sub_resource type="Animation" id="Animation_g85jp"]
@@ -13,7 +14,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -56,7 +57,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 8.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_g85jp"), ExtResource("2_g85jp")]
+"values": [ExtResource("2_8oj6d"), ExtResource("2_8oj6d")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -74,15 +75,14 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_ipgsv"]
 resource_name = "MeetCute"
 length = 5.0
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(3.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -90,11 +90,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(3.46667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -106,11 +106,10 @@ tracks/2/path = NodePath("AnimationPlayer/Dialogue:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 4.96667),
+"times": PackedFloat32Array(0.0333333, 3.26667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": ["Uwaa~! Y-You're looking at me so much...
-Am I melting?!", "Uwaa~! Y-You're looking at me so much...
+"values": ["", "Uwaa~! Y-You're looking at me so much...
 Am I melting?!"]
 }
 tracks/3/type = "value"
@@ -143,7 +142,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -155,7 +154,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -215,7 +214,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.0333333, 5.83333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("3_pma22"), ExtResource("3_pma22")]
+"values": [ExtResource("4_lvbf2"), ExtResource("4_lvbf2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -234,7 +233,7 @@ Waaa~! My core feels all tingly...!"]
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/2/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -246,7 +245,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/3/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -277,11 +276,13 @@ _data = {
 }
 
 [node name="SlimeCutScene" type="Node2D"]
+script = ExtResource("1_8oj6d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_yxl3i")
 }
+autoplay = "MeetCute"
 
 [node name="WindowBkg" type="ColorRect" parent="AnimationPlayer"]
 anchors_preset = 15
@@ -308,9 +309,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -154.573
-offset_top = -271.0
+offset_top = -267.0
 offset_right = 154.573
-offset_bottom = 72.0
+offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_3r6k8")
@@ -357,7 +358,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 1
 
-[node name="Choice1" type="Button" parent="AnimationPlayer"]
+[node name="SuccessChoice" type="Button" parent="AnimationPlayer"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -373,7 +374,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_yxl3i")
 text = "Melt? No way—you're just radiating maximum adorableness. My circuits can barely handle it."
 
-[node name="Choice2" type="Button" parent="AnimationPlayer"]
+[node name="FailChoice" type="Button" parent="AnimationPlayer"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -405,3 +406,6 @@ theme_override_colors/font_color = Color(0.356863, 0.662745, 0.588235, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_1i11u")
 text = "</>"
+
+[connection signal="pressed" from="AnimationPlayer/SuccessChoice" to="." method="_on_success_choice_pressed"]
+[connection signal="pressed" from="AnimationPlayer/FailChoice" to="." method="_on_fail_choice_pressed"]

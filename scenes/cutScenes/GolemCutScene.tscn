@@ -278,7 +278,7 @@ _data = {
 &"Success": SubResource("Animation_pma22")
 }
 
-[node name="SlimeCutScene" type="Node2D"]
+[node name="GolemCutScene" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

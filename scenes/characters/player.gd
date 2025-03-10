@@ -84,6 +84,7 @@ func move_or_action(direction):
 	var girl_tile = girl_layer.get_cell_source_id(next_tile)
 	print("Rock Tile ID:", rock_tile)
 	print("Player Tile ID:", player_tile)
+	print("Wall Tile ID:", wall_tile)
 
 	if girl_tile != EMPTY_TILE:
 		level.win()
