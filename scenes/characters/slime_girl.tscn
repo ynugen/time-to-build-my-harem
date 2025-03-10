@@ -20,10 +20,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_m5u7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i7un5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_psv6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_jl62c")
 }],
 "loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 15.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cii47"]
@@ -33,7 +42,7 @@ script = ExtResource("1_psv6j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ws0sm")
-frame_progress = 0.119009
+frame_progress = 0.656877
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 20)

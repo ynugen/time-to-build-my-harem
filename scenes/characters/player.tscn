@@ -24,10 +24,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_eojnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6eyoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kqtwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_atpat")
 }],
 "loop": true,
 "name": &"default",
-"speed": 6.0
+"speed": 15.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -38,4 +47,4 @@ shape = SubResource("CapsuleShape2D_cko2x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qgnko")
-frame_progress = 0.508452
+frame_progress = 0.883937

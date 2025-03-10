@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite2d = $AnimatedSprite2D
+@onready var arrow_container = $"../CanvasLayer/UI/Sprite2D/ArrowContainer"
 
 @onready var movement_label = get_node_or_null("../UI/MovementLabel")
 @onready var tilemap = get_node_or_null("../TileMap")
@@ -24,9 +25,19 @@ var playback_interval = 0.2  # Time between actions during playback
 @export var move_speed = 250
 @export var push_distance = 250
 
+
+var arrow_scene = preload("res://scenes/characters/arrow_sprite.tscn")
+var max_arrows_per_line = 10  # Number of arrows per line
+var arrow_y_offset = 10  # Vertical spacing between rows
+
 func _ready():
 	animated_sprite2d.play("default")
-
+	
+	if arrow_scene != null:
+		print("Arrow scene has been loaded successfully.")
+	else:
+		print("Arrow scene failed to load.")
+		
 # frames
 func _process(delta):
 	if is_recording:
@@ -56,8 +67,31 @@ func record_input():
 			recorded_inputs.append(input_data)
 			level.update_moves(1)
 			update_label()
+			add_arrow_to_ui(input_data)
 		else:
 			print("Ran out of moves!")
+
+func add_arrow_to_ui(direction):
+	var arrow = arrow_scene.instantiate()
+	
+	# Assign the correct texture based on the direction
+	match direction:
+		"→ Right":
+			arrow.texture = load("res://assets/sprites/ui/right arrow.png")
+		"← Left":
+			arrow.texture = load("res://assets/sprites/ui/left arrow.png")
+		"↑ Up":
+			arrow.texture = load("res://assets/sprites/ui/up arrow.png")
+		"↓ Down":
+			arrow.texture = load("res://assets/sprites/ui/down arrow.png")
+	
+	var arrow_x_position = (recorded_inputs.size() % max_arrows_per_line) * 4  # Horizontal position
+	var arrow_y_position = (recorded_inputs.size() / max_arrows_per_line) * arrow_y_offset
+	
+	arrow_container.add_child(arrow)
+	arrow.position = Vector2(recorded_inputs.size() * 4, 0)
+
+
 
 func apply_input(input_data):
 	velocity = Vector2.ZERO
