@@ -1,11 +1,10 @@
 extends Node2D
 
-@onready var player = $Player  # Get reference to Player
+#@onready var player = $Player  # Get reference to Player
 @onready var moves_label = $CanvasLayer/UI/Sprite2D/MovesLabel
 @onready var camera = $Camera2D
-#@onready var slime_girl = $TileMap/SlimeGirl
 
-
+@export var player : CharacterBody2D
 @export var waifu : CharacterBody2D
 @export var meet_cutscene: PackedScene
 @export var MAX_MOVES: int

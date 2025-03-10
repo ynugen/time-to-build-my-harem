@@ -2,43 +2,31 @@ extends CharacterBody2D
 
 @onready var animated_sprite2d = $AnimatedSprite2D
 @onready var arrow_container = $"../CanvasLayer/UI/Sprite2D/ArrowContainer"
-
 @onready var movement_label = get_node_or_null("../UI/MovementLabel")
 @onready var tilemap = get_node_or_null("../TileMap")
 @onready var level = get_node_or_null("..")
 
-# Access the child layers
-@onready var floor_layer = get_node_or_null("../TileMap/FloorLayer")  # Adjust path if necessary
+@onready var floor_layer = get_node_or_null("../TileMap/FloorLayer")
 @onready var wall_layer = get_node_or_null("../TileMap/WallLayer")
 
-const EMPTY_TILE = -1   # Empty tile index (no tile)
-const TILE_SIZE = 250      # Adjust based on your tile size
-
-# define variables
-var recorded_inputs = []  # Stores input sequence
-var is_recording = false
-var is_playing = false
-var playback_index = 0
-var playback_timer = 0.0
-var playback_interval = 0.2  # Time between actions during playback
+const EMPTY_TILE = -1  
+const TILE_SIZE = 250  
 
 @export var move_speed = 250
 @export var push_distance = 250
 
+var recorded_inputs = []
+var is_recording = false
+var is_playing = false
+var playback_index = 0
+var playback_timer = 0.0
+var playback_interval = 0.2  
 
 var arrow_scene = preload("res://scenes/characters/arrow_sprite.tscn")
-var max_arrows_per_line = 10  # Number of arrows per line
-var arrow_y_offset = 10  # Vertical spacing between rows
 
 func _ready():
 	animated_sprite2d.play("default")
-	
-	if arrow_scene != null:
-		print("Arrow scene has been loaded successfully.")
-	else:
-		print("Arrow scene failed to load.")
-		
-# frames
+
 func _process(delta):
 	if is_recording:
 		record_input()
@@ -46,22 +34,14 @@ func _process(delta):
 	if is_playing:
 		playback_timer -= delta
 		if playback_timer <= 0 and playback_index < recorded_inputs.size():
+			print("Applying move:", recorded_inputs[playback_index])  # Debug
 			apply_input(recorded_inputs[playback_index])
 			playback_index += 1
 			playback_timer = playback_interval  # Reset timer for next input
 
-func record_input():
-	var input_data = null
-	
-	if Input.is_action_just_pressed("ui_right"):
-		input_data = "→ Right"
-	elif Input.is_action_just_pressed("ui_left"):
-		input_data = "← Left"
-	elif Input.is_action_just_pressed("ui_up"):
-		input_data = "↑ Up"
-	elif Input.is_action_just_pressed("ui_down"):
-		input_data = "↓ Down"
 
+func record_input():
+	var input_data = get_input_action()
 	if input_data:
 		if level.check_moves() > 0:
 			recorded_inputs.append(input_data)
@@ -70,28 +50,25 @@ func record_input():
 			add_arrow_to_ui(input_data)
 		else:
 			print("Ran out of moves!")
+			check_game_over()
+
+func get_input_action():
+	if Input.is_action_just_pressed("ui_right"):
+		return "→ Right"
+	elif Input.is_action_just_pressed("ui_left"):
+		return "← Left"
+	elif Input.is_action_just_pressed("ui_up"):
+		return "↑ Up"
+	elif Input.is_action_just_pressed("ui_down"):
+		return "↓ Down"
+	return null
 
 func add_arrow_to_ui(direction):
 	var arrow = arrow_scene.instantiate()
-	
-	# Assign the correct texture based on the direction
-	match direction:
-		"→ Right":
-			arrow.texture = load("res://assets/sprites/ui/right arrow.png")
-		"← Left":
-			arrow.texture = load("res://assets/sprites/ui/left arrow.png")
-		"↑ Up":
-			arrow.texture = load("res://assets/sprites/ui/up arrow.png")
-		"↓ Down":
-			arrow.texture = load("res://assets/sprites/ui/down arrow.png")
-	
-	var arrow_x_position = (recorded_inputs.size() % max_arrows_per_line) * 4  # Horizontal position
-	var arrow_y_position = (recorded_inputs.size() / max_arrows_per_line) * arrow_y_offset
-	
+	arrow.texture = load("res://assets/sprites/ui/%s arrow.png" % direction.split(" ")[1].to_lower())
+
 	arrow_container.add_child(arrow)
 	arrow.position = Vector2(recorded_inputs.size() * 4, 0)
-
-
 
 func apply_input(input_data):
 	velocity = Vector2.ZERO
@@ -111,45 +88,60 @@ func apply_input(input_data):
 		move_or_action(direction)
 
 func move_or_action(direction):
-	var player_tile: Vector2i = tilemap.local_to_map(global_position)
-	var direction_int = Vector2i(direction)  # convert movement to tilemap coordinates
-	var next_tile = player_tile + direction_int  # tile in front of player
+	var player_tile = tilemap.local_to_map(global_position)
+	var direction_int = Vector2i(direction)
+	var next_tile = player_tile + direction_int
 	var wall_tile = wall_layer.get_cell_source_id(next_tile)
-	
-	print("Player Tile ID:", player_tile)
-	print("Wall Tile ID:", wall_tile)
-	
+
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + direction * push_distance, 1)
 	var result = space_state.intersect_ray(query)
-	
+
+	# If there's a wall, don't move
 	if wall_tile != EMPTY_TILE:
-		pass
-	elif result.is_empty():
-		global_position += direction * push_distance  # Move player
+		return  
+
+	# If nothing in the way, move the player
+	if result.is_empty():
+		global_position += direction * push_distance  
+		return  
+
+	# Handle collision (pushing objects or checking win condition)
+	handle_collision(result, direction)
+
+func handle_collision(result, direction):
+	var collider = result.get("collider")  # Use .get() to avoid errors if no collider is found
+
+	if collider is CharacterBody2D and collider.has_method("win"):
+		level.win()
+	elif collider is StaticBody2D and collider.has_method("push"):
+		push_object(collider, direction)
+
+func push_object(collider, direction):
+	var rock_next_pos = collider.global_position + direction * push_distance
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(collider.global_position, rock_next_pos, 1)
+	var result = space_state.intersect_ray(query)
+
+	var rock_next_tile = tilemap.local_to_map(rock_next_pos)
+	var wall_after_rock = wall_layer.get_cell_source_id(rock_next_tile)
+
+	# If the rock can move, push it and shake the level
+	if result.is_empty() and wall_after_rock == EMPTY_TILE:
+		collider.push(direction)
+		level.shake()
 	else:
-		var collider = result["collider"]
-		if collider is CharacterBody2D and collider.has_method("win"):
-			level.win()
-			return
-		
-		elif collider is StaticBody2D and collider.has_method("push"):
-			var rock_next_pos = collider.global_position + direction * push_distance
-			var query2 = PhysicsRayQueryParameters2D.create(collider.global_position, rock_next_pos, 1)
-			var result2 = space_state.intersect_ray(query2)
-			
-			var rock_next_tile = tilemap.local_to_map(rock_next_pos)
-			var wall_after_rock = wall_layer.get_cell_source_id(rock_next_tile)
-			
-			if result2.is_empty() and wall_after_rock == EMPTY_TILE:
-				collider.push(direction)
-				level.shake()
-			else:
-				print("Rock cannot be pushed further!")
+		print("Rock cannot be pushed further!")
+
 
 func update_label():
 	if movement_label:
 		movement_label.text = "Moves: " + ", ".join(recorded_inputs)
+
+func check_game_over():
+	if level.check_moves() <= 0:
+		print("Game Over! Restarting Level...")
+		level._on_restart_pressed()  
 
 func start_recording():
 	recorded_inputs.clear()
@@ -162,8 +154,8 @@ func stop_recording():
 	print("Recording stopped")
 
 func start_playback():
-		is_playing = true
-		is_recording = false
-		playback_index = 0
-		playback_timer = 0.0
-		print("Playback started")
+	is_playing = true
+	is_recording = false
+	playback_index = 0
+	playback_timer = 0.0
+	print("Playback started")

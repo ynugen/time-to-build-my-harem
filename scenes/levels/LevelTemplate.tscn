@@ -92,8 +92,9 @@ shader = ExtResource("5_n1m61")
 [sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
 font_size = 300
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("waifu")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
 script = ExtResource("1_0l3oi")
+player = NodePath("Player")
 waifu = NodePath("TileMap/SlimeGirl")
 meet_cutscene = ExtResource("2_06w7e")
 MAX_MOVES = 10
