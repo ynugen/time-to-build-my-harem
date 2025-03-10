@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var girl_layer = get_node_or_null("../TileMap/GirlLayer")
 
 const EMPTY_TILE = -1   # Empty tile index (no tile)
-const TILE_SIZE = 250    # Adjust based on your tile size
+const TILE_SIZE = 250      # Adjust based on your tile size
 
 # define variables
 var recorded_inputs = []  # Stores input sequence
@@ -79,20 +79,22 @@ func move_or_push(direction):
 	var next_tile = player_tile + direction_int  # Tile in front of player
 	
 	var rock_tile = object_layer.get_cell_source_id(next_tile)
+	var wall_tile = wall_layer.get_cell_source_id(next_tile)
 	print("Rock Tile ID:", rock_tile)
 	print("Player Tile ID:", player_tile)
-	print("Rock Tile ID:", rock_tile)
 
-	if rock_tile != EMPTY_TILE:  # If a rock exists
+	if wall_tile != EMPTY_TILE:
+		pass
+	elif rock_tile != EMPTY_TILE:  # If a rock exists
 		print("Rock exists at: ", next_tile)
-		var rock_next_tile = next_tile + direction_int  # Tile after the rock
+		var rock_next_tile = next_tile + direction_int
 		
 		var after_rock_tile = object_layer.get_cell_source_id(rock_next_tile)
 		
-		if after_rock_tile == EMPTY_TILE:  # Can push rock if next tile is empty
-			print("Next tile is empty")
-			object_layer.set_cell(next_tile, EMPTY_TILE)  # Remove rock from its original spot	
-			object_layer.set_cell(rock_next_tile, rock_tile)  # Move the rock forward
+		if after_rock_tile == EMPTY_TILE:  # can push rock if next tile is empty
+			print("Next tile is empty, moving rock")
+			object_layer.set_cell(rock_next_tile, rock_tile)  # move the rock forward
+			object_layer.set_cell(next_tile, EMPTY_TILE)  # remove rock from its original spot	
 			# position += direction * TILE_SIZE  # Move player
 	
 	else: # no rock in front
