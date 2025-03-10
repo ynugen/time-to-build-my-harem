@@ -1,6 +1,16 @@
 extends CharacterBody2D
 
 @onready var movement_label = get_node_or_null("../UI/MovementLabel")
+@onready var tilemap = get_node_or_null("../TileMap")
+
+# Access the child layers
+@onready var floor_layer = get_node_or_null("../TileMap/FloorLayer")  # Adjust path if necessary
+@onready var wall_layer = get_node_or_null("../TileMap/WallLayer")
+@onready var object_layer = get_node_or_null("../TileMap/ObjectLayer")
+@onready var girl_layer = get_node_or_null("../TileMap/GirlLayer")
+
+const EMPTY_TILE = -1   # Empty tile index (no tile)
+const TILE_SIZE = 250    # Adjust based on your tile size
 
 # define variables
 var recorded_inputs = []  # Stores input sequence
@@ -9,6 +19,14 @@ var is_playing = false
 var playback_index = 0
 var playback_timer = 0.0
 var playback_interval = 0.2  # Time between actions during playback
+
+func _ready():
+	var layer_count = tilemap.get_layers_count()
+	
+	print("Total layers:", layer_count)
+	
+	for i in range(layer_count):
+		print("Layer", i, " is visible:", tilemap.is_layer_enabled(i))
 
 # frames
 func _process(delta):
@@ -40,18 +58,47 @@ func record_input():
 
 func apply_input(input_data):
 	velocity = Vector2.ZERO
+	var direction = Vector2.ZERO 
 	
 	match input_data:
 		"→ Right":
-			velocity.x = 2000
+			direction = Vector2.RIGHT
 		"← Left":
-			velocity.x = -2000
+			direction = Vector2.LEFT
 		"↑ Up":
-			velocity.y = -2000
+			direction = Vector2.UP
 		"↓ Down":
-			velocity.y = 2000
+			direction = Vector2.DOWN
 	
-	move_and_slide()
+	if direction != Vector2.ZERO:
+		move_or_push(direction)
+
+func move_or_push(direction):
+	var player_tile: Vector2i = tilemap.local_to_map(global_position)
+	var direction_int = Vector2i(direction)  # Convert movement to tilemap coordinates
+	var next_tile = player_tile + direction_int  # Tile in front of player
+	
+	var rock_tile = object_layer.get_cell_source_id(next_tile)
+	print("Rock Tile ID:", rock_tile)
+	print("Player Tile ID:", player_tile)
+	print("Rock Tile ID:", rock_tile)
+
+	if rock_tile != EMPTY_TILE:  # If a rock exists
+		print("Rock exists at: ", next_tile)
+		var rock_next_tile = next_tile + direction_int  # Tile after the rock
+		
+		var after_rock_tile = object_layer.get_cell_source_id(rock_next_tile)
+		
+		if after_rock_tile == EMPTY_TILE:  # Can push rock if next tile is empty
+			print("Next tile is empty")
+			object_layer.set_cell(next_tile, EMPTY_TILE)  # Remove rock from its original spot	
+			object_layer.set_cell(rock_next_tile, rock_tile)  # Move the rock forward
+			# position += direction * TILE_SIZE  # Move player
+	
+	else: # no rock in front
+		print("No rock in front")
+		position += direction * TILE_SIZE
+	
 
 func update_label():
 	if movement_label:

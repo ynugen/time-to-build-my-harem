@@ -15,3 +15,7 @@ func _on_stop_recording_pressed() -> void:
 func _on_start_recording_pressed() -> void:
 	if player:
 		player.start_recording()
+
+
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
