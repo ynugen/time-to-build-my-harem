@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://db8o4uco604ns" path="res://assets/sprites/characters/player/Wins_Default_4.png" id="5_eojnx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cko2x"]
-radius = 86.6667
+radius = 86.6665
 height = 173.333
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qgnko"]

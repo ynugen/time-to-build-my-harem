@@ -18,6 +18,7 @@ const TILE_SIZE = 250
 var recorded_inputs = []
 var is_recording = false
 var is_playing = false
+var is_finished = false
 var playback_index = 0
 var playback_timer = 0.0
 var playback_interval = 0.2  
@@ -38,6 +39,11 @@ func _process(delta):
 			apply_input(recorded_inputs[playback_index])
 			playback_index += 1
 			playback_timer = playback_interval  # Reset timer for next input
+		elif playback_index >= recorded_inputs.size():
+			is_finished = true
+	
+	if is_finished:
+		level._on_restart_pressed()  
 
 
 func record_input():
@@ -50,7 +56,7 @@ func record_input():
 			add_arrow_to_ui(input_data)
 		else:
 			print("Ran out of moves!")
-			check_game_over()
+			#check_game_over()
 
 func get_input_action():
 	if Input.is_action_just_pressed("ui_right"):
@@ -147,6 +153,7 @@ func start_recording():
 	recorded_inputs.clear()
 	is_recording = true
 	is_playing = false
+	is_finished = false
 	print("Recording started")
 
 func stop_recording():
