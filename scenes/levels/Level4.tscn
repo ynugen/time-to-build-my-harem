@@ -1,18 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://duw8f5d76dxbb"]
+[gd_scene load_steps=16 format=4 uid="uid://ccg4fs2lki8kf"]
 
-[ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_0l3oi"]
-[ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="2_5ypnm"]
-[ext_resource type="PackedScene" uid="uid://bxd50bsdropqu" path="res://scenes/cutScenes/SlimeCutScene.tscn" id="2_06w7e"]
-[ext_resource type="PackedScene" uid="uid://52w6r6114h4p" path="res://scenes/characters/slime_girl.tscn" id="3_06w7e"]
-[ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="4_2iq81"]
-[ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="5_n1m61"]
-[ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="6_85lyy"]
-[ext_resource type="PackedScene" uid="uid://b7fyj1luk7j1t" path="res://scenes/characters/rock.tscn" id="7_vltbs"]
-[ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="8_7o8w5"]
-[ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="9_khnmn"]
+[ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_g8eim"]
+[ext_resource type="PackedScene" uid="uid://chmh5oc0s1yja" path="res://scenes/cutScenes/LavaCutScene.tscn" id="2_g8eim"]
+[ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="3_u5dj7"]
+[ext_resource type="PackedScene" uid="uid://52w6r6114h4p" path="res://scenes/characters/slime_girl.tscn" id="4_h6fe6"]
+[ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="5_ml44n"]
+[ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="6_iisik"]
+[ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="7_60s12"]
+[ext_resource type="PackedScene" uid="uid://b7fyj1luk7j1t" path="res://scenes/characters/rock.tscn" id="8_w8irg"]
+[ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="9_k5e6m"]
+[ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="10_qdxfc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7d7pp"]
-texture = ExtResource("2_5ypnm")
+texture = ExtResource("3_u5dj7")
 texture_region_size = Vector2i(250, 250)
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
@@ -87,16 +87,16 @@ func get_player_tile():
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68ib6"]
-shader = ExtResource("5_n1m61")
+shader = ExtResource("6_iisik")
 
 [sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
 font_size = 300
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
-script = ExtResource("1_0l3oi")
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
+script = ExtResource("1_g8eim")
 player = NodePath("Player")
 waifu = NodePath("TileMap/SlimeGirl")
-meet_cutscene = ExtResource("2_06w7e")
+meet_cutscene = ExtResource("2_g8eim")
 MAX_MOVES = 10
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -114,10 +114,10 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAADAP3/AAADAAAAAAADAP7/AAADAAEAAAADAP//AAADAAEAAAADAAAAAAADAAEAAAADAAEAAAADAAIAAAADAAIAAAADAAEAAAD9/wMAAAAAAAMAAAD+//3/AAABAAAAAAD+/wMAAAABAAMAAAD///3/AAAAAAQAAAD//wMAAAABAAMAAAAAAP3/AAABAAAAAAAAAAMAAAABAAMAAAABAP3/AAABAAAAAAABAAMAAAABAAMAAAACAP3/AAABAAQAAAACAAMAAAABAAMAAAADAAMAAAADAAMAAAA=")
 tile_set = SubResource("TileSet_j08sa")
 
-[node name="SlimeGirl" parent="TileMap" instance=ExtResource("3_06w7e")]
+[node name="SlimeGirl" parent="TileMap" instance=ExtResource("4_h6fe6")]
 position = Vector2(648, 624)
 
-[node name="Player" parent="." instance=ExtResource("4_2iq81")]
+[node name="Player" parent="." instance=ExtResource("5_ml44n")]
 position = Vector2(-377, -375)
 
 [node name="LightingEffect" type="ColorRect" parent="."]
@@ -133,7 +133,7 @@ scale = Vector2(115.727, 65.5356)
 position = Vector2(0, 248)
 offset = Vector2(175, 125)
 zoom = Vector2(0.25, 0.25)
-script = ExtResource("6_85lyy")
+script = ExtResource("7_60s12")
 
 [node name="RockContainer" type="Control" parent="."]
 layout_mode = 3
@@ -141,37 +141,37 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Rock" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(128, -384)
 
-[node name="Rock3" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock3" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(-384, -128)
 
-[node name="Rock5" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock5" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(640, -128)
 
-[node name="Rock6" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock6" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(376, -128)
 
-[node name="Rock7" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock7" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(-120, 384)
 
-[node name="Rock8" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock8" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(376, 128)
 
-[node name="Rock9" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock9" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(128, 384)
 
-[node name="Rock10" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock10" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(128, 648)
 
-[node name="Rock11" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock11" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(640, 384)
 
-[node name="Rock4" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock4" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(-120, -128)
 
-[node name="Rock2" parent="RockContainer" instance=ExtResource("7_vltbs")]
+[node name="Rock2" parent="RockContainer" instance=ExtResource("8_w8irg")]
 position = Vector2(640, -384)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -201,6 +201,15 @@ offset_bottom = 599.0
 text = "Restart"
 metadata/_edit_use_anchors_ = true
 
+[node name="StopRecording" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 512.0
+offset_right = 1122.0
+offset_bottom = 543.0
+text = "Stop Recording Inputs"
+metadata/_edit_use_anchors_ = true
+
 [node name="StartRecording" type="Button" parent="CanvasLayer/UI"]
 layout_mode = 0
 offset_left = 744.0
@@ -213,7 +222,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UI"]
 position = Vector2(376, 536)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_7o8w5")
+texture = ExtResource("9_k5e6m")
 
 [node name="MovesLabel" type="Label" parent="CanvasLayer/UI/Sprite2D"]
 offset_left = -1016.0
@@ -240,8 +249,9 @@ offset_top = -1264.0
 offset_right = 2664.0
 offset_bottom = 1728.0
 color = Color(0, 0, 0, 1)
-script = ExtResource("9_khnmn")
+script = ExtResource("10_qdxfc")
 
 [connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/StopRecording" to="." method="_on_stop_recording_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/StartRecording" to="." method="_on_start_recording_pressed"]

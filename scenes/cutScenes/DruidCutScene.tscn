@@ -2,13 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dgfifndvgh66o" path="res://assets/sprites/characters/druid/Druid_Girl_(Fumbled).png" id="1_2vtqb"]
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_8sprc"]
-[ext_resource type="Script" uid="uid://c36eos67k8acc" path="res://scenes/cutScenes/druid_cut_scene.gd" id="1_n42b6"]
-[ext_resource type="Texture2D" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_2vtqb"]
+[ext_resource type="Script" path="res://scenes/cutScenes/druid_cut_scene.gd" id="1_n42b6"]
 [ext_resource type="Texture2D" uid="uid://dobhfpwcqf302" path="res://assets/sprites/characters/druid/Druid_Girl.png" id="2_34wao"]
 [ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="4_n42b6"]
 [ext_resource type="Texture2D" uid="uid://bdmxg4oj4ijp5" path="res://assets/sprites/characters/druid/Druid_Girl_(Rizzed).png" id="5_34wao"]
 [ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="5_kq1xt"]
 [ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="6_w15k1"]
+
+[sub_resource type="Resource" id="Resource_34wao"]
+metadata/__load_path__ = "res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png"
 
 [sub_resource type="Animation" id="Animation_g85jp"]
 resource_name = "Fumble"
@@ -60,7 +62,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 8.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("1_2vtqb"), ExtResource("2_2vtqb")]
+"values": [ExtResource("1_2vtqb"), SubResource("Resource_34wao")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false

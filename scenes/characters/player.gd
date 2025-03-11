@@ -125,6 +125,7 @@ func handle_collision(result, direction):
 	var collider = result.get("collider")  # Use .get() to avoid errors if no collider is found
 
 	if collider is CharacterBody2D and collider.has_method("win"):
+		print("found waifu")
 		level.win()
 	elif collider is StaticBody2D and collider.has_method("push"):
 		push_object(collider, direction)

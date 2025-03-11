@@ -15,7 +15,7 @@ func _on_fail_choice_pressed() -> void:
 
 
 func _on_next_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/Level2.2.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/Level2.tscn")
 
 
 func _on_retry_pressed() -> void:

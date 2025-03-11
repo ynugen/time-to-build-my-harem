@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://deoya1s17hiiw"]
+[gd_scene load_steps=7 format=3 uid="uid://c2ffd13ng2aby"]
 
 [ext_resource type="PackedScene" uid="uid://52w6r6114h4p" path="res://scenes/characters/slime_girl.tscn" id="1_8gxyw"]
 [ext_resource type="Texture2D" uid="uid://d0g3c42whowbm" path="res://assets/sprites/characters/druid/sprite/Plant_Girl_Sprite_1.png" id="2_htcxi"]
@@ -20,10 +20,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_k584x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eivng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kry1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_htcxi")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [node name="DruidGirl" instance=ExtResource("1_8gxyw")]

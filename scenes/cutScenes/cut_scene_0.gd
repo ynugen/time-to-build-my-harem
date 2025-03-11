@@ -20,7 +20,7 @@ func _on_animation_finished(animName):
 
 # Change to level scene
 func skip_cutscene():
-	get_tree().change_scene_to_file("res://scenes/levels/LevelTemplate.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/Level1.tscn")
 
 # Skip cutscene if skip button pressed
 func _on_skip_pressed() -> void:
