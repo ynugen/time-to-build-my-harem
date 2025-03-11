@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://ccg4fs2lki8kf"]
+[gd_scene load_steps=27 format=4 uid="uid://ccg4fs2lki8kf"]
 
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_g8eim"]
 [ext_resource type="PackedScene" uid="uid://chmh5oc0s1yja" path="res://scenes/cutScenes/LavaCutScene.tscn" id="2_g8eim"]
@@ -14,7 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://ckuijkhsjh2sk" path="res://scenes/characters/lava_rock.tscn" id="10_iisik"]
 [ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="10_qdxfc"]
 [ext_resource type="PackedScene" uid="uid://b0ht5mlea37mo" path="res://scenes/characters/lava_girl.tscn" id="11_60s12"]
+[ext_resource type="Texture2D" uid="uid://w66ibmpvylb8" path="res://assets/sprites/ui/button background ui.png" id="14_k5e6m"]
 [ext_resource type="PackedScene" uid="uid://tipmthlg7b2i" path="res://scenes/characters/lava_enemy.tscn" id="14_ml44n"]
+[ext_resource type="Texture2D" uid="uid://mn3p2b7rkupc" path="res://assets/sprites/ui/start button.png" id="15_qdxfc"]
+[ext_resource type="Texture2D" uid="uid://dpm3hcal3siqm" path="res://assets/sprites/ui/replay button.png" id="16_rgdxs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7d7pp"]
 texture = ExtResource("3_u5dj7")
@@ -247,26 +250,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Play" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 816.0
-offset_top = 568.0
-offset_right = 857.0
-offset_bottom = 599.0
-text = "Play"
-metadata/_edit_use_anchors_ = true
-
-[node name="Restart" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 944.0
-offset_top = 568.0
-offset_right = 1009.0
-offset_bottom = 599.0
-text = "Restart"
-metadata/_edit_use_anchors_ = true
-
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UI"]
-position = Vector2(376, 536)
+position = Vector2(416, 520)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_k5e6m")
 
@@ -286,6 +271,33 @@ offset_top = -26.6667
 offset_right = -466.667
 offset_bottom = 13.3333
 scale = Vector2(30.4695, 12.4364)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/UI"]
+position = Vector2(968, 520)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("14_k5e6m")
+
+[node name="Play" type="Button" parent="CanvasLayer/UI/Sprite2D2"]
+offset_left = -140.0
+offset_top = -120.0
+offset_right = 255.0
+offset_bottom = 38.0
+scale = Vector2(0.8, 0.8)
+text = "Play"
+icon = ExtResource("15_qdxfc")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="CanvasLayer/UI/Sprite2D2"]
+offset_left = -140.0
+offset_top = -5.0
+offset_right = 279.0
+offset_bottom = 153.0
+scale = Vector2(0.8, 0.8)
+text = "Restart"
+icon = ExtResource("16_rgdxs")
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -309,5 +321,5 @@ position = Vector2(648, 872)
 [node name="LavaEnemy4" parent="." instance=ExtResource("14_ml44n")]
 position = Vector2(1128, 600)
 
-[connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Sprite2D2/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Sprite2D2/Restart" to="." method="_on_restart_pressed"]

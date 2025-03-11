@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dr1ygx16yykxr"]
+[gd_scene load_steps=23 format=4 uid="uid://dr1ygx16yykxr"]
 
 [ext_resource type="Texture2D" uid="uid://cbm5rbgj7is3x" path="res://assets/sprites/tiles/Golem tile map final.png" id="1_63eb4"]
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_h66bl"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="9_bqc3i"]
 [ext_resource type="PackedScene" uid="uid://bknek5dwu116w" path="res://scenes/characters/golem_rock.tscn" id="9_vnuxi"]
 [ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="10_ljeji"]
+[ext_resource type="Texture2D" uid="uid://w66ibmpvylb8" path="res://assets/sprites/ui/button background ui.png" id="12_vjdto"]
+[ext_resource type="Texture2D" uid="uid://mn3p2b7rkupc" path="res://assets/sprites/ui/start button.png" id="13_bqc3i"]
+[ext_resource type="Texture2D" uid="uid://dpm3hcal3siqm" path="res://assets/sprites/ui/replay button.png" id="14_ljeji"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7d7pp"]
 texture = ExtResource("3_bs2pm")
@@ -141,7 +144,7 @@ script = ExtResource("1_h66bl")
 player = NodePath("Player")
 waifu = NodePath("TileMap/GolemGirl")
 meet_cutscene = ExtResource("2_vnuxi")
-MAX_MOVES = 16
+MAX_MOVES = 19
 level_music = ExtResource("3_i2tsv")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -156,7 +159,7 @@ tile_set = SubResource("TileSet_j08sa")
 
 [node name="WallLayer" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAADAP7/AQABAAAAAAD+//3/AQABAAAAAAD///3/AQABAAAAAAAAAP3/AQABAAAAAAABAP3/AQABAAAAAAACAP3/AQADAAAAAAADAAMAAQAAAAQAAAACAP7/AQAAAAYAAAAEAP7/AQADAAAAAAAEAP//AQAAAAYAAAAFAP//AQADAAAAAAAFAAAAAQADAAIAAAAFAAEAAQADAAIAAAAFAAIAAQADAAMAAAAEAAIAAQAAAAQAAAAEAAMAAQADAAMAAAADAAQAAQADAAMAAAACAAQAAQACAAMAAAABAAQAAQACAAMAAAAAAAQAAQACAAMAAAD//wQAAQACAAMAAAD+/wQAAQAAAAMAAAD8////AQAAAAAAAAD8/wIAAQAAAAMAAAD9//3/AQAAAAAAAAD9/wMAAQAAAAMAAAD8/wAAAQAAAAEAAAD8/wEAAQAAAAEAAAD9//7/AQAAAAEAAAD9////AQACAAYAAAD9/wIAAQACAAQAAAD+/wMAAQACAAQAAAAAAP7/AQAFAAUAAAD//wMAAQAFAAUAAAADAP//AQAFAAUAAAA=")
+tile_map_data = PackedByteArray("AAADAP7/AQABAAAAAAD+//3/AQABAAAAAAD///3/AQABAAAAAAAAAP3/AQABAAAAAAABAP3/AQABAAAAAAACAP3/AQADAAAAAAADAAMAAQAAAAQAAAACAP7/AQAAAAYAAAAEAP7/AQADAAAAAAAEAP//AQAAAAYAAAAFAP//AQADAAAAAAAFAAAAAQADAAIAAAAFAAEAAQADAAIAAAAFAAIAAQADAAMAAAAEAAIAAQAAAAQAAAAEAAMAAQADAAMAAAADAAQAAQADAAMAAAACAAQAAQACAAMAAAABAAQAAQACAAMAAAAAAAQAAQACAAMAAAD//wQAAQACAAMAAAD+/wQAAQAAAAMAAAD8////AQAAAAAAAAD8/wIAAQAAAAMAAAD9//3/AQAAAAAAAAD9/wMAAQAAAAMAAAD8/wAAAQAAAAEAAAD8/wEAAQAAAAEAAAD9//7/AQAAAAEAAAD9////AQACAAYAAAD9/wIAAQACAAQAAAD+/wMAAQACAAQAAAAAAP7/AQAFAAUAAAD//wMAAQAFAAUAAAA=")
 tile_set = SubResource("TileSet_j08sa")
 
 [node name="GolemGirl" parent="TileMap" instance=ExtResource("5_vnuxi")]
@@ -243,35 +246,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Play" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 816.0
-offset_top = 568.0
-offset_right = 857.0
-offset_bottom = 599.0
-text = "Play"
-metadata/_edit_use_anchors_ = true
-
-[node name="Restart" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 944.0
-offset_top = 568.0
-offset_right = 1009.0
-offset_bottom = 599.0
-text = "Restart"
-metadata/_edit_use_anchors_ = true
-
-[node name="StartRecording" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 744.0
-offset_top = 512.0
-offset_right = 925.0
-offset_bottom = 543.0
-text = "Start Recording Inputs"
-metadata/_edit_use_anchors_ = true
-
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UI"]
-position = Vector2(376, 536)
+position = Vector2(416, 520)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_bqc3i")
 
@@ -293,6 +269,33 @@ offset_bottom = 13.3333
 scale = Vector2(30.4695, 12.4364)
 metadata/_edit_use_anchors_ = true
 
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/UI"]
+position = Vector2(968, 520)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_vjdto")
+
+[node name="Play" type="Button" parent="CanvasLayer/UI/Sprite2D2"]
+offset_left = -140.0
+offset_top = -120.0
+offset_right = 255.0
+offset_bottom = 38.0
+scale = Vector2(0.8, 0.8)
+text = "Play"
+icon = ExtResource("13_bqc3i")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="CanvasLayer/UI/Sprite2D2"]
+offset_left = -140.0
+offset_top = -5.0
+offset_right = 279.0
+offset_bottom = 153.0
+scale = Vector2(0.8, 0.8)
+text = "Restart"
+icon = ExtResource("14_ljeji")
+flat = true
+metadata/_edit_use_anchors_ = true
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false
 offset_left = -2424.0
@@ -311,6 +314,5 @@ position = Vector2(1177, 361)
 [node name="GolemEnemy3" parent="." instance=ExtResource("6_bs2pm")]
 position = Vector2(130, 106)
 
-[connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/StartRecording" to="." method="_on_start_recording_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Sprite2D2/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Sprite2D2/Restart" to="." method="_on_restart_pressed"]

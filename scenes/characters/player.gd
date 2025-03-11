@@ -76,10 +76,10 @@ func add_arrow_to_ui(direction):
 	arrow.texture = load("res://assets/sprites/ui/%s arrow.png" % direction.split(" ")[1].to_lower())
 	
 	var arrow_x_position = (recorded_inputs.size() % max_arrows_per_line) * 4  # Horizontal position
-	var arrow_y_position = (recorded_inputs.size() / max_arrows_per_line) * arrow_y_offset
+	var arrow_y_position = int(recorded_inputs.size() / max_arrows_per_line) * arrow_y_offset
 	
 	arrow_container.add_child(arrow)
-	arrow.position = Vector2(recorded_inputs.size() * 4, 0)
+	arrow.position = Vector2(arrow_x_position, arrow_y_position)
 
 func apply_input(input_data):
 	velocity = Vector2.ZERO

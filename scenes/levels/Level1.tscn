@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://ck86g84xajy28"]
+[gd_scene load_steps=19 format=4 uid="uid://ck86g84xajy28"]
 
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="1_1pwbc"]
 [ext_resource type="Script" uid="uid://nm7gmwwbmn44" path="res://scenes/levels/level_1.gd" id="1_x4si1"]
@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="6_m00rq"]
 [ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="7_brv20"]
 [ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="9_7d7pp"]
+[ext_resource type="Texture2D" uid="uid://w66ibmpvylb8" path="res://assets/sprites/ui/button background ui.png" id="9_n5pya"]
 [ext_resource type="PackedScene" uid="uid://bj73fm0x6nv5o" path="res://scenes/characters/slime_enemy.tscn" id="10_e5nfq"]
+[ext_resource type="Texture2D" uid="uid://mn3p2b7rkupc" path="res://assets/sprites/ui/start button.png" id="10_kypp1"]
+[ext_resource type="Texture2D" uid="uid://dpm3hcal3siqm" path="res://assets/sprites/ui/replay button.png" id="11_ukjja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pwbc"]
 texture = ExtResource("1_1pwbc")
@@ -178,32 +181,16 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Play" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 816.0
-offset_top = 568.0
-offset_right = 857.0
-offset_bottom = 599.0
-text = "Play"
-
-[node name="Restart" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 944.0
-offset_top = 568.0
-offset_right = 1009.0
-offset_bottom = 599.0
-text = "Restart"
-
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UI"]
-position = Vector2(376, 536)
+position = Vector2(416, 520)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_m00rq")
 
 [node name="MovesLabel" type="Label" parent="CanvasLayer/UI/Sprite2D"]
-offset_left = -1016.0
-offset_top = -224.0
-offset_right = -674.0
-offset_bottom = 185.0
+offset_left = -1013.33
+offset_top = -213.333
+offset_right = -671.333
+offset_bottom = 195.667
 text = "10"
 label_settings = SubResource("LabelSettings_m00rq")
 horizontal_alignment = 1
@@ -215,6 +202,31 @@ offset_top = -26.6667
 offset_right = -466.667
 offset_bottom = 13.3333
 scale = Vector2(30.4695, 12.4364)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/UI"]
+position = Vector2(968, 520)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_n5pya")
+
+[node name="Play" type="Button" parent="CanvasLayer/UI/Sprite2D2"]
+offset_left = -140.0
+offset_top = -120.0
+offset_right = 255.0
+offset_bottom = 38.0
+scale = Vector2(0.8, 0.8)
+text = "Play"
+icon = ExtResource("10_kypp1")
+flat = true
+
+[node name="Restart" type="Button" parent="CanvasLayer/UI/Sprite2D2"]
+offset_left = -140.0
+offset_top = -5.0
+offset_right = 279.0
+offset_bottom = 153.0
+scale = Vector2(0.8, 0.8)
+text = "Restart"
+icon = ExtResource("11_ukjja")
+flat = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -234,5 +246,5 @@ position = Vector2(-124, 633)
 [node name="SlimeEnemy3" parent="." instance=ExtResource("10_e5nfq")]
 position = Vector2(128, -144)
 
-[connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Sprite2D2/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Sprite2D2/Restart" to="." method="_on_restart_pressed"]
