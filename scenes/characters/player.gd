@@ -18,6 +18,7 @@ const TILE_SIZE = 250
 var recorded_inputs = []
 var is_recording = false
 var is_playing = false
+var is_finished = false
 var playback_index = 0
 var playback_timer = 0.0
 var playback_interval = 0.2  
@@ -38,12 +39,11 @@ func _process(delta):
 			apply_input(recorded_inputs[playback_index])
 			playback_index += 1
 			playback_timer = playback_interval  # Reset timer for next input
+		elif playback_index >= recorded_inputs.size():
+			is_finished = true
 	
-	# If playback is done, stop playing and check game over
-	if playback_index >= recorded_inputs.size():
-		is_playing = false  # Playback finished
-		if get_tree():
-			await get_tree().create_timer(1.0).timeout  # Optional delay before checking game over
+	if is_finished:
+		level._on_restart_pressed()  
 
 
 func record_input():
@@ -153,6 +153,7 @@ func start_recording():
 	recorded_inputs.clear()
 	is_recording = true
 	is_playing = false
+	is_finished = false
 	print("Recording started")
 
 func stop_recording():
