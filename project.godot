@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalScaling="*res://scenes/GlobalScaling.gd"
-AudioManager="*res://scenes/audio_manager.gd"
 
 [display]
 
