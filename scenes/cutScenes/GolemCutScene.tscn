@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://b0uru5jhfiwvr"]
 
-[ext_resource type="Texture2D" uid="uid://b3r6rkjowu3ys" path="res://assets/sprites/characters/golem/Golem_Girl_Fumbled.png" id="1_7mtv0"]
-[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_bmlol"]
+[ext_resource type="Script" uid="uid://db67k1wbmysso" path="res://scenes/cutScenes/golem_cut_scene.gd" id="1_7mtv0"]
+[ext_resource type="Texture2D" uid="uid://c00s0fuc6w2js" path="res://assets/sprites/characters/golem/Golem_Girl_(fumbled).png" id="2_bmlol"]
 [ext_resource type="Texture2D" uid="uid://gvnysiwrqtcl" path="res://assets/sprites/characters/golem/Golem_Girl.png" id="3_pedcy"]
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="4_g0we6"]
-[ext_resource type="Texture2D" uid="uid://bi5mr587jjmig" path="res://assets/sprites/characters/golem/Golem_Girl_Success.png" id="5_7mtv0"]
+[ext_resource type="Texture2D" uid="uid://bpsnra58q3laf" path="res://assets/sprites/characters/golem/Golem_Girl_(rizzed).png" id="4_jyiwg"]
 [ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="6_iiulk"]
 [ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="7_x1sfw"]
 [ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="8_yfmqt"]
@@ -55,10 +55,10 @@ tracks/3/path = NodePath("AnimationPlayer/Waify:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 8.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_7mtv0"), ExtResource("2_bmlol")]
+"values": [ExtResource("2_bmlol")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -218,7 +218,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_7mtv0")]
+"values": [ExtResource("4_jyiwg")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -279,6 +279,7 @@ _data = {
 }
 
 [node name="GolemCutScene" type="Node2D"]
+script = ExtResource("1_7mtv0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -301,7 +302,7 @@ color = Color(0, 0, 0, 0.819608)
 offset_top = 98.0
 offset_right = 1151.0
 offset_bottom = 400.0
-color = Color(0.184032, 0.164954, 0.22495, 1)
+color = Color(0.383342, 0.350912, 0.453676, 1)
 
 [node name="Waify" type="TextureRect" parent="AnimationPlayer"]
 anchors_preset = 8
@@ -351,7 +352,7 @@ offset_right = 202.5
 offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.462824, 0.635228, 0.745647, 1)
+theme_override_colors/font_color = Color(0.996078, 0.870588, 0.427451, 1)
 theme_override_fonts/font = ExtResource("7_x1sfw")
 theme_override_font_sizes/font_size = 25
 text = "~  Granita, Muscle Mommy  ~"
@@ -403,7 +404,7 @@ offset_right = 15.0
 offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.462745, 0.635294, 0.745098, 1)
+theme_override_colors/font_color = Color(0.996078, 0.870588, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_x1sfw")
 text = "</>"

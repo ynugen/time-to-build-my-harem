@@ -1,13 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://chmh5oc0s1yja"]
+[gd_scene load_steps=15 format=3 uid="uid://chmh5oc0s1yja"]
 
-[ext_resource type="Texture2D" uid="uid://dkpt2r5wgig78" path="res://assets/sprites/characters/lava/Lava_Girl_Fumbled.png" id="1_5oama"]
-[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_pa7yu"]
+[ext_resource type="Script" uid="uid://brkpn8ugmsnan" path="res://scenes/cutScenes/lava_cut_scene.gd" id="1_5oama"]
+[ext_resource type="Texture2D" uid="uid://5ohc5uyvikge" path="res://assets/sprites/characters/lava/Lava_Girl_(Fumbled).png" id="1_i8bvy"]
 [ext_resource type="Texture2D" uid="uid://bsy0emvyhqve2" path="res://assets/sprites/characters/lava/Lava_Girl.png" id="3_5oama"]
+[ext_resource type="Texture2D" uid="uid://b7toosx8t3bwo" path="res://assets/sprites/characters/lava/Lava_Girl_(Rizzed).png" id="4_5oama"]
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="4_c5w8y"]
-[ext_resource type="Texture2D" uid="uid://cavlqshfbn4p3" path="res://assets/sprites/characters/lava/Lava_Girl_Success.png" id="5_5oama"]
 [ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="6_fgrm7"]
 [ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="7_l71s6"]
 [ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="8_85wod"]
+
+[sub_resource type="Resource" id="Resource_pa7yu"]
+metadata/__load_path__ = "res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png"
 
 [sub_resource type="Animation" id="Animation_g85jp"]
 resource_name = "Fumble"
@@ -59,7 +62,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 8.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("1_5oama"), ExtResource("2_pa7yu")]
+"values": [ExtResource("1_i8bvy"), SubResource("Resource_pa7yu")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -218,7 +221,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_5oama")]
+"values": [ExtResource("4_5oama")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -279,6 +282,7 @@ _data = {
 }
 
 [node name="LavaCutScene" type="Node2D"]
+script = ExtResource("1_5oama")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
