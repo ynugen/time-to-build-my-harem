@@ -193,14 +193,6 @@ offset_right = 1009.0
 offset_bottom = 599.0
 text = "Restart"
 
-[node name="StopRecording" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 944.0
-offset_top = 512.0
-offset_right = 1122.0
-offset_bottom = 543.0
-text = "Stop Recording Inputs"
-
 [node name="StartRecording" type="Button" parent="CanvasLayer/UI"]
 layout_mode = 0
 offset_left = 744.0
@@ -242,5 +234,4 @@ script = ExtResource("9_7d7pp")
 
 [connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/StopRecording" to="." method="_on_stop_recording_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/StartRecording" to="." method="_on_start_recording_pressed"]

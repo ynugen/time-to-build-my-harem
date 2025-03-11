@@ -21,9 +21,11 @@ var is_playing = false
 var is_finished = false
 var playback_index = 0
 var playback_timer = 0.0
-var playback_interval = 0.2  
+var playback_interval = 0.4  
 
 var arrow_scene = preload("res://scenes/characters/arrow_sprite.tscn")
+var max_arrows_per_line = 10  # Number of arrows per line
+var arrow_y_offset = 10  # Vertical spacing between rows
 
 func _ready():
 	animated_sprite2d.play("default")
@@ -72,7 +74,10 @@ func get_input_action():
 func add_arrow_to_ui(direction):
 	var arrow = arrow_scene.instantiate()
 	arrow.texture = load("res://assets/sprites/ui/%s arrow.png" % direction.split(" ")[1].to_lower())
-
+	
+	var arrow_x_position = (recorded_inputs.size() % max_arrows_per_line) * 4  # Horizontal position
+	var arrow_y_position = (recorded_inputs.size() / max_arrows_per_line) * arrow_y_offset
+	
 	arrow_container.add_child(arrow)
 	arrow.position = Vector2(recorded_inputs.size() * 4, 0)
 
@@ -105,6 +110,7 @@ func move_or_action(direction):
 
 	# If there's a wall, don't move
 	if wall_tile != EMPTY_TILE:
+		level.shake()
 		return  
 
 	# If nothing in the way, move the player
@@ -166,16 +172,5 @@ func start_playback():
 	playback_index = 0
 	playback_timer = 0.0
 	print("Playback started")
-	
-	while playback_index < recorded_inputs.size():
-		apply_input(recorded_inputs[playback_index])
-		playback_index += 1
-		await get_tree().create_timer(playback_interval).timeout  # Wait for the move delay
-
-	is_playing = false  # Playback finished
-
-	# Ensure we only check game over AFTER playback finishes
-	await get_tree().create_timer(1.0).timeout  
-	check_game_over()
 	
 	

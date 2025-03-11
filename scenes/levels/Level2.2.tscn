@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://d30nfsjrgxttl"]
+[gd_scene load_steps=16 format=4 uid="uid://0savj6mpwwkg"]
 
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_s2d8y"]
 [ext_resource type="Texture2D" uid="uid://b6gxhwj7owuey" path="res://assets/sprites/tiles/Forest tile map final.png" id="2_7jaqy"]
 [ext_resource type="PackedScene" uid="uid://br3jip31tvf1m" path="res://scenes/cutScenes/DruidCutScene.tscn" id="2_s2d8y"]
-[ext_resource type="PackedScene" uid="uid://deoya1s17hiiw" path="res://scenes/characters/druid_girl.tscn" id="4_s2d8y"]
+[ext_resource type="PackedScene" path="res://scenes/characters/druid_girl.tscn" id="4_s2d8y"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="5_f4ur3"]
 [ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="6_kfmgg"]
 [ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="7_147u6"]
@@ -132,6 +132,10 @@ position = Vector2(640, 117)
 [node name="PushableObject" parent="Container" instance=ExtResource("8_s2d8y")]
 position = Vector2(-634, -370)
 
+[node name="PushableObject5" parent="Container" instance=ExtResource("8_s2d8y")]
+position = Vector2(389, 394)
+metadata/_edit_group_ = true
+
 [node name="PushableObject4" parent="Container" instance=ExtResource("8_s2d8y")]
 position = Vector2(-128, -128)
 
@@ -160,15 +164,6 @@ offset_top = 568.0
 offset_right = 1009.0
 offset_bottom = 599.0
 text = "Restart"
-metadata/_edit_use_anchors_ = true
-
-[node name="StopRecording" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 944.0
-offset_top = 512.0
-offset_right = 1122.0
-offset_bottom = 543.0
-text = "Stop Recording Inputs"
 metadata/_edit_use_anchors_ = true
 
 [node name="StartRecording" type="Button" parent="CanvasLayer/UI"]
@@ -214,5 +209,4 @@ script = ExtResource("10_eehm8")
 
 [connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/StopRecording" to="." method="_on_stop_recording_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/StartRecording" to="." method="_on_start_recording_pressed"]
