@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cac5x78f6m6ff"]
+
+[ext_resource type="Script" uid="uid://kthrh4rrx3g4" path="res://scenes/characters/slime_girl.gd" id="1_n1slt"]
+[ext_resource type="Texture2D" uid="uid://dyynww07p5dtn" path="res://assets/sprites/characters/golem/Rock_Golem_Sprite_1.png" id="2_n1slt"]
+[ext_resource type="Texture2D" uid="uid://bho670q6ntvay" path="res://assets/sprites/characters/golem/Rock_Golem_Sprite_2.png" id="3_88nci"]
+[ext_resource type="Texture2D" uid="uid://cgrhuo0o2qb7h" path="res://assets/sprites/characters/golem/Rock_Golem_Sprite_3.png" id="4_1pp5a"]
+[ext_resource type="Texture2D" uid="uid://bc18cqoqbe3f3" path="res://assets/sprites/characters/golem/Rock_Golem_Sprite_4.png" id="5_lxlq6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ws0sm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n1slt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_88nci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1pp5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxlq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1pp5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_88nci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n1slt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cii47"]
+
+[node name="GolemGirl" type="CharacterBody2D"]
+script = ExtResource("1_n1slt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ws0sm")
+frame_progress = 0.0248325
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 20)
+scale = Vector2(6.86834, 6.61785)
+shape = SubResource("CapsuleShape2D_cii47")

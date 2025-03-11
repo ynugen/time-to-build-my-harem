@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bknek5dwu116w"]
+
+[ext_resource type="Script" uid="uid://dss3c4s2coh7b" path="res://scenes/characters/rock.gd" id="1_wep2k"]
+[ext_resource type="Texture2D" uid="uid://h0aivswub1hd" path="res://assets/sprites/tiles/golem rock.png" id="2_wep2k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qcivt"]
+radius = 109.073
+
+[node name="Rock" type="StaticBody2D"]
+script = ExtResource("1_wep2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wep2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qcivt")
