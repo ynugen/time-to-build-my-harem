@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7566no6rhji1" path="res://scenes/TitleScreen.gd" id="1_pkhjh"]
 [ext_resource type="Texture2D" uid="uid://bxjn2e88vj8bk" path="res://assets/sprites/background/Title_Screen.png" id="2_ch40n"]
-[ext_resource type="FontFile" uid="uid://cavhd85s13x3y" path="res://assets/fonts/CourierPrime-Bold.ttf" id="3_85feu"]
+[ext_resource type="Texture2D" uid="uid://drjvwne7bmbwb" path="res://assets/sprites/background/Title.png" id="3_85feu"]
 [ext_resource type="AudioStream" uid="uid://db3qvmn3pmg81" path="res://assets/audio/soundtrack/titleScreen.mp3" id="3_dfj8j"]
 [ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="4_66w26"]
 [ext_resource type="FontFile" uid="uid://cd41wf0l0384q" path="res://assets/fonts/CourierPrime-Regular.ttf" id="5_3ej01"]
@@ -51,17 +51,10 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 60
 
-[node name="Title" type="Label" parent="MarginContainer"]
-custom_minimum_size = Vector2(300, 200)
-layout_mode = 2
-size_flags_vertical = 2
-theme_override_fonts/font = ExtResource("3_85feu")
-theme_override_font_sizes/font_size = 30
-text = "THAT TIME WHEN I WOKE UP 5000 YEARS LATER TO FULFIL MY PROTOCOL OF MAKING A HAREM"
-horizontal_alignment = 2
-autowrap_mode = 2
-justification_flags = 131
-max_lines_visible = 7
+[node name="Title2" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(697.882, 208.845)
+scale = Vector2(0.611081, 0.499257)
+texture = ExtResource("3_85feu")
 
 [node name="MenuButtons" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
