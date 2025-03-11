@@ -15,6 +15,11 @@ func _ready():
 	moves_label.text = "10"
 	slime_girl.play()
 
+func _input(event):
+	if event.is_action_pressed("restart"):  # "ui_accept" is typically bound to the Enter key
+		# Ignore the input event when Enter is pressed
+
+		_on_restart_pressed()
 
 func _on_play_pressed() -> void:
 	if player:
