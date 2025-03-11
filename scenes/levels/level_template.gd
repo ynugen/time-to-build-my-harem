@@ -4,32 +4,43 @@ extends Node2D
 @onready var moves_label = $CanvasLayer/UI/Sprite2D/MovesLabel
 @onready var camera = $Camera2D
 
+# Variables defined in inpsector panel
 @export var player : CharacterBody2D
 @export var waifu : CharacterBody2D
 @export var meet_cutscene: PackedScene
 @export var MAX_MOVES: int
+
+
 var moves_left : int
+var is_recording = false  # Tracks recording state
 
 func _ready():
 	moves_left = MAX_MOVES
 	moves_label.text = str(MAX_MOVES)
 	waifu.play()
 
+func _process(delta):
+	if is_recording and Input.is_action_pressed("ui_accept"):
+		stop_recording_and_play()
 
 func _on_play_pressed() -> void:
 	if player:
 		player.start_playback()
 
-
 func _on_stop_recording_pressed() -> void:
 	if player:
 		player.stop_recording()
 
-
 func _on_start_recording_pressed() -> void:
 	if player:
 		player.start_recording()
+		is_recording = true
 
+func stop_recording_and_play():
+	if player:
+		player.stop_recording()
+		player.start_playback()
+		is_recording = false
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
