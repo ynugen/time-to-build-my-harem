@@ -22,6 +22,12 @@ func _ready():
 	moves_label.text = str(MAX_MOVES)
 	waifu.play()
 
+func _input(event):
+	if event.is_action_pressed("restart"):  # "ui_accept" is typically bound to the Enter key
+		# Ignore the input event when Enter is pressed
+
+		_on_restart_pressed()
+
 func _process(delta):
 	if is_recording and Input.is_action_pressed("ui_accept"):
 		stop_recording_and_play()
