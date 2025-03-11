@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1tovu0aegbid"]
+
+[ext_resource type="PackedScene" uid="uid://bjc3u6ktycws6" path="res://scenes/objects/PushableObject.tscn" id="1_tok41"]
+[ext_resource type="Texture2D" uid="uid://b6gxhwj7owuey" path="res://assets/sprites/tiles/Forest tile map final.png" id="2_nancw"]
+
+[node name="PushableObject" instance=ExtResource("1_tok41")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_nancw")
+region_rect = Rect2(1000, 1250, 250, 250)

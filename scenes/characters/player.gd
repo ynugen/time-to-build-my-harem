@@ -166,3 +166,16 @@ func start_playback():
 	playback_index = 0
 	playback_timer = 0.0
 	print("Playback started")
+	
+	while playback_index < recorded_inputs.size():
+		apply_input(recorded_inputs[playback_index])
+		playback_index += 1
+		await get_tree().create_timer(playback_interval).timeout  # Wait for the move delay
+
+	is_playing = false  # Playback finished
+
+	# Ensure we only check game over AFTER playback finishes
+	await get_tree().create_timer(1.0).timeout  
+	check_game_over()
+	
+	
