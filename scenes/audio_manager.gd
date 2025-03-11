@@ -9,7 +9,7 @@ func _ready():
 		if current_track:
 			stream = current_track
 		else:
-			current_track = preload("res://assets/audio/soundtrack/5000 years.wav")
+			current_track = preload("res://assets/audio/soundtrack/5000 years.mp3")
 			stream = current_track
 		
 		play()

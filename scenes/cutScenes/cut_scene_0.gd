@@ -5,7 +5,7 @@ extends Node2D
 var first_time = true
 
 func _ready():
-	var scene_music = preload("res://assets/audio/soundtrack/arise.wav")
+	var scene_music = preload("res://assets/audio/soundtrack/Arise.mp3")
 	AudioManager.play_music(scene_music)
 	
 	animPlayer.play("StartScene")

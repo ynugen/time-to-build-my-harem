@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tkik3lmtm68t"
+path="res://.godot/imported/Don't forget your protein.mp3-a06f5c4e0849a7c410bb39c8169976a5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/soundtrack/Don't forget your protein.mp3"
+dest_files=["res://.godot/imported/Don't forget your protein.mp3-a06f5c4e0849a7c410bb39c8169976a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

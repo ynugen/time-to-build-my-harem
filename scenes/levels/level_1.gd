@@ -9,10 +9,10 @@ var moves_left = MAX_MOVES
 const MAX_MOVES = 12
 
 func _ready():
-	var scene_music = preload("res://assets/audio/soundtrack/slimey fugue.wav")
+	var scene_music = preload("res://assets/audio/soundtrack/Slimey Fugue.mp3")
 	AudioManager.play_music(scene_music)
 	
-	moves_label.text = "10"
+	moves_label.text = "12"
 	slime_girl.play()
 
 func _input(event):

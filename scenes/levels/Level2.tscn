@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_dpm1s"]
 [ext_resource type="Texture2D" uid="uid://b6gxhwj7owuey" path="res://assets/sprites/tiles/Forest tile map final.png" id="1_uw6xe"]
 [ext_resource type="PackedScene" uid="uid://br3jip31tvf1m" path="res://scenes/cutScenes/DruidCutScene.tscn" id="2_mcssb"]
-[ext_resource type="AudioStream" uid="uid://cfn5cprhqkecs" path="res://assets/audio/soundtrack/maple swing.wav" id="3_mcssb"]
+[ext_resource type="AudioStream" uid="uid://bbxbf4myuk2xa" path="res://assets/audio/soundtrack/Maple Swing.mp3" id="3_o6ptl"]
 [ext_resource type="PackedScene" uid="uid://c2ffd13ng2aby" path="res://scenes/characters/druid_girl.tscn" id="4_dwyyt"]
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="4_mcssb"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="5_a6cvn"]
@@ -139,7 +139,7 @@ player = NodePath("Player")
 waifu = NodePath("TileMap/DruidGirl")
 meet_cutscene = ExtResource("2_mcssb")
 MAX_MOVES = 17
-level_music = ExtResource("3_mcssb")
+level_music = ExtResource("3_o6ptl")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xftyr")

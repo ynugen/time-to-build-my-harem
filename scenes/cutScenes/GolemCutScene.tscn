@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b0uru5jhfiwvr"]
 
-[ext_resource type="Script" uid="uid://db67k1wbmysso" path="res://scenes/cutScenes/golem_cut_scene.gd" id="1_7mtv0"]
+[ext_resource type="Script" path="res://scenes/cutScenes/golem_cut_scene.gd" id="1_7mtv0"]
 [ext_resource type="Texture2D" uid="uid://c00s0fuc6w2js" path="res://assets/sprites/characters/golem/Golem_Girl_(fumbled).png" id="2_bmlol"]
 [ext_resource type="Texture2D" uid="uid://gvnysiwrqtcl" path="res://assets/sprites/characters/golem/Golem_Girl.png" id="3_pedcy"]
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="4_g0we6"]
@@ -171,6 +171,18 @@ tracks/5/path = NodePath("AnimationPlayer/Retry:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/Retry:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
