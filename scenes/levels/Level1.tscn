@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://ck86g84xajy28"]
+[gd_scene load_steps=16 format=4 uid="uid://ck86g84xajy28"]
 
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="1_1pwbc"]
 [ext_resource type="Script" uid="uid://nm7gmwwbmn44" path="res://scenes/levels/level_1.gd" id="1_x4si1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="6_m00rq"]
 [ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="7_brv20"]
 [ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="9_7d7pp"]
+[ext_resource type="PackedScene" uid="uid://bj73fm0x6nv5o" path="res://scenes/characters/slime_enemy.tscn" id="10_e5nfq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pwbc"]
 texture = ExtResource("1_1pwbc")
@@ -91,7 +92,7 @@ shader = ExtResource("4_fh0io")
 [sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
 font_size = 300
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_x4si1")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -193,14 +194,6 @@ offset_right = 1009.0
 offset_bottom = 599.0
 text = "Restart"
 
-[node name="StartRecording" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 744.0
-offset_top = 512.0
-offset_right = 925.0
-offset_bottom = 543.0
-text = "Start Recording Inputs"
-
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UI"]
 position = Vector2(376, 536)
 scale = Vector2(0.3, 0.3)
@@ -232,6 +225,14 @@ offset_bottom = 1728.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("9_7d7pp")
 
+[node name="SlimeEnemy" parent="." instance=ExtResource("10_e5nfq")]
+position = Vector2(-381, 622)
+
+[node name="SlimeEnemy2" parent="." instance=ExtResource("10_e5nfq")]
+position = Vector2(-124, 633)
+
+[node name="SlimeEnemy3" parent="." instance=ExtResource("10_e5nfq")]
+position = Vector2(128, -144)
+
 [connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/StartRecording" to="." method="_on_start_recording_pressed"]

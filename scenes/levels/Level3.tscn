@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dr1ygx16yykxr"]
+[gd_scene load_steps=20 format=4 uid="uid://dr1ygx16yykxr"]
 
 [ext_resource type="Texture2D" uid="uid://cbm5rbgj7is3x" path="res://assets/sprites/tiles/Golem tile map final.png" id="1_63eb4"]
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_h66bl"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b7hn3yj8u6b3s" path="res://assets/audio/soundtrack/don_t forget your protein.wav" id="3_i2tsv"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="5_4n27n"]
 [ext_resource type="PackedScene" uid="uid://cac5x78f6m6ff" path="res://scenes/characters/golem_girl.tscn" id="5_vnuxi"]
+[ext_resource type="PackedScene" uid="uid://bpr00gm0mijn" path="res://scenes/characters/golem_enemy.tscn" id="6_bs2pm"]
 [ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="6_cw4sw"]
 [ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="9_bqc3i"]
 [ext_resource type="PackedScene" uid="uid://bknek5dwu116w" path="res://scenes/characters/golem_rock.tscn" id="9_vnuxi"]
@@ -135,7 +136,7 @@ shader = ExtResource("6_cw4sw")
 [sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
 font_size = 300
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
 script = ExtResource("1_h66bl")
 player = NodePath("Player")
 waifu = NodePath("TileMap/GolemGirl")
@@ -300,6 +301,15 @@ offset_right = 2664.0
 offset_bottom = 1728.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_ljeji")
+
+[node name="GolemEnemy" parent="." instance=ExtResource("6_bs2pm")]
+position = Vector2(-374, 637)
+
+[node name="GolemEnemy2" parent="." instance=ExtResource("6_bs2pm")]
+position = Vector2(1177, 361)
+
+[node name="GolemEnemy3" parent="." instance=ExtResource("6_bs2pm")]
+position = Vector2(130, 106)
 
 [connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]

@@ -6,7 +6,7 @@ extends Node2D
 @onready var slime_girl = $TileMap/SlimeGirl
 var moves_left = MAX_MOVES
 
-const MAX_MOVES = 10
+const MAX_MOVES = 12
 
 func _ready():
 	var scene_music = preload("res://assets/audio/soundtrack/slimey fugue.wav")

@@ -1,34 +1,34 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvsvc604ow3u3"]
 
 [ext_resource type="Script" uid="uid://64fk81qo8ww8" path="res://scenes/characters/lava_enemy.gd" id="1_ytn3d"]
-[ext_resource type="Texture2D" uid="uid://mhcgiwawh7ms" path="res://assets/sprites/characters/enemies/Lava_Golem_Sprite_1.png" id="2_buh4w"]
-[ext_resource type="Texture2D" uid="uid://dmoh3n0o1telh" path="res://assets/sprites/characters/enemies/Lava_Golem_Sprite_2.png" id="3_aeen4"]
-[ext_resource type="Texture2D" uid="uid://daga66xs4gj6h" path="res://assets/sprites/characters/enemies/Lava_Golem_Sprite_3.png" id="4_kpm1a"]
-[ext_resource type="Texture2D" uid="uid://bxwu8jjbk568j" path="res://assets/sprites/characters/enemies/Lava_Golem_Sprite_4.png" id="5_6tdbb"]
+[ext_resource type="Texture2D" uid="uid://dwkar2jgt8ji0" path="res://assets/sprites/characters/enemies/forest_enemy_Sprite_1.png" id="2_ytn3d"]
+[ext_resource type="Texture2D" uid="uid://ceecb7h3o24gf" path="res://assets/sprites/characters/enemies/forest_enemy_Sprite_2.png" id="3_buh4w"]
+[ext_resource type="Texture2D" uid="uid://i6b18sw67pgt" path="res://assets/sprites/characters/enemies/forest_enemy_Sprite_3.png" id="4_aeen4"]
+[ext_resource type="Texture2D" uid="uid://bvwy551q8a307" path="res://assets/sprites/characters/enemies/forest_enemy_Sprite_4.png" id="5_kpm1a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ws0sm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_buh4w")
+"texture": ExtResource("2_ytn3d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_aeen4")
+"texture": ExtResource("3_buh4w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_kpm1a")
+"texture": ExtResource("4_aeen4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_6tdbb")
+"texture": ExtResource("5_kpm1a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_kpm1a")
+"texture": ExtResource("4_aeen4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_aeen4")
+"texture": ExtResource("3_buh4w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_buh4w")
+"texture": ExtResource("2_ytn3d")
 }],
 "loop": true,
 "name": &"default",

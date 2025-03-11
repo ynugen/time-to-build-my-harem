@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://0savj6mpwwkg"]
+[gd_scene load_steps=20 format=4 uid="uid://0savj6mpwwkg"]
 
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_dpm1s"]
 [ext_resource type="Texture2D" uid="uid://b6gxhwj7owuey" path="res://assets/sprites/tiles/Forest tile map final.png" id="1_uw6xe"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="4_mcssb"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="5_a6cvn"]
 [ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="6_6rin4"]
+[ext_resource type="PackedScene" uid="uid://dvsvc604ow3u3" path="res://scenes/characters/forest_enemy.tscn" id="6_dwyyt"]
 [ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="7_5v643"]
 [ext_resource type="PackedScene" uid="uid://d1tovu0aegbid" path="res://scenes/objects/GrassRock.tscn" id="8_o6ptl"]
 [ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="9_mctl7"]
@@ -121,7 +122,7 @@ shader = ExtResource("6_6rin4")
 [sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
 font_size = 300
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
 script = ExtResource("1_dpm1s")
 player = NodePath("Player")
 waifu = NodePath("TileMap/DruidGirl")
@@ -255,6 +256,15 @@ offset_right = 2664.0
 offset_bottom = 1728.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_fpd7d")
+
+[node name="ForestEnemy" parent="." instance=ExtResource("6_dwyyt")]
+position = Vector2(656, 387)
+
+[node name="ForestEnemy2" parent="." instance=ExtResource("6_dwyyt")]
+position = Vector2(144, 123)
+
+[node name="ForestEnemy3" parent="." instance=ExtResource("6_dwyyt")]
+position = Vector2(646, -387)
 
 [connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]

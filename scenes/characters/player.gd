@@ -16,7 +16,7 @@ const TILE_SIZE = 250
 @export var push_distance = 250
 
 var recorded_inputs = []
-var is_recording = false
+var is_recording = true
 var is_playing = false
 var is_finished = false
 var playback_index = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ccg4fs2lki8kf"]
+[gd_scene load_steps=24 format=4 uid="uid://ccg4fs2lki8kf"]
 
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_g8eim"]
 [ext_resource type="PackedScene" uid="uid://chmh5oc0s1yja" path="res://scenes/cutScenes/LavaCutScene.tscn" id="2_g8eim"]
@@ -154,10 +154,8 @@ script = ExtResource("1_g8eim")
 player = NodePath("Player")
 waifu = NodePath("TileMap/LavaGirl")
 meet_cutscene = ExtResource("2_g8eim")
-
 MAX_MOVES = 20
 level_music = ExtResource("3_2xj4m")
-
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j08sa")
@@ -267,15 +265,6 @@ offset_bottom = 599.0
 text = "Restart"
 metadata/_edit_use_anchors_ = true
 
-[node name="StartRecording" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 744.0
-offset_top = 512.0
-offset_right = 925.0
-offset_bottom = 543.0
-text = "Start Recording Inputs"
-metadata/_edit_use_anchors_ = true
-
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UI"]
 position = Vector2(376, 536)
 scale = Vector2(0.3, 0.3)
@@ -322,4 +311,3 @@ position = Vector2(1128, 600)
 
 [connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/StartRecording" to="." method="_on_start_recording_pressed"]
