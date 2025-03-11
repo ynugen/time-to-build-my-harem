@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://ccg4fs2lki8kf"]
+[gd_scene load_steps=17 format=4 uid="uid://ccg4fs2lki8kf"]
 
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_g8eim"]
 [ext_resource type="PackedScene" uid="uid://chmh5oc0s1yja" path="res://scenes/cutScenes/LavaCutScene.tscn" id="2_g8eim"]
+[ext_resource type="AudioStream" uid="uid://bs53on5ojeofh" path="res://assets/audio/soundtrack/floor is lava.wav" id="3_2xj4m"]
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="3_u5dj7"]
 [ext_resource type="PackedScene" uid="uid://52w6r6114h4p" path="res://scenes/characters/slime_girl.tscn" id="4_h6fe6"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="5_ml44n"]
@@ -98,6 +99,7 @@ player = NodePath("Player")
 waifu = NodePath("TileMap/SlimeGirl")
 meet_cutscene = ExtResource("2_g8eim")
 MAX_MOVES = 10
+level_music = ExtResource("3_2xj4m")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j08sa")
