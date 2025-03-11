@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://tipmthlg7b2i"]
 
-[ext_resource type="Script" uid="uid://kthrh4rrx3g4" path="res://scenes/characters/slime_girl.gd" id="1_ju66i"]
+[ext_resource type="Script" uid="uid://64fk81qo8ww8" path="res://scenes/characters/lava_enemy.gd" id="1_ju66i"]
 [ext_resource type="Texture2D" uid="uid://mhcgiwawh7ms" path="res://assets/sprites/characters/enemies/Lava_Golem_Sprite_1.png" id="2_ju66i"]
 [ext_resource type="Texture2D" uid="uid://dmoh3n0o1telh" path="res://assets/sprites/characters/enemies/Lava_Golem_Sprite_2.png" id="3_bjene"]
 [ext_resource type="Texture2D" uid="uid://daga66xs4gj6h" path="res://assets/sprites/characters/enemies/Lava_Golem_Sprite_3.png" id="4_3cd3l"]
@@ -42,7 +42,6 @@ script = ExtResource("1_ju66i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ws0sm")
-frame_progress = 0.656877
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 20)

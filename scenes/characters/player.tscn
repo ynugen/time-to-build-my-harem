@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://do7ygv6kbgkax"]
+[gd_scene load_steps=9 format=3 uid="uid://do7ygv6kbgkax"]
 
 [ext_resource type="Script" uid="uid://cnuxgxlcxdht3" path="res://scenes/characters/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bd1rx2urq5617" path="res://assets/sprites/characters/player/Wins_Default_1.png" id="2_atpat"]
 [ext_resource type="Texture2D" uid="uid://by5x65g64jdqp" path="res://assets/sprites/characters/player/Wins_Default_2.png" id="3_kqtwu"]
 [ext_resource type="Texture2D" uid="uid://bevliaih01y3s" path="res://assets/sprites/characters/player/Wins_Default_3.png" id="4_6eyoc"]
 [ext_resource type="Texture2D" uid="uid://db8o4uco604ns" path="res://assets/sprites/characters/player/Wins_Default_4.png" id="5_eojnx"]
+[ext_resource type="Texture2D" uid="uid://24rcw6o1og8u" path="res://assets/sprites/characters/player/Wins_Punch.png" id="6_kqtwu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cko2x"]
 radius = 86.6665
@@ -37,6 +38,17 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kqtwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kqtwu")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 15.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -47,4 +59,4 @@ shape = SubResource("CapsuleShape2D_cko2x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qgnko")
-frame_progress = 0.883937
+animation = &"punch"
