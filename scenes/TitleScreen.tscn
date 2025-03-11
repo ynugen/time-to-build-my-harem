@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjptuhvvwxf0e"]
+[gd_scene load_steps=6 format=3 uid="uid://cjptuhvvwxf0e"]
 
 [ext_resource type="Script" uid="uid://c7566no6rhji1" path="res://scenes/TitleScreen.gd" id="1_pkhjh"]
 [ext_resource type="Texture2D" uid="uid://bxjn2e88vj8bk" path="res://assets/sprites/background/Title_Screen.png" id="2_ch40n"]
 [ext_resource type="Texture2D" uid="uid://drjvwne7bmbwb" path="res://assets/sprites/background/Title.png" id="3_85feu"]
-[ext_resource type="AudioStream" uid="uid://db3qvmn3pmg81" path="res://assets/audio/soundtrack/titleScreen.mp3" id="3_dfj8j"]
 [ext_resource type="FontFile" uid="uid://bsecanfkcihrl" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="4_66w26"]
 [ext_resource type="FontFile" uid="uid://cd41wf0l0384q" path="res://assets/fonts/CourierPrime-Regular.ttf" id="5_3ej01"]
 
@@ -52,8 +51,8 @@ theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 60
 
 [node name="Title2" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(697.882, 208.845)
-scale = Vector2(0.611081, 0.499257)
+position = Vector2(603.356, 189.95)
+scale = Vector2(0.765512, 0.499257)
 texture = ExtResource("3_85feu")
 
 [node name="MenuButtons" type="VBoxContainer" parent="MarginContainer"]
@@ -87,10 +86,6 @@ theme_override_fonts/font = ExtResource("5_3ej01")
 text = "Team 6 ©"
 horizontal_alignment = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_dfj8j")
-volume_db = 7.198
-autoplay = true
-
 [connection signal="pressed" from="MarginContainer/MenuButtons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuButtons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/MenuButtons/Exit" to="." method="_on_exit_pressed"]
