@@ -38,6 +38,12 @@ func _process(delta):
 			apply_input(recorded_inputs[playback_index])
 			playback_index += 1
 			playback_timer = playback_interval  # Reset timer for next input
+	
+	# If playback is done, stop playing and check game over
+	if playback_index >= recorded_inputs.size():
+		is_playing = false  # Playback finished
+		if get_tree():
+			await get_tree().create_timer(1.0).timeout  # Optional delay before checking game over
 
 
 func record_input():
@@ -50,7 +56,7 @@ func record_input():
 			add_arrow_to_ui(input_data)
 		else:
 			print("Ran out of moves!")
-			check_game_over()
+			#check_game_over()
 
 func get_input_action():
 	if Input.is_action_just_pressed("ui_right"):
@@ -159,3 +165,16 @@ func start_playback():
 	playback_index = 0
 	playback_timer = 0.0
 	print("Playback started")
+	
+	while playback_index < recorded_inputs.size():
+		apply_input(recorded_inputs[playback_index])
+		playback_index += 1
+		await get_tree().create_timer(playback_interval).timeout  # Wait for the move delay
+
+	is_playing = false  # Playback finished
+
+	# Ensure we only check game over AFTER playback finishes
+	await get_tree().create_timer(1.0).timeout  
+	check_game_over()
+	
+	
