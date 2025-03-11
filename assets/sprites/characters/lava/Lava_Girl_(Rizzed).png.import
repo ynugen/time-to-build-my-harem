@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cavlqshfbn4p3"
-path="res://.godot/imported/Lava_Girl_Success.png-2d258e6a2ca1ee15f95a482a4a865d88.ctex"
+uid="uid://b7toosx8t3bwo"
+path="res://.godot/imported/Lava_Girl_(Rizzed).png-66a3d2ec11691c859a9a9784a379b63d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/lava/Lava_Girl_Success.png"
-dest_files=["res://.godot/imported/Lava_Girl_Success.png-2d258e6a2ca1ee15f95a482a4a865d88.ctex"]
+source_file="res://assets/sprites/characters/lava/Lava_Girl_(Rizzed).png"
+dest_files=["res://.godot/imported/Lava_Girl_(Rizzed).png-66a3d2ec11691c859a9a9784a379b63d.ctex"]
 
 [params]
 

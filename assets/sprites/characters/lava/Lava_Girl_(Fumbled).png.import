@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dknau7x6ryemw"
-path="res://.godot/imported/Slime_Girl_Success.png-8aa418a1c7e4af604226793dc5117969.ctex"
+uid="uid://5ohc5uyvikge"
+path="res://.godot/imported/Lava_Girl_(Fumbled).png-fdebe344caa130a4ca0769406d4cc6ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/slime/Slime_Girl_Success.png"
-dest_files=["res://.godot/imported/Slime_Girl_Success.png-8aa418a1c7e4af604226793dc5117969.ctex"]
+source_file="res://assets/sprites/characters/lava/Lava_Girl_(Fumbled).png"
+dest_files=["res://.godot/imported/Lava_Girl_(Fumbled).png-fdebe344caa130a4ca0769406d4cc6ef.ctex"]
 
 [params]
 
