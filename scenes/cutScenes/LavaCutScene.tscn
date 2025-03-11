@@ -49,8 +49,8 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Ughhh, that was so lame it physically hurt me.
-I’m gonna incinerate you just for that."]
+"values": ["Ughhh, that was so lame it physically hurt.
+If you can’t take the heat, get out of my sight"]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -450,7 +450,7 @@ offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_85wod")
-text = "Damn, girl, you’re so hot, I think my warranty just expired."
+text = "You’re so hot! Every time I get close, my circuits start to melt"
 
 [node name="SuccessChoice" type="Button" parent="AnimationPlayer"]
 visible = false

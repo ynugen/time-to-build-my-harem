@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b0uru5jhfiwvr"]
 
-[ext_resource type="Script" path="res://scenes/cutScenes/golem_cut_scene.gd" id="1_7mtv0"]
+[ext_resource type="Script" uid="uid://db67k1wbmysso" path="res://scenes/cutScenes/golem_cut_scene.gd" id="1_7mtv0"]
 [ext_resource type="Texture2D" uid="uid://c00s0fuc6w2js" path="res://assets/sprites/characters/golem/Golem_Girl_(fumbled).png" id="2_bmlol"]
 [ext_resource type="Texture2D" uid="uid://gvnysiwrqtcl" path="res://assets/sprites/characters/golem/Golem_Girl.png" id="3_pedcy"]
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="4_g0we6"]
@@ -46,7 +46,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["... You realize I could literally throw you across the map, right?"]
+"values": ["I work with rocks, not metal, genius."]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -487,7 +487,7 @@ offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_yfmqt")
-text = "Bench press me? Please do. I’ve always wanted to be a dumbbell with feelings."
+text = "You must be part magnet, because I feel inexplicably drawn to you!"
 
 [node name="Break" type="Label" parent="AnimationPlayer"]
 anchors_preset = 7

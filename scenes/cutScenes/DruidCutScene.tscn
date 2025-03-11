@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dgfifndvgh66o" path="res://assets/sprites/characters/druid/Druid_Girl_(Fumbled).png" id="1_2vtqb"]
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_8sprc"]
-[ext_resource type="Script" path="res://scenes/cutScenes/druid_cut_scene.gd" id="1_n42b6"]
+[ext_resource type="Script" uid="uid://c36eos67k8acc" path="res://scenes/cutScenes/druid_cut_scene.gd" id="1_n42b6"]
 [ext_resource type="Texture2D" uid="uid://dobhfpwcqf302" path="res://assets/sprites/characters/druid/Druid_Girl.png" id="2_34wao"]
 [ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="4_n42b6"]
 [ext_resource type="Texture2D" uid="uid://bdmxg4oj4ijp5" path="res://assets/sprites/characters/druid/Druid_Girl_(Rizzed).png" id="5_34wao"]
@@ -49,8 +49,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["... Fascinating.
-I’ll add that to my list of things to forget immediately."]
+"values": ["Hmph… clever. A shame I prefer to dog-ear my pages"]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -282,8 +281,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Hmph… clever. I suppose a well-placed metaphor
-does deserve some appreciation."]
+"values": ["An entire library? ...Fascinating. I suppose there's some merit in joining you."]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -451,7 +449,7 @@ offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("6_w15k1")
-text = "Oh, I love books too!  Wanna hear my top 100 facts about moss?"
+text = "Consider me your newest bookmark. I’ll stay by your side until you’re ready to turn the next page."
 
 [node name="SuccessChoice" type="Button" parent="AnimationPlayer"]
 visible = false
@@ -467,7 +465,7 @@ offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("6_w15k1")
-text = "Consider me your newest bookmark. I’ll stay by your side until you’re ready to turn the next page."
+text = "Oh, I love books too! I once downloaded an entire library. Wanna hear my top 100 facts about moss?"
 
 [node name="Break" type="Label" parent="AnimationPlayer"]
 anchors_preset = 7
