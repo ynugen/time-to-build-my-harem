@@ -19,4 +19,4 @@ func _on_next_pressed() -> void:
 
 
 func _on_retry_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/Level3.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/Level4.tscn")

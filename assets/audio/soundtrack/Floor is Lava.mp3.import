@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Floor is Lava.mp3-dd6198869fabed2f546aa5d9c10
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
