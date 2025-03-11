@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dr1ygx16yykxr"]
+[gd_scene load_steps=27 format=4 uid="uid://dr1ygx16yykxr"]
 
 [ext_resource type="Texture2D" uid="uid://cbm5rbgj7is3x" path="res://assets/sprites/tiles/Golem tile map final.png" id="1_63eb4"]
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_h66bl"]
@@ -138,6 +138,14 @@ shader = ExtResource("6_cw4sw")
 
 [sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
 font_size = 300
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vjdto"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqc3i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljeji"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qlrg"]
 
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
 script = ExtResource("1_h66bl")
@@ -280,7 +288,8 @@ offset_top = -120.0
 offset_right = 255.0
 offset_bottom = 38.0
 scale = Vector2(0.8, 0.8)
-text = "Play"
+theme_override_styles/hover = SubResource("StyleBoxTexture_vjdto")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bqc3i")
 icon = ExtResource("13_bqc3i")
 flat = true
 metadata/_edit_use_anchors_ = true
@@ -291,7 +300,8 @@ offset_top = -5.0
 offset_right = 279.0
 offset_bottom = 153.0
 scale = Vector2(0.8, 0.8)
-text = "Restart"
+theme_override_styles/hover = SubResource("StyleBoxTexture_ljeji")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8qlrg")
 icon = ExtResource("14_ljeji")
 flat = true
 metadata/_edit_use_anchors_ = true

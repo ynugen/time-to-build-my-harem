@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://0savj6mpwwkg"]
+[gd_scene load_steps=27 format=4 uid="uid://0savj6mpwwkg"]
 
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_dpm1s"]
 [ext_resource type="Texture2D" uid="uid://b6gxhwj7owuey" path="res://assets/sprites/tiles/Forest tile map final.png" id="1_uw6xe"]
@@ -125,6 +125,14 @@ shader = ExtResource("6_6rin4")
 [sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
 font_size = 300
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6ptl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mctl7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpd7d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkm7c"]
+
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
 script = ExtResource("1_dpm1s")
 player = NodePath("Player")
@@ -235,7 +243,8 @@ offset_top = -120.0
 offset_right = 255.0
 offset_bottom = 38.0
 scale = Vector2(0.8, 0.8)
-text = "Play"
+theme_override_styles/hover = SubResource("StyleBoxTexture_o6ptl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mctl7")
 icon = ExtResource("13_o6ptl")
 flat = true
 metadata/_edit_use_anchors_ = true
@@ -246,7 +255,8 @@ offset_top = -5.0
 offset_right = 279.0
 offset_bottom = 153.0
 scale = Vector2(0.8, 0.8)
-text = "Restart"
+theme_override_styles/hover = SubResource("StyleBoxTexture_fpd7d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nkm7c")
 icon = ExtResource("14_mctl7")
 flat = true
 metadata/_edit_use_anchors_ = true

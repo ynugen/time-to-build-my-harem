@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://chmh5oc0s1yja"]
 
-[ext_resource type="Script" path="res://scenes/cutScenes/lava_cut_scene.gd" id="1_5oama"]
+[ext_resource type="Script" uid="uid://brkpn8ugmsnan" path="res://scenes/cutScenes/lava_cut_scene.gd" id="1_5oama"]
 [ext_resource type="Texture2D" uid="uid://5ohc5uyvikge" path="res://assets/sprites/characters/lava/Lava_Girl_(Fumbled).png" id="1_i8bvy"]
 [ext_resource type="Texture2D" uid="uid://bsy0emvyhqve2" path="res://assets/sprites/characters/lava/Lava_Girl.png" id="3_5oama"]
 [ext_resource type="Texture2D" uid="uid://b7toosx8t3bwo" path="res://assets/sprites/characters/lava/Lava_Girl_(Rizzed).png" id="4_5oama"]

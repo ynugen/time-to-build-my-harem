@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ccg4fs2lki8kf"]
+[gd_scene load_steps=31 format=4 uid="uid://ccg4fs2lki8kf"]
 
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_g8eim"]
 [ext_resource type="PackedScene" uid="uid://chmh5oc0s1yja" path="res://scenes/cutScenes/LavaCutScene.tscn" id="2_g8eim"]
@@ -11,9 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cxqgpaotihmtl" path="res://assets/sprites/tiles/lava obstacle tile.png" id="6_ml44n"]
 [ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="7_60s12"]
 [ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="9_k5e6m"]
-[ext_resource type="PackedScene" path="res://scenes/characters/lava_rock.tscn" id="10_iisik"]
+[ext_resource type="PackedScene" uid="uid://ckuijkhsjh2sk" path="res://scenes/characters/lava_rock.tscn" id="10_iisik"]
 [ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="10_qdxfc"]
-
 [ext_resource type="PackedScene" uid="uid://b0ht5mlea37mo" path="res://scenes/characters/lava_girl.tscn" id="11_60s12"]
 [ext_resource type="Texture2D" uid="uid://w66ibmpvylb8" path="res://assets/sprites/ui/button background ui.png" id="14_k5e6m"]
 [ext_resource type="PackedScene" uid="uid://tipmthlg7b2i" path="res://scenes/characters/lava_enemy.tscn" id="14_ml44n"]
@@ -153,6 +152,14 @@ shader = ExtResource("6_iisik")
 [sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
 font_size = 300
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgdxs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxl7l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k5e6m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdxfc"]
+
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
 script = ExtResource("1_g8eim")
 player = NodePath("Player")
@@ -285,7 +292,8 @@ offset_top = -120.0
 offset_right = 255.0
 offset_bottom = 38.0
 scale = Vector2(0.8, 0.8)
-text = "Play"
+theme_override_styles/hover = SubResource("StyleBoxTexture_rgdxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sxl7l")
 icon = ExtResource("15_qdxfc")
 flat = true
 metadata/_edit_use_anchors_ = true
@@ -296,7 +304,8 @@ offset_top = -5.0
 offset_right = 279.0
 offset_bottom = 153.0
 scale = Vector2(0.8, 0.8)
-text = "Restart"
+theme_override_styles/hover = SubResource("StyleBoxTexture_k5e6m")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qdxfc")
 icon = ExtResource("16_rgdxs")
 flat = true
 metadata/_edit_use_anchors_ = true
