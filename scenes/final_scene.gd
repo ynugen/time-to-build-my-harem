@@ -4,6 +4,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var scene_music = preload("res://assets/audio/soundtrack/5000 years.wav")
+	AudioManager.play_music(scene_music)
+	
 	easter_eggs.play("EndingScene")
 
 func _on_play_again_pressed() -> void:
