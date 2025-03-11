@@ -9,12 +9,15 @@ extends Node2D
 @export var waifu : CharacterBody2D
 @export var meet_cutscene: PackedScene
 @export var MAX_MOVES: int
-
+@export var level_music: AudioStream
 
 var moves_left : int
 var is_recording = false  # Tracks recording state
 
 func _ready():
+	if level_music:
+		AudioManager.play_music(level_music)
+	
 	moves_left = MAX_MOVES
 	moves_label.text = str(MAX_MOVES)
 	waifu.play()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://dr1ygx16yykxr"]
+[gd_scene load_steps=19 format=4 uid="uid://dr1ygx16yykxr"]
 
 [ext_resource type="Texture2D" uid="uid://cbm5rbgj7is3x" path="res://assets/sprites/tiles/Golem tile map final.png" id="1_63eb4"]
 [ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_h66bl"]
 [ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="2_53p26"]
 [ext_resource type="PackedScene" uid="uid://b0uru5jhfiwvr" path="res://scenes/cutScenes/GolemCutScene.tscn" id="2_vnuxi"]
 [ext_resource type="Texture2D" uid="uid://b8x6o0tf250py" path="res://assets/sprites/tiles/caveTiles.png" id="3_bs2pm"]
+[ext_resource type="AudioStream" uid="uid://b7hn3yj8u6b3s" path="res://assets/audio/soundtrack/don_t forget your protein.wav" id="3_i2tsv"]
 [ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="5_4n27n"]
 [ext_resource type="PackedScene" uid="uid://cac5x78f6m6ff" path="res://scenes/characters/golem_girl.tscn" id="5_vnuxi"]
 [ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="6_cw4sw"]
@@ -140,6 +141,7 @@ player = NodePath("Player")
 waifu = NodePath("TileMap/GolemGirl")
 meet_cutscene = ExtResource("2_vnuxi")
 MAX_MOVES = 16
+level_music = ExtResource("3_i2tsv")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j08sa")

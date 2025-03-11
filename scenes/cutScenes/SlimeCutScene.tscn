@@ -545,6 +545,7 @@ offset_left = 1051.0
 offset_top = 596.0
 offset_right = 1096.0
 offset_bottom = 627.0
+theme_override_fonts/font = ExtResource("4_yxl3i")
 text = "Next →"
 
 [node name="Retry" type="Button" parent="AnimationPlayer"]
@@ -553,7 +554,7 @@ offset_left = 1051.0
 offset_top = 596.0
 offset_right = 1096.0
 offset_bottom = 627.0
-text = "Retry"
+text = "Retry →"
 
 [connection signal="pressed" from="AnimationPlayer/SuccessChoice" to="." method="_on_success_choice_pressed"]
 [connection signal="pressed" from="AnimationPlayer/FailChoice" to="." method="_on_fail_choice_pressed"]

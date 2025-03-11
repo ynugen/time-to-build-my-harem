@@ -76,6 +76,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/NextLevel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/Retry:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ipgsv"]
 resource_name = "MeetCute"
@@ -208,6 +232,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/NextLevel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/Retry:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_pma22"]
 resource_name = "Success"
@@ -273,6 +321,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/Retry:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/NextLevel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yxl3i"]
 _data = {
@@ -289,6 +361,7 @@ script = ExtResource("1_n42b6")
 libraries = {
 &"": SubResource("AnimationLibrary_yxl3i")
 }
+autoplay = "MeetCute"
 
 [node name="WindowBkg" type="ColorRect" parent="AnimationPlayer"]
 anchors_preset = 15
@@ -413,5 +486,23 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_kq1xt")
 text = "</>"
 
+[node name="NextLevel" type="Button" parent="AnimationPlayer"]
+visible = false
+offset_left = 1051.0
+offset_top = 596.0
+offset_right = 1096.0
+offset_bottom = 627.0
+theme_override_fonts/font = ExtResource("6_w15k1")
+text = "Next →"
+
+[node name="Retry" type="Button" parent="AnimationPlayer"]
+offset_left = 1051.0
+offset_top = 596.0
+offset_right = 1096.0
+offset_bottom = 627.0
+text = "Retry →"
+
 [connection signal="pressed" from="AnimationPlayer/FailChoice" to="." method="_on_fail_choice_pressed"]
 [connection signal="pressed" from="AnimationPlayer/SuccessChoice" to="." method="_on_success_choice_pressed"]
+[connection signal="pressed" from="AnimationPlayer/NextLevel" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="AnimationPlayer/Retry" to="." method="_on_retry_pressed"]
