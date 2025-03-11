@@ -1,7 +1,15 @@
-[gd_scene load_steps=5 format=4 uid="uid://xxqcvwic8iv2"]
+[gd_scene load_steps=16 format=4 uid="uid://d30nfsjrgxttl"]
 
-[ext_resource type="PackedScene" uid="uid://duw8f5d76dxbb" path="res://scenes/levels/LevelTemplate.tscn" id="1_yxy6i"]
+[ext_resource type="Script" uid="uid://ck70l5uq26u8j" path="res://scenes/levels/level_template.gd" id="1_s2d8y"]
 [ext_resource type="Texture2D" uid="uid://b6gxhwj7owuey" path="res://assets/sprites/tiles/Forest tile map final.png" id="2_7jaqy"]
+[ext_resource type="PackedScene" uid="uid://br3jip31tvf1m" path="res://scenes/cutScenes/DruidCutScene.tscn" id="2_s2d8y"]
+[ext_resource type="PackedScene" uid="uid://deoya1s17hiiw" path="res://scenes/characters/druid_girl.tscn" id="4_s2d8y"]
+[ext_resource type="PackedScene" uid="uid://do7ygv6kbgkax" path="res://scenes/characters/player.tscn" id="5_f4ur3"]
+[ext_resource type="Shader" uid="uid://qcqmpjhc25h2" path="res://scenes/levels/Level1.gdshader" id="6_kfmgg"]
+[ext_resource type="Script" uid="uid://xray3g2g41ox" path="res://scenes/levels/camera_2d.gd" id="7_147u6"]
+[ext_resource type="PackedScene" uid="uid://d1tovu0aegbid" path="res://scenes/objects/GrassRock.tscn" id="8_s2d8y"]
+[ext_resource type="Texture2D" uid="uid://bd0kdn2qnngw" path="res://assets/sprites/ui/main ui.png" id="9_jww4b"]
+[ext_resource type="Script" uid="uid://cqguy0ki13a5y" path="res://scenes/levels/color_rect.gd" id="10_eehm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ne5a"]
 texture = ExtResource("2_7jaqy")
@@ -49,19 +57,162 @@ texture_region_size = Vector2i(250, 250)
 tile_size = Vector2i(250, 250)
 sources/0 = SubResource("TileSetAtlasSource_3ne5a")
 
-[node name="Level" instance=ExtResource("1_yxy6i")]
+[sub_resource type="GDScript" id="GDScript_x4si1"]
+script/source = "extends TileMap
+# Function to convert the player's world position (node position) to tile coordinates
+func get_player_tile():
+	# Convert the player's world position to TileMap coordinates
+	var player_tile = local_to_map(global_position)  # position refers to the player's world position
+	print(\"Player Tile:\", player_tile)  # Debug: Print the player's tile coordinates
+	return player_tile
+"
 
-[node name="TileMap" parent="." index="0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68ib6"]
+shader = ExtResource("6_kfmgg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m00rq"]
+font_size = 300
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "waifu")]
+script = ExtResource("1_s2d8y")
+player = NodePath("Player")
+waifu = NodePath("TileMap/DruidGirl")
+meet_cutscene = ExtResource("2_s2d8y")
+MAX_MOVES = 15
+
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xftyr")
+format = 2
 layer_0/tile_data = PackedInt32Array(1, 65536, 4)
+script = SubResource("GDScript_x4si1")
 
-[node name="FloorLayer" parent="TileMap" index="1"]
+[node name="FloorLayer" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
 tile_map_data = PackedByteArray("AAAHAAIAAAABAAIAAAAHAAEAAAAEAAEAAAAJAAEAAAAEAAEAAAD/////AAABAAIAAAAAAP//AAAFAAEAAAAAAP7/AAAGAAEAAAAAAP3/AAACAAIAAAD///z/AAAGAAEAAAD+//z/AAACAAEAAAD9//z/AAAGAAEAAAD8//z/AAABAAIAAAD7//z/AAAEAAEAAAD6//z/AAABAAEAAAD5//z/AAACAAIAAAD4//z/AAABAAIAAAD3//3/AAAEAAEAAAD2//3/AAAEAAEAAAD2/wIAAAACAAEAAAD3/wIAAAAGAAEAAAD4/wIAAAACAAEAAAD5/wIAAAAEAAEAAAD6/wIAAAACAAEAAAD7/wIAAAACAAEAAAD8/wIAAAAGAAEAAAD9/wIAAAACAAEAAAD+/wIAAAACAAEAAAD//wIAAAAFAAEAAAAAAAIAAAACAAIAAAABAAIAAAAFAAEAAAACAAIAAAAFAAEAAAADAAIAAAABAAEAAAAEAAIAAAAEAAEAAAAFAAEAAAAFAAEAAAAGAAEAAAABAAIAAAAHAAAAAAABAAEAAAAIAAAAAAAEAAEAAAAJAAAAAAABAAEAAAAKAP//AAAEAAEAAAAKAP7/AAABAAIAAAAJAP3/AAABAAIAAAAIAP3/AAABAAIAAAAHAP3/AAABAAIAAAAGAP3/AAAGAAEAAAAFAP3/AAABAAEAAAAEAP3/AAACAAEAAAADAP3/AAACAAEAAAACAP3/AAAEAAEAAAABAP3/AAAGAAEAAAD///3/AAAFAAEAAAD+//3/AAABAAEAAAD9//3/AAACAAEAAAD8//3/AAACAAIAAAD7//3/AAAGAAEAAAD6//3/AAACAAEAAAD5//3/AAABAAEAAAD4//7/AAACAAIAAAD3//7/AAAGAAEAAAD2//7/AAACAAEAAAD2////AAABAAIAAAD3////AAACAAIAAAD4////AAACAAIAAAD5//7/AAABAAIAAAD6//7/AAABAAIAAAD7//7/AAAFAAEAAAD8//7/AAAGAAEAAAD9//7/AAAEAAEAAAD+//7/AAAFAAEAAAD///7/AAAGAAEAAAABAP7/AAABAAEAAAACAP7/AAAEAAEAAAADAP7/AAAGAAEAAAAIAPz/AAAFAAEAAAAJAPz/AAACAAEAAAAKAPv/AAABAAEAAAAJAPv/AAAEAAEAAAAIAPv/AAABAAIAAAAHAPv/AAAFAAEAAAAGAPv/AAAEAAEAAAAFAPv/AAACAAIAAAAEAPv/AAABAAIAAAADAPv/AAAFAAEAAAACAPv/AAAGAAEAAAABAPv/AAABAAEAAAAAAPv/AAAFAAEAAAD///v/AAACAAIAAAD4//3/AAACAAIAAAAGAPz/AAACAAEAAAAHAPz/AAABAAIAAAD4/wAAAAABAAEAAAD5/wAAAAAFAAEAAAD6/wAAAAABAAEAAAD7/wAAAAAGAAEAAAD8/wAAAAAEAAEAAAD9/wAAAAABAAEAAAD+/wAAAAAGAAEAAAD//wAAAAAGAAEAAAAAAAAAAAAGAAEAAAABAAAAAAAEAAEAAAACAP//AAACAAEAAAADAP//AAACAAIAAAAEAP//AAAFAAEAAAAFAP//AAACAAIAAAAGAP//AAACAAIAAAAHAP//AAACAAIAAAAJAP7/AAAFAAEAAAAAAPz/AAAGAAEAAAACAAAAAAABAAIAAAAHAP7/AAABAAIAAAAGAPr/AAACAAEAAAAFAPr/AAAEAAEAAAAEAPr/AAABAAEAAAADAPr/AAAFAAEAAAACAPr/AAACAAIAAAABAPr/AAACAAEAAAD5////AAAEAAEAAAD7/wEAAAAEAAEAAAD8/wEAAAABAAEAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAABAAEAAAAAAAEAAAABAAEAAAABAAEAAAABAAEAAAADAAAAAAAEAAEAAAAEAAAAAAACAAIAAAAFAAAAAAAFAAEAAAAEAPz/AAAGAAEAAAACAPz/AAAEAAEAAAABAPz/AAACAAIAAAD+//v/AAAGAAEAAAD9//v/AAAGAAEAAAD8//v/AAACAAIAAAD7//v/AAABAAEAAAD6//v/AAABAAIAAAD5//v/AAABAAEAAAD4//v/AAABAAIAAAD3//z/AAABAAEAAAD2//z/AAABAAEAAAD6////AAAEAAEAAAD7////AAACAAIAAAD8////AAACAAEAAAD9////AAABAAEAAAD+////AAABAAIAAAABAP//AAACAAIAAAAGAP7/AAACAAIAAAAEAP7/AAABAAEAAAD2/wAAAAABAAEAAAD3/wAAAAACAAEAAAAFAAIAAAABAAEAAAAGAAIAAAACAAIAAAD6/wMAAAAFAAEAAAD7/wMAAAABAAEAAAD8/wMAAAAGAAEAAAD9/wMAAAABAAIAAAD+/wMAAAACAAEAAAD//wMAAAAFAAEAAAD6/wEAAAAGAAEAAAD2/wMAAAABAAEAAAD3/wMAAAACAAEAAAD4/wMAAAABAAEAAAD4/wEAAAABAAEAAAD4/wQAAAABAAIAAAD5/wEAAAACAAIAAAD5/wMAAAACAAEAAAD5/wQAAAACAAEAAAD5/wUAAAABAAIAAAD6/wQAAAAFAAEAAAD7/wUAAAABAAIAAAD8/wQAAAAGAAEAAAD9/wQAAAAEAAEAAAD+/wQAAAAGAAEAAAAAAAMAAAAEAAEAAAABAAMAAAAEAAEAAAD//wQAAAABAAEAAAAAAAQAAAAFAAEAAAABAAQAAAABAAIAAAD7/wQAAAAEAAEAAAACAAMAAAAFAAEAAAACAAEAAAACAAEAAAADAAEAAAABAAEAAAAFAP7/AAABAAIAAAAIAP7/AAABAAIAAAAKAP3/AAAEAAEAAAAFAPz/AAAEAAEAAAADAPz/AAAEAAEAAAAGAAAAAAABAAIAAAACAAQAAAACAAEAAAADAAMAAAACAAEAAAAEAAMAAAAGAAEAAAAFAAMAAAACAAEAAAACAAYAAAABAAEAAAABAAYAAAAEAAEAAAADAAYAAAACAAIAAAAEAAUAAAABAAIAAAAFAAUAAAACAAIAAAAGAAUAAAACAAEAAAAHAAUAAAACAAIAAAAGAAQAAAAFAAEAAAAHAAQAAAABAAIAAAAHAAYAAAAFAAEAAAAGAAYAAAAEAAEAAAAFAAYAAAAEAAEAAAAEAAYAAAAGAAEAAAACAAUAAAABAAIAAAABAAUAAAABAAIAAAAAAAUAAAAGAAEAAAD//wUAAAABAAIAAAADAAQAAAACAAEAAAAEAAQAAAACAAEAAAAFAAQAAAABAAIAAAAHAAMAAAABAAIAAAAIAAEAAAAGAAEAAAAEAAEAAAAEAAEAAAAGAAMAAAACAAIAAAAJAAIAAAABAAIAAAAJAAMAAAACAAEAAAAIAAMAAAABAAIAAAAIAAQAAAABAAIAAAAIAAIAAAACAAIAAAD+/wUAAAACAAIAAAD9/wUAAAABAAEAAAD8/wUAAAABAAIAAAD4/wUAAAABAAIAAAD3/wQAAAABAAIAAAD3/wEAAAAGAAEAAAD3//r/AAAGAAEAAAD4//r/AAACAAIAAAD5//r/AAACAAIAAAD6//r/AAACAAIAAAD7//r/AAACAAIAAAD8//r/AAACAAEAAAD9//r/AAACAAIAAAD+//r/AAACAAEAAAD///r/AAABAAIAAAAAAPr/AAACAAIAAAAHAPr/AAAGAAEAAAAIAPr/AAACAAIAAAAJAPr/AAAEAAEAAAAJAP//AAAFAAEAAAAIAP//AAAGAAEAAAADAAUAAAABAAIAAAD6/wUAAAAEAAEAAAD3/wUAAAAFAAEAAAD3//v/AAAFAAEAAAAKAPr/AAAGAAEAAAAKAPz/AAACAAIAAAAKAAMAAAACAAEAAAAKAAQAAAACAAIAAAAKAAUAAAACAAIAAAAJAAQAAAABAAIAAAAJAAUAAAAGAAEAAAAJAAYAAAABAAEAAAAIAAYAAAAFAAEAAAAIAAUAAAAGAAEAAAAAAAYAAAABAAEAAAD//wYAAAAFAAEAAAD+/wYAAAABAAIAAAD9/wYAAAABAAEAAAD8/wYAAAACAAEAAAD7/wYAAAABAAEAAAD6/wYAAAAEAAEAAAD5/wYAAAAGAAEAAAD4/wYAAAAFAAEAAAD3/wYAAAAEAAEAAAD2/wYAAAAEAAEAAAD2/wUAAAACAAEAAAD2/wQAAAAFAAEAAAD2//v/AAACAAEAAAD2//r/AAAFAAEAAAAKAAYAAAAEAAEAAAAKAAEAAAABAAIAAAAKAAAAAAACAAEAAAAKAAIAAAAEAAEAAAD2/wEAAAAFAAEAAAD1//v/AAACAAIAAAD1//z/AAACAAIAAAD1//3/AAAFAAEAAAD1//r/AAAEAAEAAAD1//7/AAAFAAEAAAD1////AAAEAAEAAAD1/wAAAAAEAAEAAAD1/wEAAAAFAAEAAAD1/wIAAAAEAAEAAAD1/wMAAAACAAEAAAD1/wQAAAABAAIAAAD1/wUAAAACAAEAAAD1/wYAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_xftyr")
 
-[node name="WallLayer" parent="TileMap" index="2"]
-tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAEAAAADAP3/AAADAAAAAAD+//3/AAABAAAAAAD///3/AAABAAAAAAAAAP3/AAABAAAAAAABAP3/AAABAAAAAAACAP3/AAABAAAAAAAAAAMAAAAAAAMAAAABAAMAAAABAAMAAAACAAMAAAABAAMAAAADAAMAAAADAAMAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAADAAIAAAADAAIAAAADAAEAAAADAAEAAAD//wAAAAADAAMAAAD+/wAAAAACAAMAAAD9/wAAAAAAAAMAAAADAAAAAAADAAEAAAADAP//AAADAAEAAAADAP7/AAADAAEAAAA=")
+[node name="WallLayer" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD9/wAAAAABAAMAAAADAP3/AAADAAAAAAADAP7/AAADAAEAAAADAP//AAADAAEAAAADAAAAAAADAAEAAAADAAEAAAADAAEAAAADAAIAAAADAAIAAAD+//3/AAABAAAAAAD///3/AAABAAAAAAAAAP3/AAABAAAAAAAAAAMAAAAAAAMAAAABAP3/AAABAAAAAAABAAMAAAABAAMAAAACAP3/AAABAAAAAAACAAMAAAABAAMAAAADAAMAAAADAAMAAAD+/wAAAAADAAMAAAD9//3/AAABAAAAAAD8//3/AAABAAAAAAD7//3/AAAAAAAAAAD7//7/AAAAAAEAAAD7////AAAAAAEAAAD7/wAAAAAAAAMAAAD8/wAAAAABAAMAAAD//wAAAAAAAAAAAAD//wEAAAAAAAEAAAD//wIAAAAAAAEAAAD//wMAAAAAAAMAAAD///7/AAADAAUAAAA=")
 tile_set = SubResource("TileSet_xftyr")
 
-[node name="RockContainer" parent="." index="4"]
+[node name="DruidGirl" parent="TileMap" instance=ExtResource("4_s2d8y")]
+position = Vector2(648, 624)
+
+[node name="Player" parent="." instance=ExtResource("5_f4ur3")]
+position = Vector2(-907, -375)
+
+[node name="LightingEffect" type="ColorRect" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_68ib6")
+offset_left = -2144.0
+offset_top = -1185.0
+offset_right = -2104.0
+offset_bottom = -1145.0
+scale = Vector2(115.727, 65.5356)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 248)
+offset = Vector2(175, 125)
+zoom = Vector2(0.25, 0.25)
+script = ExtResource("7_147u6")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PushableObject2" parent="Container" instance=ExtResource("8_s2d8y")]
+position = Vector2(-872, -128)
+
+[node name="PushableObject3" parent="Container" instance=ExtResource("8_s2d8y")]
+position = Vector2(640, 117)
+
+[node name="PushableObject" parent="Container" instance=ExtResource("8_s2d8y")]
+position = Vector2(-634, -370)
+
+[node name="PushableObject4" parent="Container" instance=ExtResource("8_s2d8y")]
+position = Vector2(-128, -128)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 568.0
+offset_right = 857.0
+offset_bottom = 599.0
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 568.0
+offset_right = 1009.0
+offset_bottom = 599.0
+text = "Restart"
+metadata/_edit_use_anchors_ = true
+
+[node name="StopRecording" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 512.0
+offset_right = 1122.0
+offset_bottom = 543.0
+text = "Stop Recording Inputs"
+metadata/_edit_use_anchors_ = true
+
+[node name="StartRecording" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 512.0
+offset_right = 925.0
+offset_bottom = 543.0
+text = "Start Recording Inputs"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UI"]
+position = Vector2(376, 536)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_jww4b")
+
+[node name="MovesLabel" type="Label" parent="CanvasLayer/UI/Sprite2D"]
+offset_left = -1016.0
+offset_top = -224.0
+offset_right = -674.0
+offset_bottom = 185.0
+label_settings = SubResource("LabelSettings_m00rq")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ArrowContainer" type="Container" parent="CanvasLayer/UI/Sprite2D"]
+offset_left = -506.667
+offset_top = -26.6667
+offset_right = -466.667
+offset_bottom = 13.3333
+scale = Vector2(30.4695, 12.4364)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = -2424.0
+offset_top = -1264.0
+offset_right = 2664.0
+offset_bottom = 1728.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_eehm8")
+
+[connection signal="pressed" from="CanvasLayer/UI/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/StopRecording" to="." method="_on_stop_recording_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/StartRecording" to="." method="_on_start_recording_pressed"]

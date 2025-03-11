@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjc3u6ktycws6"]
+
+[ext_resource type="Script" uid="uid://c8o7ocswl7on7" path="res://scenes/objects/pushable_object.gd" id="1_esuab"]
+[ext_resource type="Texture2D" uid="uid://dc22e0dx0wn8o" path="res://assets/sprites/tiles/cave obstacle rock.png" id="2_s8rcn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h67fm"]
+radius = 109.073
+
+[node name="PushableObject" type="StaticBody2D"]
+script = ExtResource("1_esuab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_s8rcn")
+region_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h67fm")
