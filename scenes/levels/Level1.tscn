@@ -122,7 +122,7 @@ tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAE
 tile_set = SubResource("TileSet_j08sa")
 
 [node name="SlimeGirl" parent="TileMap" instance=ExtResource("3_7d7pp")]
-position = Vector2(648, 624)
+position = Vector2(651, 638)
 
 [node name="Player" parent="." instance=ExtResource("2_j08sa")]
 position = Vector2(-377, -375)

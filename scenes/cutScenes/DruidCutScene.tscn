@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dgfifndvgh66o" path="res://assets/sprites/characters/druid/Druid_Girl_(Fumbled).png" id="1_2vtqb"]
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_8sprc"]
-[ext_resource type="Script" uid="uid://c36eos67k8acc" path="res://scenes/cutScenes/druid_cut_scene.gd" id="1_n42b6"]
+[ext_resource type="Script" path="res://scenes/cutScenes/druid_cut_scene.gd" id="1_n42b6"]
 [ext_resource type="Texture2D" uid="uid://dobhfpwcqf302" path="res://assets/sprites/characters/druid/Druid_Girl.png" id="2_34wao"]
 [ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="4_n42b6"]
 [ext_resource type="Texture2D" uid="uid://bdmxg4oj4ijp5" path="res://assets/sprites/characters/druid/Druid_Girl_(Rizzed).png" id="5_34wao"]
