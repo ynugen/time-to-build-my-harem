@@ -25,7 +25,8 @@ func _process(delta):
 
 func _on_play_pressed() -> void:
 	if player:
-		player.start_playback()
+		if moves_left == 0:
+			player.start_playback()
 
 func _on_stop_recording_pressed() -> void:
 	if player:
