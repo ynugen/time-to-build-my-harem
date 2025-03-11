@@ -119,6 +119,7 @@ func move_or_action(direction):
 		return  
 
 	# Handle collision (pushing objects or checking win condition)
+	animated_sprite2d.play("default")
 	handle_collision(result, direction)
 
 func handle_collision(result, direction):
@@ -127,6 +128,10 @@ func handle_collision(result, direction):
 	if collider is CharacterBody2D and collider.has_method("win"):
 		print("found waifu")
 		level.win()
+	elif collider is CharacterBody2D and collider.has_method("dead"):
+		animated_sprite2d.play("punch")
+		level.shake()
+		collider.attacked()
 	elif collider is StaticBody2D and collider.has_method("push"):
 		push_object(collider, direction)
 
@@ -144,6 +149,7 @@ func push_object(collider, direction):
 		collider.push(direction)
 		level.shake()
 	else:
+		level.shake()
 		print("Rock cannot be pushed further!")
 
 

@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qcivt"]
 radius = 109.073
 
-[node name="Rock" type="StaticBody2D"]
+[node name="Rock2" type="StaticBody2D"]
 script = ExtResource("1_jxy5c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0ht5mlea37mo"]
+
+[ext_resource type="PackedScene" uid="uid://52w6r6114h4p" path="res://scenes/characters/slime_girl.tscn" id="1_r3ksr"]
+[ext_resource type="Texture2D" uid="uid://dfribwg6iansg" path="res://assets/sprites/characters/lava/Lava_Girl_Sprite_1.png" id="2_r3ksr"]
+[ext_resource type="Texture2D" uid="uid://ditwd4bjj5pvv" path="res://assets/sprites/characters/lava/Lava_Girl_Sprite_2.png" id="3_bq6i2"]
+[ext_resource type="Texture2D" uid="uid://blk2dgx7m3o46" path="res://assets/sprites/characters/lava/Lava_Girl_Sprite_3.png" id="4_qt0c5"]
+[ext_resource type="Texture2D" uid="uid://1lbemmed7t3r" path="res://assets/sprites/characters/lava/Lava_Girl_Sprite_4.png" id="5_x7qs4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hr4c8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r3ksr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bq6i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qt0c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x7qs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qt0c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bq6i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r3ksr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="LavaGirl" instance=ExtResource("1_r3ksr")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_hr4c8")
+frame_progress = 0.0

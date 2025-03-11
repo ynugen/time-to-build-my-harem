@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckuijkhsjh2sk"]
+
+[ext_resource type="Script" uid="uid://dss3c4s2coh7b" path="res://scenes/characters/rock.gd" id="1_6h6hx"]
+[ext_resource type="Texture2D" uid="uid://da7c3ftiai0rd" path="res://assets/sprites/tiles/lava rock.png" id="2_6h6hx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qcivt"]
+radius = 109.073
+
+[node name="Rock" type="StaticBody2D"]
+script = ExtResource("1_6h6hx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6h6hx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qcivt")
