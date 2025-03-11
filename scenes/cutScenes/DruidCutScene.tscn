@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://br3jip31tvf1m"]
+[gd_scene load_steps=15 format=3 uid="uid://br3jip31tvf1m"]
 
 [ext_resource type="Texture2D" uid="uid://dgfifndvgh66o" path="res://assets/sprites/characters/druid/Druid_Girl_(Fumbled).png" id="1_2vtqb"]
 [ext_resource type="Texture2D" uid="uid://d3yigpvs662x3" path="res://assets/sprites/characters/slime/Slime_Girl.png" id="1_8sprc"]
-[ext_resource type="Texture2D" uid="uid://4hlluwrwnlhr" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_2vtqb"]
+[ext_resource type="Script" uid="uid://c36eos67k8acc" path="res://scenes/cutScenes/druid_cut_scene.gd" id="1_n42b6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/slime/Slime_Girl_Fumbled.png" id="2_2vtqb"]
 [ext_resource type="Texture2D" uid="uid://dobhfpwcqf302" path="res://assets/sprites/characters/druid/Druid_Girl.png" id="2_34wao"]
 [ext_resource type="FontFile" uid="uid://cbg64k33l5rx" path="res://assets/fonts/CourierPrime-Italic.ttf" id="4_n42b6"]
 [ext_resource type="Texture2D" uid="uid://bdmxg4oj4ijp5" path="res://assets/sprites/characters/druid/Druid_Girl_(Rizzed).png" id="5_34wao"]
@@ -15,7 +16,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -81,7 +82,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,7 +94,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -147,7 +148,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -159,7 +160,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -237,7 +238,7 @@ does deserve some appreciation."]
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/2/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -249,7 +250,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/3/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -280,6 +281,7 @@ _data = {
 }
 
 [node name="DruidCutScene" type="Node2D"]
+script = ExtResource("1_n42b6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -360,7 +362,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 1
 
-[node name="Choice1" type="Button" parent="AnimationPlayer"]
+[node name="FailChoice" type="Button" parent="AnimationPlayer"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -376,7 +378,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("6_w15k1")
 text = "Oh, I love books too!  Wanna hear my top 100 facts about moss?"
 
-[node name="Choice2" type="Button" parent="AnimationPlayer"]
+[node name="SuccessChoice" type="Button" parent="AnimationPlayer"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -408,3 +410,6 @@ theme_override_colors/font_color = Color(0.788235, 0.529412, 0.329412, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_kq1xt")
 text = "</>"
+
+[connection signal="pressed" from="AnimationPlayer/FailChoice" to="." method="_on_fail_choice_pressed"]
+[connection signal="pressed" from="AnimationPlayer/SuccessChoice" to="." method="_on_success_choice_pressed"]

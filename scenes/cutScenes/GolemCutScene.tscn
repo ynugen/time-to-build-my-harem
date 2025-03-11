@@ -15,7 +15,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,7 +80,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -92,7 +92,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -146,7 +146,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/0/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -158,7 +158,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/1/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -236,7 +236,7 @@ Just don’t expect me to go easy on you."]
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer/Choice2:visible")
+tracks/2/path = NodePath("AnimationPlayer/FailChoice:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -248,7 +248,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer/Choice1:visible")
+tracks/3/path = NodePath("AnimationPlayer/SuccessChoice:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -360,7 +360,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 1
 
-[node name="Choice1" type="Button" parent="AnimationPlayer"]
+[node name="SuccessChoice" type="Button" parent="AnimationPlayer"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -376,7 +376,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_yfmqt")
 text = "I bet even you couldn’t carry the weight of my feelings for you."
 
-[node name="Choice2" type="Button" parent="AnimationPlayer"]
+[node name="FailChoice" type="Button" parent="AnimationPlayer"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -408,3 +408,6 @@ theme_override_colors/font_color = Color(0.996078, 0.870588, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_x1sfw")
 text = "</>"
+
+[connection signal="pressed" from="AnimationPlayer/SuccessChoice" to="." method="_on_success_choice_pressed"]
+[connection signal="pressed" from="AnimationPlayer/FailChoice" to="." method="_on_fail_choice_pressed"]
